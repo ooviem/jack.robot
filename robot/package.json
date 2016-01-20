@@ -1,0 +1,11 @@
+{
+  "name": "Jack",
+  "description": "Jack is not a robot",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+  },
+  "devDependencies": {
+        "cylon": "1.2.0"
+  }
+}
