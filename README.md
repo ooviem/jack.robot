@@ -1,2 +1,3 @@
 # jack.robot
-a cylon js robot
+A robot using raspberry pi mainboard and code implment with javascript language. 
+Framework: Cylon JS
