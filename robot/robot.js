@@ -17,9 +17,7 @@ Cylon.robot({
   work: function(my) {
     every((1).second(), function() {
       my.motorA1.digitalWrite(1);
-      my.motorA2.digitalWrite(0);
       my.motorB1.digitalWrite(1);
-      my.motorB2.digitalWrite(0);
     });
 
   }
