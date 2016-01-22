@@ -6,20 +6,20 @@ Cylon.robot({
   },
 
   devices: {
-    pin11: { driver: 'direct-pin', pin: 11 },
-    pin13: { driver: 'direct-pin', pin: 13 },
-    pin15: { driver: 'direct-pin', pin: 15 },
-    pin19: { driver: 'direct-pin', pin: 19 }
+    motorA1: { driver: 'direct-pin', pin: 35 },
+    motorA2: { driver: 'direct-pin', pin: 36 },
+    motorB1: { driver: 'direct-pin', pin: 37 },
+    motorB2: { driver: 'direct-pin', pin: 38 }
 
 
   },
 
   work: function(my) {
     every((1).second(), function() {
-      my.pin11.digitalWrite(1);
-      my.pin13.digitalWrite(0);
-      my.pin15.digitalWrite(1);
-      my.pin19.digitalWrite(0);
+      my.motorA1.digitalWrite(1);
+      my.motorA2.digitalWrite(0);
+      my.motorB1.digitalWrite(1);
+      my.motorB2.digitalWrite(0);
     });
 
   }
