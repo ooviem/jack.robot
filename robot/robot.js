@@ -1,3 +1,4 @@
+"use strict";
 var Cylon = require("cylon");
 
 Cylon.robot({
@@ -6,19 +7,16 @@ Cylon.robot({
   },
 
   devices: {
-    led: { driver: 'led', pin: 7 },
-    led1: { driver: 'led', pin: 11 },
-    led2: { driver: 'led', pin: 13 },
-    led3: { driver: 'led', pin: 15 },
-
-
+    motorA1: { driver: 'direct-pin', pin: 35 },
+    motorA2: { driver: 'direct-pin', pin: 36 },
+    motorB1: { driver: 'direct-pin', pin: 37 },
+    motorB2: { driver: 'direct-pin', pin: 38 }
   },
 
   work: function(my) {
-    every((1).second(), my.led.toggle);
-    every((1).second(), my.led1.toggle);
-    every((1).second(), my.led2.toggle);
-    every((1).second(), my.led3.toggle);
+    every((1).second(), function() {
+      my.motorA1.digitalWrite(1);
+    });
 
   }
 }).start();

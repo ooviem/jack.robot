@@ -5,6 +5,10 @@
   "private": true,
   "dependencies": {
   },
+  "main": "main.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "devDependencies": {
         "cylon": "1.2.0"
   }
