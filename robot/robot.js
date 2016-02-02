@@ -1,23 +1,26 @@
-var Cylon = require('cylon');
+"use strict"
 
-Cylon.robot({
-  connections: {
-    raspi: { adaptor: 'raspi' }
-  },
+var Cylon = require("cylon");
 
-  devices: {
-    servo: { driver: 'servo', pin: 11 }
-  },
-
-  work: function(my) {
+Cylon
+  .robot()
+  .connection("raspi", { adaptor: "raspi", port: "/dev/ttyACM0" })
+  .device("servo", {
+    driver: "servo",
+    pin: 11,
+    limits: { bottom: 20, top: 160 }
+  })
+  .on("ready", function(bot) {
     var angle = 30,
-        increment = 40;
-    every((1).seconds(), function() {
+    increment = 40;
+
+    setInterval(function() {
       angle += increment;
-      my.servo.angle(angle);
-      console.log("Current Angle: " + (my.servo.currentAngle()));
+      bot.servo.angle(angle);
+      console.log("Current Angle: " + (bot.servo.currentAngle()));
 
       if ((angle === 30) || (angle === 150)) { increment = -increment; }
-    });
-  }
-}).start();
+    }, 1000);
+  });
+
+Cylon.start();
