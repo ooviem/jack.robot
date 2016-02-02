@@ -10,14 +10,14 @@ Cylon.robot({
   },
 
   work: function(my) {
-    var angle = 45 ;
-    my.servo.angle(angle);
-    every((1).second(), function() {
-      angle = angle + 45 ;
-      if (angle > 135) {
-        angle = 45;
-      }
+    var angle = 30,
+        increment = 40;
+    every((1).seconds(), function() {
+      angle += increment;
       my.servo.angle(angle);
+      console.log("Current Angle: " + (my.servo.currentAngle()));
+
+      if ((angle === 30) || (angle === 150)) { increment = -increment; }
     });
   }
 }).start();
