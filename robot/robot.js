@@ -6,7 +6,7 @@ Cylon.robot({
   },
 
   devices: {
-    servo: { driver: 'servo', pin: 17 }
+    servo: { driver: 'servo', pin: 11 }
   },
 
   work: function(my) {
