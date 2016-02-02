@@ -1,22 +1,23 @@
-"use strict";
-var Cylon = require("cylon");
+var Cylon = require('cylon');
 
 Cylon.robot({
   connections: {
-    raspi: { adaptor: 'raspi' }
+    arduino: { adaptor: 'firmata', port: '/dev/ttyACM0' }
   },
 
   devices: {
-    motorA1: { driver: 'direct-pin', pin: 35 },
-    motorA2: { driver: 'direct-pin', pin: 36 },
-    motorB1: { driver: 'direct-pin', pin: 37 },
-    motorB2: { driver: 'direct-pin', pin: 38 }
+    servo: { driver: 'servo', pin: 11 }
   },
 
   work: function(my) {
+    var angle = 45 ;
+    my.servo.angle(angle);
     every((1).second(), function() {
-      my.motorA1.digitalWrite(1);
+      angle = angle + 45 ;
+      if (angle > 135) {
+        angle = 45
+      }
+      my.servo.angle(angle);
     });
-
   }
 }).start();
