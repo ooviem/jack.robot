@@ -2,7 +2,7 @@ var Cylon = require('cylon');
 
 Cylon.robot({
   connections: {
-    arduino: { adaptor: 'firmata', port: '/dev/ttyACM0' }
+    raspi: { adaptor: 'raspi' }
   },
 
   devices: {
@@ -15,7 +15,7 @@ Cylon.robot({
     every((1).second(), function() {
       angle = angle + 45 ;
       if (angle > 135) {
-        angle = 45
+        angle = 45;
       }
       my.servo.angle(angle);
     });
