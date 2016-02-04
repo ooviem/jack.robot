@@ -15,11 +15,23 @@ Cylon.robot({
 
   },
 
-  work: function(my) {
-    my.pin11.digitalWrite(0);
-    my.pin13.digitalWrite(1);
-    my.pin19.digitalWrite(0);
-    my.pin21.digitalWrite(1);
+  work: function(jack) {
+
+    jack.foot = {
+      goForward: function(){
+
+      }
+    };
+
+    jack.pin11.digitalWrite(0);
+    jack.pin13.digitalWrite(1);
+
+
+    jack.pin11.digitalWrite(0);
+    jack.pin13.digitalWrite(0);
+
+
+
 
   }
 }).start();
