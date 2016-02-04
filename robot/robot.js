@@ -121,22 +121,19 @@ Cylon.robot({
     },
 
     work: function(jack) {
-
+        this.body = new body({
+            foot: {
+                runFowardPinLeft: this.devices[1],
+                runBackwardPinLeft: this.devices[0],
+                runFowardPinRight: this.devices[3],
+                runBackwardPinRight: this.devices[2]
+            }
+        });
     },
-
-    body: new body({
-        foot: {
-            runFowardPinLeft: this.devices[1],
-            runBackwardPinLeft: this.devices[0],
-            runFowardPinRight: this.devices[3],
-            runBackwardPinRight: this.devices[2]
-        }
-    }),
 
     commands: {
         runFoward: function() {
-            // this.body.runFoward();
-            return this;
+            this.body.runFoward();
         },
         runBackward: function() {
             this.body.runBackward();
