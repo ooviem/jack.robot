@@ -126,10 +126,10 @@ Cylon.robot({
 
     body: new body({
         foot: {
-            runFowardPinLeft: this.pin13,
-            runBackwardPinLeft: this.pin11,
-            runFowardPinRight: this.pin21,
-            runBackwardPinRight: this.pin19
+            runFowardPinLeft: this.devices[1],
+            runBackwardPinLeft: this.devices[0],
+            runFowardPinRight: this.devices[3],
+            runBackwardPinRight: this.devices[2]
         }
     }),
 
