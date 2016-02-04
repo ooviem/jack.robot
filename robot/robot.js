@@ -129,20 +129,20 @@ Cylon.robot({
 
     runForward: function() {
         this.body.foot.runForward();
-        after((0.5).second(), this.body.foot.stop);
+        after((0.5).second(), this.stop);
     },
     runBackward: function() {
         this.body.foot.runBackward();
-        after((0.5).second(), this.body.foot.stop());
+        after((0.5).second(), this.stop);
     },
     turnLeft: function() {
         this.body.foot.turnLeft();
-        after((0.5).second(), this.body.foot.stop);
+        after((0.5).second(), this.stop);
 
     },
     turnRight: function() {
         this.body.foot.turnRight();
-        after((0.5).second(), this.body.foot.stop);
+        after((0.5).second(), this.stop);
     },
     stop: function() {
         this.body.foot.stop();
