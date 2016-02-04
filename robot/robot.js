@@ -55,18 +55,39 @@ Cylon.robot({
             this.runFowardPin.digitalWrite(0);
             this.runBackwardPin.digitalWrite(0);
           }
+        },
+        runFoward: function(){
+          this.leftEngine.runFoward();
+          this.rightEngine.runFoward();
+        },
+        runBackward: function(){
+          this.leftEngine.runBackward();
+          this.rightEngine.runBackward();
+        },
+        stop: function(){
+          this.leftEngine.stop();
+          this.rightEngine.stop();
+        },
+        turnLeft: function(){
+          this.leftEngine.runBackward();
+          this.rightEngine.runFoward();
+        },
+        turnRight: function(){
+          this.leftEngine.runFoward();
+          this.rightEngine.runBackward();
         }
       }
     };
-    jack.physical.foot.rightEngine.runFoward();
     
-
-    after((3).seconds(), function() {
-      jack.physical.foot.rightEngine.stop();
-    });
-    jack.ping = function(){
-      return "hello";
+    jack.runFoward = function(){
+      jack.physical.foot.runFoward();
+      after((2).seconds(), jack.stop);
     };
+
+    jack.stop =function(){
+      jack.physical.foot.stop();
+    };
+    jack.runFoward();
   }
 }).start();
 
