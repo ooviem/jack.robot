@@ -4,7 +4,8 @@ Cylon.api('http');
 
 Cylon.robot({
   connections: {
-    arduino: { adaptor: 'raspi' }
+    raspi: { adaptor: 'raspi' },
+    loopback: { adaptor: 'loopback' }
   },
 
   devices: {
@@ -59,7 +60,9 @@ Cylon.robot({
     after((3).seconds(), function() {
       jack.physical.foot.rightEngine.stop();
     });
-   
+    jack.ping = function(){
+      return "hello";
+    };
   }
 }).start();
 
