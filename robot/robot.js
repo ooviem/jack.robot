@@ -21,5 +21,10 @@ Cylon.robot({
     my.pin19.digitalWrite(0);
     my.pin21.digitalWrite(1);
 
+    my.pin11.digitalWrite(0);
+    my.pin13.digitalWrite(0);
+    my.pin19.digitalWrite(0);
+    my.pin21.digitalWrite(0);
+
   }
 }).start();
