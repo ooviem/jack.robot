@@ -13,16 +13,61 @@ Cylon.robot({
 
   },
 
-  work: function(my) {
+  work: function(jack) {
+    jack.physical = {
+      foot : {
+        leftEngine: {
+          runFowardPin: pin11,
+          runBackwardPin: pin13,
+          runFoward : function() {
+            runFowardPin = jack.physical.foot.leftEngine.runFowardPin;
+            runBackwardPin = jack.physical.foot.leftEngine.runBackwardPin;
+            runFowardPin.digitalWrite(1);
+            runBackwardPin.digitalWrite(0);
+            console.log(this);
+          },
+          runBackward : function() {
+            runFowardPin = jack.physical.foot.leftEngine.runFowardPin;
+            runBackwardPin = jack.physical.foot.leftEngine.runBackwardPin;
+            runFowardPin.digitalWrite(0);
+            runBackwardPin.digitalWrite(1);
+          },
+          stop : function() {
+            runFowardPin = jack.physical.foot.leftEngine.runFowardPin;
+            runBackwardPin = jack.physical.foot.leftEngine.runBackwardPin;
+            runFowardPin.digitalWrite(0);
+            runBackwardPin.digitalWrite(0);
+          }
+        },
+        rightEngine: {
+          runFowardPin: pin19,
+          runBackwardPin: pin21,
+          runFoward : function() {
+            runFowardPin = jack.physical.foot.rightEngine.runFowardPin;
+            runBackwardPin = jack.physical.foot.rightEngine.runBackwardPin;
+            runFowardPin.digitalWrite(1);
+            runBackwardPin.digitalWrite(0);
+          },
+          runBackward : function() {
+            runFowardPin = jack.physical.foot.rightEngine.runFowardPin;
+            runBackwardPin = jack.physical.foot.rightEngine.runBackwardPin;
+            runFowardPin.digitalWrite(0);
+            runBackwardPin.digitalWrite(1);
+          },
+          stop : function() {
+            runFowardPin = jack.physical.foot.rightEngine.runFowardPin;
+            runBackwardPin = jack.physical.foot.rightEngine.runBackwardPin;
+            runFowardPin.digitalWrite(0);
+            runBackwardPin.digitalWrite(0);
+          }
+        }
+      }
+    };
+    jack.physical.foot.leftEngine.runFoward();
     
-    my.pin11.digitalWrite(0);
-    my.pin13.digitalWrite(1);
-    // my.pin19.digitalWrite(0);
-    // my.pin21.digitalWrite(1);
 
     after((3).seconds(), function() {
-      my.pin11.digitalWrite(0);
-      my.pin13.digitalWrite(0);
+      jack.physical.foot.leftEngine.stop();
       // my.pin19.digitalWrite(0);
       // my.pin21.digitalWrite(0);
     });
