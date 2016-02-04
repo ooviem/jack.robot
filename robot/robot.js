@@ -135,7 +135,7 @@ Cylon.robot({
 
     commands: {
         runFoward: function() {
-            this.body.runFoward();
+            // this.body.runFoward();
             return this;
         },
         runBackward: function() {
