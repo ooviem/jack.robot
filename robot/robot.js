@@ -37,11 +37,13 @@ function foot(data) {
     this.runForward = function() {
         this.leftEngine.runForward();
         this.rightEngine.runForward();
+        setTimeout(this.stop, 500);
         console.log("Foot running forward");
     };
     this.runBackward = function() {
         this.leftEngine.runBackward();
         this.rightEngine.runBackward();
+        setTimeout(this.stop, 500);
         console.log("Foot running backward");
     };
     this.stop = function() {
@@ -53,11 +55,13 @@ function foot(data) {
     this.turnLeft = function() {
         this.leftEngine.runBackward();
         this.rightEngine.runForward();
+        setTimeout(this.stop, 500);
         console.log("Foot turn left");
     };
     this.turnRight = function() {
         this.leftEngine.runForward();
         this.rightEngine.runBackward();
+        setTimeout(this.stop, 500);
         console.log("Foot turn right");
 
     };
@@ -70,32 +74,6 @@ function body(data) {
         runForwardPinRight: data.foot.runForwardPinRight,
         runBackwardPinRight: data.foot.runBackwardPinRight
     });
-    this.stop = function() {
-        console.log("Stop moving");
-        this.foot.stop();
-    };
-    this.runForward = function() {
-        console.log("Move forward");
-        this.foot.runForward();
-        setTimeout(this.stop, 500);
-    };
-    this.runBackward = function() {
-        console.log("Move backward");
-        this.foot.runBackward();
-        setTimeout(this.stop, 500);
-    };
-
-    this.turnLeft = function() {
-        console.log("Turn left");
-        this.foot.turnLeft();
-        setTimeout(this.stop, 500);
-    };
-    this.turnRight = function() {
-        console.log("Turn right");
-        this.foot.turnRight();
-        setTimeout(this.stop, 500);
-    };
-   
 };
 
 
@@ -157,19 +135,19 @@ Cylon.robot({
 
     commands: {
         runForward: function() {
-            this.body.runForward();
+            this.body.foot.runForward();
         },
         runBackward: function() {
-            this.body.runBackward();
+            this.body.foot.runBackward();
         },
         turnLeft: function() {
-            this.body.turnLeft();
+            this.body.foot.turnLeft();
         },
         turnRight: function() {
-            this.body.turnRight();
+            this.body.foot.turnRight();
         },
         stop: function() {
-            this.body.stop();
+            this.body.foot.stop();
         }
     }
 
