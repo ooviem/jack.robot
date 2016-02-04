@@ -1,37 +1,37 @@
-function foot(data) {
+function foot(hardwareIO) {
     this.leftEngine = {
         runForward: function() {
             console.log("Left engine forward");
-            data.runForwardPinLeft.digitalWrite(1);
-            data.runBackwardPinLeft.digitalWrite(0);
+            hardwareIO.runForwardPinLeft.digitalWrite(1);
+            hardwareIO.runBackwardPinLeft.digitalWrite(0);
         },
         runBackward: function() {
             console.log("Left engine backward");
-            data.runForwardPinLeft.digitalWrite(0);
-            data.runBackwardPinLeft.digitalWrite(1);
+            hardwareIO.runForwardPinLeft.digitalWrite(0);
+            hardwareIO.runBackwardPinLeft.digitalWrite(1);
         },
-        stop: function() {
+        stopEngine: function() {
             console.log("Left engine stop");
-            data.runForwardPinLeft.digitalWrite(0);
-            data.runBackwardPinLeft.digitalWrite(0);
+            hardwareIO.runForwardPinLeft.digitalWrite(0);
+            hardwareIO.runBackwardPinLeft.digitalWrite(0);
         }
     };
     this.rightEngine = {
         runForward: function() {
             console.log("Right engine forward");
-            data.runForwardPinRight.digitalWrite(1);
-            data.runBackwardPinRight.digitalWrite(0);
+            hardwareIO.runForwardPinRight.digitalWrite(1);
+            hardwareIO.runBackwardPinRight.digitalWrite(0);
         },
         runBackward: function() {
             console.log("Right engine backward");
 
-            data.runForwardPinRight.digitalWrite(0);
-            data.runBackwardPinRight.digitalWrite(1);
+            hardwareIO.runForwardPinRight.digitalWrite(0);
+            hardwareIO.runBackwardPinRight.digitalWrite(1);
         },
-        stop: function() {
+        stopEngine: function() {
             console.log("Right engine stop");
-            data.runForwardPinRight.digitalWrite(0);
-            data.runBackwardPinRight.digitalWrite(0);
+            hardwareIO.runForwardPinRight.digitalWrite(0);
+            hardwareIO.runBackwardPinRight.digitalWrite(0);
         }
     };
     this.runForward = function() {
@@ -45,8 +45,8 @@ function foot(data) {
         console.log("Foot running backward");
     };
     this.stop = function() {
-        this.leftEngine.stop();
-        this.rightEngine.stop();
+        this.leftEngine.stopEngine();
+        this.rightEngine.stopEngine();
         console.log("Foot stopped");
 
     };
@@ -62,12 +62,12 @@ function foot(data) {
     };
 };
 
-function body(data) {
+function body(hardwareIO) {
     this.foot = new foot({
-        runForwardPinLeft: data.foot.runForwardPinLeft,
-        runBackwardPinLeft: data.foot.runBackwardPinLeft,
-        runForwardPinRight: data.foot.runForwardPinRight,
-        runBackwardPinRight: data.foot.runBackwardPinRight
+        runForwardPinLeft: hardwareIO.foot.runForwardPinLeft,
+        runBackwardPinLeft: hardwareIO.foot.runBackwardPinLeft,
+        runForwardPinRight: hardwareIO.foot.runForwardPinRight,
+        runBackwardPinRight: hardwareIO.foot.runBackwardPinRight
     });
 };
 
