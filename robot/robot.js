@@ -1,6 +1,4 @@
-"use strict";
-
-var Cylon = require("cylon");
+var Cylon = require('cylon');
 
 Cylon.robot({
   connections: {
@@ -25,6 +23,7 @@ Cylon.robot({
     my.pin13.digitalWrite(0);
     my.pin19.digitalWrite(0);
     my.pin21.digitalWrite(0);
-
   }
 }).start();
+
+
