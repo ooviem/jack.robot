@@ -1,3 +1,84 @@
+function foot(data) {
+    this.leftEngine = {
+        runFoward: function() {
+            data.runFowardPinLeft.digitalWrite(1);
+            data.runBackwardPinLeft.digitalWrite(0);
+        },
+        runBackward: function() {
+            data.runFowardPinLeft.digitalWrite(0);
+            data.runBackwardPinLeft.digitalWrite(1);
+        },
+        stop: function() {
+            data.runFowardPinLeft.digitalWrite(0);
+            data.runBackwardPinLeft.digitalWrite(0);
+        }
+    };
+    this.rightEngine = {
+        runFoward: function() {
+            data.runFowardPinRight.digitalWrite(1);
+            data.runBackwardPinRight.digitalWrite(0);
+        },
+        runBackward: function() {
+            data.runFowardPinRight.digitalWrite(0);
+            data.runBackwardPinRight.digitalWrite(1);
+        },
+        stop: function() {
+            data.runFowardPinRight.digitalWrite(0);
+            data.runBackwardPinRight.digitalWrite(0);
+        }
+    };
+    this.runFoward = function() {
+        this.leftEngine.runFoward();
+        this.rightEngine.runFoward();
+    };
+    this.runBackward = function() {
+        this.leftEngine.runBackward();
+        this.rightEngine.runBackward();
+    };
+    this.stop = function() {
+        this.leftEngine.stop();
+        this.rightEngine.stop();
+    };
+    this.turnLeft = function() {
+        this.leftEngine.runBackward();
+        this.rightEngine.runFoward();
+    };
+    this.turnRight = function() {
+        this.leftEngine.runFoward();
+        this.rightEngine.runBackward();
+    };
+};
+
+function body(data) {
+    this.foot = new foot({
+        runFowardPinLeft: data.foot.runFowardPinLeft,
+        runBackwardPinLeft: data.foot.runBackwardPinLeft,
+        runFowardPinRight: data.foot.runFowardPinRight,
+        runBackwardPinRight: data.foot.runBackwardPinRight
+    });
+    runFoward: function() {
+        this.foot.runFoward();
+        after((1).seconds(), this.stop);
+    },
+    runBackward: function() {
+        this.foot.runBackward();
+        after((1).seconds(), this.stop);
+    },
+
+    turnLeft: function() {
+        this.foot.turnLeft();
+        after((1).seconds(), this.stop);
+    },
+    turnRight: function() {
+        this.foot.turnRight();
+        after((1).seconds(), this.stop);
+    },
+    stop: function() {
+        this.foot.stop();
+    }
+};
+
+
 var Cylon = require('cylon');
 
 Cylon.api('http', {
@@ -41,80 +122,14 @@ Cylon.robot({
 
     },
 
-    body: {
+    body: new body({
         foot: {
-            leftEngine: {
-                runFoward: function() {
-                    this.pin13.digitalWrite(1);
-                    this.pin11.digitalWrite(0);
-                },
-                runBackward: function() {
-                    this.runFowardPin.digitalWrite(0);
-                    this.runBackwardPin.digitalWrite(1);
-                },
-                stop: function() {
-                    this.runFowardPin.digitalWrite(0);
-                    this.runBackwardPin.digitalWrite(0);
-                }
-            },
-            rightEngine: {
-                runFowardPin: this.pin21,
-                runBackwardPin: this.pin19,
-                runFoward: function() {
-                    this.runFowardPin.digitalWrite(1);
-                    this.runBackwardPin.digitalWrite(0);
-                },
-                runBackward: function() {
-                    this.runFowardPin.digitalWrite(0);
-                    this.runBackwardPin.digitalWrite(1);
-                },
-                stop: function() {
-                    this.runFowardPin.digitalWrite(0);
-                    this.runBackwardPin.digitalWrite(0);
-                }
-            },
-            runFoward: function() {
-                this.leftEngine.runFoward();
-                this.rightEngine.runFoward();
-            },
-            runBackward: function() {
-                this.leftEngine.runBackward();
-                this.rightEngine.runBackward();
-            },
-            stop: function() {
-                this.leftEngine.stop();
-                this.rightEngine.stop();
-            },
-            turnLeft: function() {
-                this.leftEngine.runBackward();
-                this.rightEngine.runFoward();
-            },
-            turnRight: function() {
-                this.leftEngine.runFoward();
-                this.rightEngine.runBackward();
-            }
-        },
-        runFoward : function() {
-            this.foot.runFoward();
-            after((1).seconds(), this.stop);
-        },
-        runBackward : function() {
-            this.foot.runBackward();
-            after((1).seconds(), this.stop);
-        },
-
-        turnLeft : function() {
-           this.foot.turnLeft();
-            after((1).seconds(), this.stop);
-        },
-        turnRight : function() {
-            this.foot.turnRight();
-            after((1).seconds(), this.stop);
-        },
-        stop : function() {
-            this.foot.stop();
-        }      
-    },
+            runFowardPinLeft: this.pin13,
+            runBackwardPinLeft: this.pin11,
+            runFowardPinRight: this.pin21,
+            runBackwardPinRight: this.pin19
+        }
+    }),
 
     commands: {
         runFoward: function() {
