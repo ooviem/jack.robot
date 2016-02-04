@@ -57,8 +57,10 @@ function body(data) {
         runFowardPinRight: data.foot.runFowardPinRight,
         runBackwardPinRight: data.foot.runBackwardPinRight
     });
+    this.stop = function() {
+        this.foot.stop();
+    }
     this.runFoward = function() {
-        console.log(data);
         this.foot.runFoward();
         setTimeout(this.stop, 500);
     },
@@ -75,9 +77,7 @@ function body(data) {
         this.foot.turnRight();
         setTimeout(this.stop, 500);
     },
-    this.stop = function() {
-        this.foot.stop();
-    }
+   
 };
 
 
@@ -123,6 +123,10 @@ Cylon.robot({
     },
 
     work: function(jack) {
+        this.pin11.digitalWrite(0);
+        this.pin13.digitalWrite(0);
+        this.pin19.digitalWrite(0);
+        this.pin21.digitalWrite(0);
         this.body = new body({
             foot: {
                 runFowardPinLeft: this.pin13,
