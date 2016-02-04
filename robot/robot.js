@@ -1,6 +1,7 @@
 function foot(data) {
     this.leftEngine = {
         runFoward: function() {
+            console.log(data);
             data.runFowardPinLeft.digitalWrite(1);
             data.runBackwardPinLeft.digitalWrite(0);
         },
@@ -28,6 +29,8 @@ function foot(data) {
         }
     };
     this.runFoward = function() {
+        console.log(this.leftEngine);
+        console.log(this.rightEngine);
         this.leftEngine.runFoward();
         this.rightEngine.runFoward();
     };
@@ -57,6 +60,7 @@ function body(data) {
         runBackwardPinRight: data.foot.runBackwardPinRight
     });
     this.runFoward = function() {
+        console.log(this.foot);
         this.foot.runFoward();
         after((1).seconds(), this.stop);
     },
