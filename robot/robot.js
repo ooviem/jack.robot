@@ -56,24 +56,24 @@ function body(data) {
         runFowardPinRight: data.foot.runFowardPinRight,
         runBackwardPinRight: data.foot.runBackwardPinRight
     });
-    runFoward: function() {
+    this.runFoward = function() {
         this.foot.runFoward();
         after((1).seconds(), this.stop);
     },
-    runBackward: function() {
+    this.runBackward = function() {
         this.foot.runBackward();
         after((1).seconds(), this.stop);
     },
 
-    turnLeft: function() {
+    this.turnLeft = function() {
         this.foot.turnLeft();
         after((1).seconds(), this.stop);
     },
-    turnRight: function() {
+    this.turnRight = function() {
         this.foot.turnRight();
         after((1).seconds(), this.stop);
     },
-    stop: function() {
+    this.stop = function() {
         this.foot.stop();
     }
 };
