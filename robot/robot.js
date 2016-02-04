@@ -121,19 +121,19 @@ Cylon.robot({
 
     commands: {
         runFoward: function() {
-            body.runFoward();
+            this.body.runFoward();
         },
         runBackward: function() {
-            body.runBackward();
+            this.body.runBackward();
         },
         turnLeft: function() {
-            body.turnLeft();
+            this.body.turnLeft();
         },
         turnRight: function() {
-            body.turnRight();
+            this.body.turnRight();
         },
         stop: function() {
-            body.stop();
+            this.body.stop();
         }
     }
 
