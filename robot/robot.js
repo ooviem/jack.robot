@@ -44,13 +44,9 @@ Cylon.robot({
     body: {
         foot: {
             leftEngine: {
-                runFowardPin: this,
-                runBackwardPin: this.pin11,
                 runFoward: function() {
-                    console.log(this.runFowardPin);
-                    this.runFowardPin.digitalWrite(1);
-                    this.runBackwardPin.digitalWrite(0);
-                    console.log(this);
+                    this.pin13.digitalWrite(1);
+                    this.pin11.digitalWrite(0);
                 },
                 runBackward: function() {
                     this.runFowardPin.digitalWrite(0);
