@@ -1,5 +1,7 @@
 var Cylon = require('cylon');
 
+Cylon.api('http');
+
 Cylon.robot({
   connections: {
     arduino: { adaptor: 'raspi' }
@@ -20,21 +22,15 @@ Cylon.robot({
           runFowardPin: jack.pin11,
           runBackwardPin: jack.pin13,
           runFoward : function() {
-            runFowardPin = jack.physical.foot.leftEngine.runFowardPin;
-            runBackwardPin = jack.physical.foot.leftEngine.runBackwardPin;
             runFowardPin.digitalWrite(1);
             runBackwardPin.digitalWrite(0);
             console.log(this);
           },
           runBackward : function() {
-            runFowardPin = jack.physical.foot.leftEngine.runFowardPin;
-            runBackwardPin = jack.physical.foot.leftEngine.runBackwardPin;
             runFowardPin.digitalWrite(0);
             runBackwardPin.digitalWrite(1);
           },
           stop : function() {
-            runFowardPin = jack.physical.foot.leftEngine.runFowardPin;
-            runBackwardPin = jack.physical.foot.leftEngine.runBackwardPin;
             runFowardPin.digitalWrite(0);
             runBackwardPin.digitalWrite(0);
           }
@@ -43,20 +39,14 @@ Cylon.robot({
           runFowardPin: jack.pin19,
           runBackwardPin: jack.pin21,
           runFoward : function() {
-            runFowardPin = jack.physical.foot.rightEngine.runFowardPin;
-            runBackwardPin = jack.physical.foot.rightEngine.runBackwardPin;
             runFowardPin.digitalWrite(1);
             runBackwardPin.digitalWrite(0);
           },
           runBackward : function() {
-            runFowardPin = jack.physical.foot.rightEngine.runFowardPin;
-            runBackwardPin = jack.physical.foot.rightEngine.runBackwardPin;
             runFowardPin.digitalWrite(0);
             runBackwardPin.digitalWrite(1);
           },
           stop : function() {
-            runFowardPin = jack.physical.foot.rightEngine.runFowardPin;
-            runBackwardPin = jack.physical.foot.rightEngine.runBackwardPin;
             runFowardPin.digitalWrite(0);
             runBackwardPin.digitalWrite(0);
           }
@@ -68,8 +58,6 @@ Cylon.robot({
 
     after((3).seconds(), function() {
       jack.physical.foot.rightEngine.stop();
-      // my.pin19.digitalWrite(0);
-      // my.pin21.digitalWrite(0);
     });
    
   }
