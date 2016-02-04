@@ -1,1 +1,16 @@
-<html></html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="JackControllerApp">
+<head>
+    <link href="assets/angular-material/angular-material.css" rel="stylesheet" />
+    <script src="assets/angular/angular.js"></script>
+	<script src="assets/angular-material/angular-material.js"></script>
+	<script src="app/app.js"></script>
+    <title>My Controller</title>
+</head>
+    <body ng-controller="JackController as ctrlMe">
+    	<button ng-click="ctrlMe.goForward()">Up</button>
+    	<button ng-click="ctrlMe.goBackward()">Down</button>
+		<button ng-click="ctrlMe.goLeft()">Left</button>
+		<button ng-click="ctrlMe.Right()">Right</button>
+    </body>
+</html>
