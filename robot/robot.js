@@ -44,12 +44,12 @@ Cylon.robot({
           runFowardPin: jack.pin19,
           runBackwardPin: jack.pin21,
           runFoward : function() {
-            this.runFowardPin.digitalWrite(1);
-            this.runBackwardPin.digitalWrite(0);
-          },
-          runBackward : function() {
             this.runFowardPin.digitalWrite(0);
             this.runBackwardPin.digitalWrite(1);
+          },
+          runBackward : function() {
+            this.runFowardPin.digitalWrite(1);
+            this.runBackwardPin.digitalWrite(0);
           },
           stop : function() {
             this.runFowardPin.digitalWrite(0);
