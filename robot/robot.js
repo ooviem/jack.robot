@@ -133,7 +133,7 @@ Cylon.robot({
     },
     runBackward: function() {
         this.body.foot.runBackward();
-        after((0.5).second(), this.body.foot.stop);
+        after((0.5).second(), this.body.foot.stop());
     },
     turnLeft: function() {
         this.body.foot.turnLeft();
