@@ -18,9 +18,7 @@ Cylon.robot({
   work: function(jack) {
 
     jack.foot = {
-      goForward: function(){
-
-      }
+   
     };
 
     jack.pin11.digitalWrite(0);
