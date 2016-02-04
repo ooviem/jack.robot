@@ -45,10 +45,9 @@ function foot(hardwareIO) {
         console.log("Foot running backward");
     };
     this.stop = function() {
+        console.log(this);
         this.leftEngine.stopEngine();
         this.rightEngine.stopEngine();
-        console.log("Foot stopped");
-
     };
     this.turnLeft = function() {
         this.leftEngine.runBackward();
