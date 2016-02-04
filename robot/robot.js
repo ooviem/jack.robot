@@ -1,10 +1,10 @@
-"use strict"
+"use strict";
 
 var Cylon = require("cylon");
 
 Cylon.robot({
   connections: {
-    arduino: { adaptor: 'raspi' }
+    raspi: { adaptor: 'raspi' }
   },
 
   devices: {
