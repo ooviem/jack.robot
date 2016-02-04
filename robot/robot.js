@@ -1,36 +1,36 @@
 function foot(data) {
     this.leftEngine = {
-        runFoward: function() {
+        runForward: function() {
             console.log(data);
-            data.runFowardPinLeft.digitalWrite(1);
+            data.runForwardPinLeft.digitalWrite(1);
             data.runBackwardPinLeft.digitalWrite(0);
         },
         runBackward: function() {
-            data.runFowardPinLeft.digitalWrite(0);
+            data.runForwardPinLeft.digitalWrite(0);
             data.runBackwardPinLeft.digitalWrite(1);
         },
         stop: function() {
-            data.runFowardPinLeft.digitalWrite(0);
+            data.runForwardPinLeft.digitalWrite(0);
             data.runBackwardPinLeft.digitalWrite(0);
         }
     };
     this.rightEngine = {
-        runFoward: function() {
-            data.runFowardPinRight.digitalWrite(1);
+        runForward: function() {
+            data.runForwardPinRight.digitalWrite(1);
             data.runBackwardPinRight.digitalWrite(0);
         },
         runBackward: function() {
-            data.runFowardPinRight.digitalWrite(0);
+            data.runForwardPinRight.digitalWrite(0);
             data.runBackwardPinRight.digitalWrite(1);
         },
         stop: function() {
-            data.runFowardPinRight.digitalWrite(0);
+            data.runForwardPinRight.digitalWrite(0);
             data.runBackwardPinRight.digitalWrite(0);
         }
     };
-    this.runFoward = function() {
-        this.leftEngine.runFoward();
-        this.rightEngine.runFoward();
+    this.runForward = function() {
+        this.leftEngine.runForward();
+        this.rightEngine.runForward();
     };
     this.runBackward = function() {
         this.leftEngine.runBackward();
@@ -42,41 +42,41 @@ function foot(data) {
     };
     this.turnLeft = function() {
         this.leftEngine.runBackward();
-        this.rightEngine.runFoward();
+        this.rightEngine.runForward();
     };
     this.turnRight = function() {
-        this.leftEngine.runFoward();
+        this.leftEngine.runForward();
         this.rightEngine.runBackward();
     };
 };
 
 function body(data) {
     this.foot = new foot({
-        runFowardPinLeft: data.foot.runFowardPinLeft,
+        runForwardPinLeft: data.foot.runForwardPinLeft,
         runBackwardPinLeft: data.foot.runBackwardPinLeft,
-        runFowardPinRight: data.foot.runFowardPinRight,
+        runForwardPinRight: data.foot.runForwardPinRight,
         runBackwardPinRight: data.foot.runBackwardPinRight
     });
     this.stop = function() {
         this.foot.stop();
-    }
-    this.runFoward = function() {
-        this.foot.runFoward();
+    };
+    this.runForward = function() {
+        this.foot.runForward();
         setTimeout(this.stop, 500);
-    },
+    };
     this.runBackward = function() {
         this.foot.runBackward();
         setTimeout(this.stop, 500);
-    },
+    };
 
     this.turnLeft = function() {
         this.foot.turnLeft();
         setTimeout(this.stop, 500);
-    },
+    };
     this.turnRight = function() {
         this.foot.turnRight();
         setTimeout(this.stop, 500);
-    },
+    };
    
 };
 
@@ -129,17 +129,17 @@ Cylon.robot({
         this.pin21.digitalWrite(0);
         this.body = new body({
             foot: {
-                runFowardPinLeft: this.pin13,
+                runForwardPinLeft: this.pin13,
                 runBackwardPinLeft: this.pin11,
-                runFowardPinRight: this.pin21,
+                runForwardPinRight: this.pin21,
                 runBackwardPinRight: this.pin19
             }
         });
     },
 
     commands: {
-        runFoward: function() {
-            this.body.runFoward();
+        runForward: function() {
+            this.body.runForward();
         },
         runBackward: function() {
             this.body.runBackward();
