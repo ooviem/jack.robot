@@ -63,11 +63,11 @@ Cylon.robot({
         }
       }
     };
-    jack.physical.foot.leftEngine.runFoward();
+    jack.physical.foot.rightEngine.runFoward();
     
 
     after((3).seconds(), function() {
-      jack.physical.foot.leftEngine.stop();
+      jack.physical.foot.rightEngine.stop();
       // my.pin19.digitalWrite(0);
       // my.pin21.digitalWrite(0);
     });
