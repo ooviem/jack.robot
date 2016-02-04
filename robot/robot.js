@@ -22,33 +22,33 @@ Cylon.robot({
           runFowardPin: jack.pin11,
           runBackwardPin: jack.pin13,
           runFoward : function() {
-            runFowardPin.digitalWrite(1);
-            runBackwardPin.digitalWrite(0);
+            this.runFowardPin.digitalWrite(1);
+            this.runBackwardPin.digitalWrite(0);
             console.log(this);
           },
           runBackward : function() {
-            runFowardPin.digitalWrite(0);
-            runBackwardPin.digitalWrite(1);
+            this.runFowardPin.digitalWrite(0);
+            this.runBackwardPin.digitalWrite(1);
           },
           stop : function() {
-            runFowardPin.digitalWrite(0);
-            runBackwardPin.digitalWrite(0);
+            this.runFowardPin.digitalWrite(0);
+            this.runBackwardPin.digitalWrite(0);
           }
         },
         rightEngine: {
           runFowardPin: jack.pin19,
           runBackwardPin: jack.pin21,
           runFoward : function() {
-            runFowardPin.digitalWrite(1);
-            runBackwardPin.digitalWrite(0);
+            this.runFowardPin.digitalWrite(1);
+            this.runBackwardPin.digitalWrite(0);
           },
           runBackward : function() {
-            runFowardPin.digitalWrite(0);
-            runBackwardPin.digitalWrite(1);
+            this.runFowardPin.digitalWrite(0);
+            this.runBackwardPin.digitalWrite(1);
           },
           stop : function() {
-            runFowardPin.digitalWrite(0);
-            runBackwardPin.digitalWrite(0);
+            this.runFowardPin.digitalWrite(0);
+            this.runBackwardPin.digitalWrite(0);
           }
         }
       }
