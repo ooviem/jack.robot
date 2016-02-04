@@ -81,13 +81,33 @@ Cylon.robot({
     
     jack.runFoward = function(){
       jack.physical.foot.runFoward();
-      after((2).seconds(), jack.stop);
+      after((1).seconds(), jack.stop);
+    };
+
+    jack.runBackward = function(){
+      jack.physical.foot.runBackward();
+      after((1).seconds(), jack.stop);
+    };
+
+    jack.turnLeft = function(){
+      jack.physical.foot.turnLeft();
+      after((1).seconds(), jack.stop);
+    };
+
+    jack.turnRight = function(){
+      jack.physical.foot.turnRight();
+      after((1).seconds(), jack.stop);
     };
 
     jack.stop =function(){
       jack.physical.foot.stop();
     };
+
     jack.runFoward();
+    after((2).seconds(), jack.runBackward);
+    after((2).seconds(), jack.turnLeft);
+    after((2).seconds(), jack.turnRight);
+
   }
 }).start();
 
