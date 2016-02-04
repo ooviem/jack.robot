@@ -29,8 +29,6 @@ function foot(data) {
         }
     };
     this.runFoward = function() {
-        console.log(this.leftEngine);
-        console.log(this.rightEngine);
         this.leftEngine.runFoward();
         this.rightEngine.runFoward();
     };
@@ -60,7 +58,7 @@ function body(data) {
         runBackwardPinRight: data.foot.runBackwardPinRight
     });
     this.runFoward = function() {
-        console.log(this.foot);
+        console.log(data);
         this.foot.runFoward();
         after((1).seconds(), this.stop);
     },
@@ -138,6 +136,7 @@ Cylon.robot({
     commands: {
         runFoward: function() {
             this.body.runFoward();
+            return this;
         },
         runBackward: function() {
             this.body.runBackward();
