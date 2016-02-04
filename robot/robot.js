@@ -14,7 +14,7 @@ function foot(hardwareIO) {
             console.log("Left engine stop");
             hardwareIO.runForwardPinLeft.digitalWrite(0);
             hardwareIO.runBackwardPinLeft.digitalWrite(0);
-        }
+        },
     };
     this.rightEngine = {
         runForward: function() {
@@ -32,7 +32,7 @@ function foot(hardwareIO) {
             console.log("Right engine stop");
             hardwareIO.runForwardPinRight.digitalWrite(0);
             hardwareIO.runBackwardPinRight.digitalWrite(0);
-        }
+        },
     };
     this.runForward = function() {
         this.leftEngine.runForward();
