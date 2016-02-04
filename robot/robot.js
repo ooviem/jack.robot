@@ -1,29 +1,35 @@
 function foot(data) {
     this.leftEngine = {
         runForward: function() {
-            console.log(data);
+            console.log("Left engine forward");
             data.runForwardPinLeft.digitalWrite(1);
             data.runBackwardPinLeft.digitalWrite(0);
         },
         runBackward: function() {
+            console.log("Left engine backward");
             data.runForwardPinLeft.digitalWrite(0);
             data.runBackwardPinLeft.digitalWrite(1);
         },
         stop: function() {
+            console.log("Left engine stop");
             data.runForwardPinLeft.digitalWrite(0);
             data.runBackwardPinLeft.digitalWrite(0);
         }
     };
     this.rightEngine = {
         runForward: function() {
+            console.log("Right engine forward");
             data.runForwardPinRight.digitalWrite(1);
             data.runBackwardPinRight.digitalWrite(0);
         },
         runBackward: function() {
+            console.log("Right engine backward");
+
             data.runForwardPinRight.digitalWrite(0);
             data.runBackwardPinRight.digitalWrite(1);
         },
         stop: function() {
+            console.log("Right engine stop");
             data.runForwardPinRight.digitalWrite(0);
             data.runBackwardPinRight.digitalWrite(0);
         }
@@ -31,22 +37,29 @@ function foot(data) {
     this.runForward = function() {
         this.leftEngine.runForward();
         this.rightEngine.runForward();
+        console.log("Foot running forward");
     };
     this.runBackward = function() {
         this.leftEngine.runBackward();
         this.rightEngine.runBackward();
+        console.log("Foot running backward");
     };
     this.stop = function() {
         this.leftEngine.stop();
         this.rightEngine.stop();
+        console.log("Foot stopped");
+
     };
     this.turnLeft = function() {
         this.leftEngine.runBackward();
         this.rightEngine.runForward();
+        console.log("Foot turn left");
     };
     this.turnRight = function() {
         this.leftEngine.runForward();
         this.rightEngine.runBackward();
+        console.log("Foot turn right");
+
     };
 };
 
@@ -58,22 +71,27 @@ function body(data) {
         runBackwardPinRight: data.foot.runBackwardPinRight
     });
     this.stop = function() {
+        console.log("Stop moving");
         this.foot.stop();
     };
     this.runForward = function() {
+        console.log("Move forward");
         this.foot.runForward();
         setTimeout(this.stop, 500);
     };
     this.runBackward = function() {
+        console.log("Move backward");
         this.foot.runBackward();
         setTimeout(this.stop, 500);
     };
 
     this.turnLeft = function() {
+        console.log("Turn left");
         this.foot.turnLeft();
         setTimeout(this.stop, 500);
     };
     this.turnRight = function() {
+        console.log("Turn right");
         this.foot.turnRight();
         setTimeout(this.stop, 500);
     };
