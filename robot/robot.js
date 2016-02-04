@@ -60,20 +60,20 @@ function body(data) {
     this.runFoward = function() {
         console.log(data);
         this.foot.runFoward();
-        after((1).seconds(), this.stop);
+        setTimeout(this.stop, 500);
     },
     this.runBackward = function() {
         this.foot.runBackward();
-        after((1).seconds(), this.stop);
+        setTimeout(this.stop, 500);
     },
 
     this.turnLeft = function() {
         this.foot.turnLeft();
-        after((1).seconds(), this.stop);
+        setTimeout(this.stop, 500);
     },
     this.turnRight = function() {
         this.foot.turnRight();
-        after((1).seconds(), this.stop);
+        setTimeout(this.stop, 500);
     },
     this.stop = function() {
         this.foot.stop();
@@ -84,8 +84,10 @@ function body(data) {
 var Cylon = require('cylon');
 
 Cylon.api('http', {
-    ssl: false // serve unsecured, over HTTP
+    ssl: false,// serve unsecured, over HTTP
     // optional configuration here.
+    host: "0.0.0.0",
+    port: "3000",
     // for details see 'Configuration' section.
 });
 
