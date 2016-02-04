@@ -103,7 +103,7 @@ Cylon.robot({
       jack.physical.foot.stop();
     };
 
-    jack.runBackward();
+    jack.turnLeft();
  
 
   }
