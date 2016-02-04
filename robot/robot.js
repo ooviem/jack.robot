@@ -17,8 +17,8 @@ Cylon.robot({
     jack.physical = {
       foot : {
         leftEngine: {
-          runFowardPin: pin11,
-          runBackwardPin: pin13,
+          runFowardPin: jack.pin11,
+          runBackwardPin: jack.pin13,
           runFoward : function() {
             runFowardPin = jack.physical.foot.leftEngine.runFowardPin;
             runBackwardPin = jack.physical.foot.leftEngine.runBackwardPin;
