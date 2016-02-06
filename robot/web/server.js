@@ -38,6 +38,6 @@ module.exports = {
             });
         }).listen(parseInt(port, 10));
 
-        console.log("Static file server running at\n  => http://localhost:" + port + "/web/\nCTRL + C to shutdown");
+        console.log("Controller running at\n  => http://localhost/");
     }
 };

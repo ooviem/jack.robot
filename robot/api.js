@@ -1,7 +1,7 @@
  module.exports= function(jack){
     return {
         runForward: function(duration) {
-            console.log(jack);
+            console.log(duration);
             jack.body.foot.runForward();
             after((duration).second(), jack.stop);
         },
