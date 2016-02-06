@@ -58,5 +58,5 @@ var Jack = Cylon.robot({
             }
         });
     },
-    commands: APICommand(this)
+    commands: APICommand(Jack)
 }).start();
