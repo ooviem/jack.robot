@@ -1,27 +1,37 @@
 angular.module('JackControllerApp', ['ngMaterial'])
     .controller('JackController', ['$http', 
     	function($http) {
-            function callGet(url, data) {
+
+            function callGET(url, data) {
                 return $http({
                     method: 'GET',
-                    data: {
-                        "time" : data.time
-                    },
                     url: 'http://192.168.1.99:3000/api/robots/Jack/commands/' + url
                 });
-            }
+            };
+            function callPOST(url, data) {
+                return $http({
+                    method: 'POST',
+                    data: data,
+                    url: 'http://192.168.1.99:3000/api/robots/Jack/commands/' + url
+                });
+            };
             var ctrlMe = this;
+
             ctrlMe.runForward = function() {
-                callGet("runForward", {"time": 2});
+                callGET("runForward", {"time": 2});
             };
             ctrlMe.runBackward = function() {
-                callGet("runBackward");
+                callGET("runBackward");
             };
             ctrlMe.turnLeft = function() {
-                callGet("turnLeft");
+                callGET("turnLeft");
             };
             ctrlMe.turnRight = function() {
-                callGet("turnRight");
+                callGET("turnRight");
             };
+            ctrlMe.stop = function() {
+                callGET("stop");
+            };
+
         }
     ]);

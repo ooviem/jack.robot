@@ -18,20 +18,20 @@
         <div class="monitor row">
             <div class="left-controller">
                 <div class="row">
-                    <md-button ng-click="ctrlMe.runForward()" class="margin-left-65 md-fab md-raised md-button md-ink-ripple opacity-0-5" aria-label="Use Android">
+                    <md-button ng-mouseup="ctrlMe.stop()" ng-mousedown="ctrlMe.runForward()" class="margin-left-65 md-fab md-raised md-button md-ink-ripple opacity-0-5" aria-label="Use Android">
                         <md-icon class="glyphicon glyphicon-menu-up drive-controller-button"></md-icon>
                     </md-button>
                 </div>
                 <div class="row">
-                    <md-button ng-click="ctrlMe.turnLeft()" class="md-fab md-raised md-button md-ink-ripple opacity-0-5" aria-label="Use Android">
+                    <md-button ng-mouseup="ctrlMe.stop()" ng-mousedown="ctrlMe.turnLeft()" class="md-fab md-raised md-button md-ink-ripple opacity-0-5" aria-label="Use Android">
                         <md-icon class="glyphicon glyphicon-menu-left drive-controller-button"></md-icon>
                     </md-button>
-                    <md-button ng-click="ctrlMe.turnRight()" class="margin-left-45 md-fab md-raised md-button md-ink-ripple opacity-0-5" aria-label="Use Android">
+                    <md-button ng-mouseup="ctrlMe.stop()" ng-mousedown="ctrlMe.turnRight()" class="margin-left-45 md-fab md-raised md-button md-ink-ripple opacity-0-5" aria-label="Use Android">
                         <md-icon class="glyphicon glyphicon-menu-right drive-controller-button"></md-icon>
                     </md-button>
                 </div>
                 <div class="row">
-                    <md-button ng-click="ctrlMe.runBackward()" class="margin-left-65 md-fab md-raised md-button md-ink-ripple opacity-0-5" aria-label="Use Android">
+                    <md-button ng-mouseup="ctrlMe.stop()" ng-mousedown="ctrlMe.runBackward()" class="margin-left-65 md-fab md-raised md-button md-ink-ripple opacity-0-5" aria-label="Use Android">
                         <md-icon class="glyphicon glyphicon-menu-down drive-controller-button"></md-icon>
                     </md-button>
                 </div>
