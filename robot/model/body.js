@@ -1,4 +1,4 @@
-var foot = require("./model/foot.js");
+var foot = require("./foot.js");
 module.exports = function(hardwareIO) {
     this.foot = new foot({
         runForwardPinLeft: hardwareIO.foot.runForwardPinLeft,
