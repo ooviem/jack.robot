@@ -58,9 +58,10 @@ Cylon.robot({
         });
     },
 
-    runForward: function() {
+    runForward: function(duration) {
+        console.log("Get command by API to run runForward")
         this.body.foot.runForward();
-        after((0.5).second(), this.stop);
+        after((duration).second(), this.stop);
     },
     runBackward: function() {
         this.body.foot.runBackward();
@@ -68,12 +69,12 @@ Cylon.robot({
     },
     turnLeft: function() {
         this.body.foot.turnLeft();
-        after((0.2).second(), this.stop);
+        after((0.3).second(), this.stop);
 
     },
     turnRight: function() {
         this.body.foot.turnRight();
-        after((0.2).second(), this.stop);
+        after((0.3).second(), this.stop);
     },
     stop: function() {
         this.body.foot.stop();

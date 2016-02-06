@@ -45,7 +45,7 @@ module.exports = function(hardwareIO) {
         console.log("Foot running backward");
     };
     this.stop = function() {
-        console.log(this);
+        console.log("Foot stopped");
         this.leftEngine.stopEngine();
         this.rightEngine.stopEngine();
     };
