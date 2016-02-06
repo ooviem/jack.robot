@@ -1,6 +1,7 @@
 var Cylon = require('cylon');
 var WebServer = require("./web/server.js");
 var Body = require("./model/body.js");
+var APICommand = require("./api.js");
 
 WebServer.initWebServer();
 
@@ -12,7 +13,7 @@ Cylon.api('http', {
     // for details see 'Configuration' section.
 });
 
-Cylon.robot({
+var Jack = Cylon.robot({
     name: "Jack",
     connections: {
         raspi: {
@@ -57,28 +58,5 @@ Cylon.robot({
             }
         });
     },
-
-    runForward: function(duration) {
-        console.log("Get command by API to run runForward")
-        this.body.foot.runForward();
-        after((duration).second(), this.stop);
-    },
-    runBackward: function() {
-        this.body.foot.runBackward();
-        after((0.5).second(), this.stop);
-    },
-    turnLeft: function() {
-        this.body.foot.turnLeft();
-        after((0.3).second(), this.stop);
-
-    },
-    turnRight: function() {
-        this.body.foot.turnRight();
-        after((0.3).second(), this.stop);
-    },
-    stop: function() {
-        this.body.foot.stop();
-    }
-
-
+    commands: APICommand(this)
 }).start();
