@@ -1,7 +1,7 @@
  module.exports= function(jack){
     return {
         runForward: function(duration) {
-            console.log("Get command by API to run runForward");
+            console.log("Get command by API to run runForward" + jack);
             jack.body.foot.runForward();
             after((duration).second(), jack.stop);
         },
