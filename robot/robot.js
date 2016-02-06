@@ -1,78 +1,8 @@
-var webServer = require("web/server.js");
-function foot(hardwareIO) {
-    this.leftEngine = {
-        runForward: function() {
-            console.log("Left engine forward");
-            hardwareIO.runForwardPinLeft.digitalWrite(1);
-            hardwareIO.runBackwardPinLeft.digitalWrite(0);
-        },
-        runBackward: function() {
-            console.log("Left engine backward");
-            hardwareIO.runForwardPinLeft.digitalWrite(0);
-            hardwareIO.runBackwardPinLeft.digitalWrite(1);
-        },
-        stopEngine: function() {
-            console.log("Left engine stop");
-            hardwareIO.runForwardPinLeft.digitalWrite(0);
-            hardwareIO.runBackwardPinLeft.digitalWrite(0);
-        },
-    };
-    this.rightEngine = {
-        runForward: function() {
-            console.log("Right engine forward");
-            hardwareIO.runForwardPinRight.digitalWrite(1);
-            hardwareIO.runBackwardPinRight.digitalWrite(0);
-        },
-        runBackward: function() {
-            console.log("Right engine backward");
-
-            hardwareIO.runForwardPinRight.digitalWrite(0);
-            hardwareIO.runBackwardPinRight.digitalWrite(1);
-        },
-        stopEngine: function() {
-            console.log("Right engine stop");
-            hardwareIO.runForwardPinRight.digitalWrite(0);
-            hardwareIO.runBackwardPinRight.digitalWrite(0);
-        },
-    };
-    this.runForward = function() {
-        this.leftEngine.runForward();
-        this.rightEngine.runForward();
-        console.log("Foot running forward");
-    };
-    this.runBackward = function() {
-        this.leftEngine.runBackward();
-        this.rightEngine.runBackward();
-        console.log("Foot running backward");
-    };
-    this.stop = function() {
-        console.log(this);
-        this.leftEngine.stopEngine();
-        this.rightEngine.stopEngine();
-    };
-    this.turnLeft = function() {
-        this.leftEngine.runBackward();
-        this.rightEngine.runForward();
-        console.log("Foot turn left");
-    };
-    this.turnRight = function() {
-        this.leftEngine.runForward();
-        this.rightEngine.runBackward();
-        console.log("Foot turn right");
-    };
-};
-
-function body(hardwareIO) {
-    this.foot = new foot({
-        runForwardPinLeft: hardwareIO.foot.runForwardPinLeft,
-        runBackwardPinLeft: hardwareIO.foot.runBackwardPinLeft,
-        runForwardPinRight: hardwareIO.foot.runForwardPinRight,
-        runBackwardPinRight: hardwareIO.foot.runBackwardPinRight
-    });
-};
-
-
 var Cylon = require('cylon');
+var WebServer = require("./web/server.js");
+var Body = require("./model/body.js");
+
+WebServer.initWebServer();
 
 Cylon.api('http', {
     ssl: false, // serve unsecured, over HTTP
@@ -118,7 +48,7 @@ Cylon.robot({
         this.pin13.digitalWrite(0);
         this.pin19.digitalWrite(0);
         this.pin21.digitalWrite(0);
-        this.body = new body({
+        this.body = new Body({
             foot: {
                 runForwardPinLeft: this.pin13,
                 runBackwardPinLeft: this.pin11,
