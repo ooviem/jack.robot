@@ -57,6 +57,6 @@ var Jack = Cylon.robot({
                 runBackwardPinRight: this.pin19
             }
         });
-    },
-    commands: APICommand(Jack)
+        this.commands = APICommand(this);
+    }
 }).start();
