@@ -1,4 +1,4 @@
-angular.module('JackControllerApp', ['ngMaterial'])
+angular.module('JackControllerApp', ['ngMaterial', 'ngTouch'])
     .controller('JackController', ['$http', 
     	function($http) {
             function callGET(url, data) {
