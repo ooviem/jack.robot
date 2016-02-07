@@ -1,7 +1,6 @@
 angular.module('JackControllerApp', ['ngMaterial'])
     .controller('JackController', ['$http', 
     	function($http) {
-
             function callGET(url, data) {
                 return $http({
                     method: 'GET',
@@ -18,7 +17,7 @@ angular.module('JackControllerApp', ['ngMaterial'])
             var ctrlMe = this;
 
             ctrlMe.runForward = function() {
-                callGET("runForward", {"time": 2});
+                callGET("runForward");
             };
             ctrlMe.runBackward = function() {
                 callGET("runBackward");
