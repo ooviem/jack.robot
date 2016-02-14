@@ -1,4 +1,3 @@
-var piblaster = require('pi-blaster.js');
 module.exports = function(hardwareIO) {
     this.leftEngine = {
         runForward: function(speed) {
