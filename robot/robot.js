@@ -17,7 +17,8 @@ var Jack = Cylon.robot({
     name: "Jack",
     connections: {
         raspi: {
-            adaptor: 'raspi'
+            adaptor: 'raspi',
+            port: "/dev/ttyACMO"
         },
         loopback: {
             adaptor: 'loopback'
@@ -46,7 +47,7 @@ var Jack = Cylon.robot({
 
     work: function(jack) {
 
-        this.connections.raspi.pwmWrite(this.pin13, 200);
+        this.connections.raspi.pwmWrite(this.pin11, 200);
         this.body = new Body({
             foot: {
                 runForwardPinLeft: this.pin13,
