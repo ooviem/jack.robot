@@ -3,7 +3,6 @@ module.exports = function(hardwareIO) {
         runForward: function(speed) {
             console.log("Left engine forward");
             if (speed !== undefined) {
-                console.log("engine"+speed);
                 hardwareIO.runForwardPinLeft.pwmWrite(speed);
                 hardwareIO.runBackwardPinLeft.pwmWrite(0);
             } else {
@@ -46,14 +45,13 @@ module.exports = function(hardwareIO) {
         },
     };
     this.runForward = function(speed) {
-        console.log("foot"+ speed);
         this.leftEngine.runForward(speed);
         this.rightEngine.runForward(speed);
         console.log("Foot running forward");
     };
     this.runBackward = function(speed) {
-        this.leftEngine.runBackward();
-        this.rightEngine.runBackward();
+        this.leftEngine.runBackward(speed);
+        this.rightEngine.runBackward(speed);
         console.log("Foot running backward");
     };
     this.stop = function() {
