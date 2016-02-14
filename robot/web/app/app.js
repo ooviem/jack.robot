@@ -17,7 +17,7 @@ angular.module('JackControllerApp', ['ngMaterial', 'ngTouch'])
             var ctrlMe = this;
 
             ctrlMe.runForward = function() {
-                callGET("runForward");
+                callPOST("test", { speed: 50 });
             };
             ctrlMe.runBackward = function() {
                 callGET("runBackward");
