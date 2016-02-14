@@ -47,7 +47,7 @@ var Jack = Cylon.robot({
 
     work: function(jack) {
 
-        this.connections.raspi.pwmWrite(this.pin11, 50);
+        this.connections.raspi.pwmWrite(this.pin11, 1);
 
         this.body = new Body({
             foot: {
