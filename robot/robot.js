@@ -46,8 +46,7 @@ var Jack = Cylon.robot({
 
     work: function(jack) {
 
-        this.pin11.configure(ANALOG_OUT);
-        this.pin11.write(100);
+        this.connections.pwmWrite(this.pin13, 50);
         this.body = new Body({
             foot: {
                 runForwardPinLeft: this.pin13,
