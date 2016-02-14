@@ -2,6 +2,7 @@ var Cylon = require('cylon');
 var WebServer = require("./web/server.js");
 var Body = require("./model/body.js");
 var APICommand = require("./api.js");
+var piblaster = require('pi-blaster.js');
 
 WebServer.initWebServer();
 
@@ -49,6 +50,9 @@ var Jack = Cylon.robot({
         this.pin13.digitalWrite(0);
         this.pin19.digitalWrite(0);
         this.pin21.digitalWrite(0);
+        piblaster.setPwm(11, 0.1);
+        piblaster.setPwm(19, 0.1);
+
         this.body = new Body({
             foot: {
                 runForwardPinLeft: this.pin13,
