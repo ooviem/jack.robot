@@ -30,6 +30,7 @@
          },
 
          test: function(speed) {
+             console.log(speed);
              jack.body.foot.runForward(speed);
          }
 
