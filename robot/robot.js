@@ -45,9 +45,9 @@ var Jack = Cylon.robot({
     },
 
     work: function(jack) {
-        this.pin11.pwmWrite(200);
+        this.pin11.pwmWrite(0.5);
         this.pin13.pwmWrite(0);
-        this.pin19.pwmWrite(200);
+        this.pin19.pwmWrite(0.5);
         this.pin21.pwmWrite(0);
         this.body = new Body({
             foot: {
