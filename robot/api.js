@@ -27,6 +27,11 @@
 
          stop: function() {
              jack.body.foot.stop();
+         },
+
+         test: function(speed) {
+             jack.body.foot.runForward(speed);
          }
+
      };
  };
