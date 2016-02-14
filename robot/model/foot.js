@@ -2,8 +2,8 @@ module.exports = function(hardwareIO) {
     this.leftEngine = {
         runForward: function(speed) {
             console.log("Left engine forward");
-            console.log(speed);
             if (speed !== undefined) {
+                console.log(speed);
                 hardwareIO.runForwardPinLeft.pwmWrite(speed);
                 hardwareIO.runBackwardPinLeft.pwmWrite(0);
             } else {
