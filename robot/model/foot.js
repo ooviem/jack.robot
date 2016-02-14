@@ -2,14 +2,17 @@ module.exports = function(hardwareIO) {
     this.leftEngine = {
         runForward: function(speed) {
             console.log("Left engine forward");
-            if (speed !== undefined) {
-                console.log("engine"+speed);
-                hardwareIO.runForwardPinLeft.pwmWrite(speed);
-                hardwareIO.runBackwardPinLeft.pwmWrite(0);
-            } else {
-                hardwareIO.runForwardPinLeft.digitalWrite(1);
-                hardwareIO.runBackwardPinLeft.digitalWrite(0);
-            }
+            hardwareIO.connections.raspi.pwmWrite(hardwareIO.runForwardPinLeft, 100);
+            hardwareIO.connections.raspi.pwmWrite(hardwareIO.runBackwardPinLeft, 0);
+
+            // if (speed !== undefined) {
+            //     console.log("engine"+speed);
+            //     hardwareIO.runForwardPinLeft.pwmWrite(speed);
+            //     hardwareIO.runBackwardPinLeft.pwmWrite(0);
+            // } else {
+            //     hardwareIO.runForwardPinLeft.digitalWrite(1);
+            //     hardwareIO.runBackwardPinLeft.digitalWrite(0);
+            // }
         },
         runBackward: function(speed) {
             console.log("Left engine backward");
