@@ -30,7 +30,7 @@
          },
 
          test: function(speed) {
-             jack.body.foot.runForward((parseFloat(speed));
+             jack.body.foot.runForward(parseFloat(speed));
          }
 
      };
