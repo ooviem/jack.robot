@@ -48,7 +48,7 @@ var Jack = Cylon.robot({
         this.pin11.digitalWrite(0);
         this.pin13.digitalWrite(0);
         this.pin19.digitalWrite(0);
-        this.pin21.digitalWrite(0)
+        this.pin21.digitalWrite(0);
 
         this.body = new Body({
             foot: {
