@@ -46,6 +46,7 @@ module.exports = function(hardwareIO) {
         },
     };
     this.runForward = function(speed) {
+        console.log("foot"+ speed);
         this.leftEngine.runForward(speed);
         this.rightEngine.runForward(speed);
         console.log("Foot running forward");
