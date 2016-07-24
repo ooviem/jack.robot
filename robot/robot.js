@@ -3,7 +3,7 @@ var WebServer = require("./web/server.js");
 var Body = require("./model/body.js");
 var APICommand = require("./api.js");
 
-//WebServer.initWebServer();
+WebServer.initWebServer();
 
 Cylon.api('http', {
     ssl: false, // serve unsecured, over HTTP
@@ -27,19 +27,19 @@ var Jack = Cylon.robot({
     devices: {
         pin1: {
             driver: 'direct-pin',
-            pin: 21
+            pin: 9
         },
         pin2: {
             driver: 'direct-pin',
-            pin: 22
+            pin: 25
         },
         pin3: {
             driver: 'direct-pin',
-            pin: 23
+            pin: 11
         },
         pin4: {
             driver: 'direct-pin',
-            pin: 24
+            pin: 8
         }
 
     },
