@@ -52,9 +52,9 @@ var Jack = Cylon.robot({
         this.body = new Body({
             foot: {
                 runForwardPinLeft: this.pin1,
-                runBackwardPinLeft: this.pin2,
+                runBackwardPinLeft: this.pin4,
                 runForwardPinRight: this.pin3,
-                runBackwardPinRight: this.pin4
+                runBackwardPinRight: this.pin2
             }
         });
         this.commands = APICommand(this);
