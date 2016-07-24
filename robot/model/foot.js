@@ -2,6 +2,7 @@ module.exports = function(hardwareIO) {
     this.leftEngine = {
         runForward: function() {
             console.log("Left engine forward");
+            console.log(hardwareIO.runForwardPinLeft);
             hardwareIO.runForwardPinLeft.digitalWrite(1);
             hardwareIO.runBackwardPinLeft.digitalWrite(0);
         },
