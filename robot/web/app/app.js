@@ -1,4 +1,4 @@
-angular.module('JackControllerApp', ['ngMaterial', 'ngTouch'])
+angular.module('JackControllerApp', ['ngMaterial'])
     .controller('JackController', ['$http', 
     	function($http) {
             function callGET(url, data) {
@@ -17,7 +17,7 @@ angular.module('JackControllerApp', ['ngMaterial', 'ngTouch'])
             var ctrlMe = this;
 
             ctrlMe.runForward = function() {
-                callPOST("test", { speed: 0.5 });
+                callGET("runForward");
             };
             ctrlMe.runBackward = function() {
                 callGET("runBackward");

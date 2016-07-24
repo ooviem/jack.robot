@@ -1,16 +1,11 @@
 module.exports = function(hardwareIO) {
     this.leftEngine = {
-        runForward: function(speed) {
+        runForward: function() {
             console.log("Left engine forward");
-            if (speed !== undefined) {
-                hardwareIO.runForwardPinLeft.pwmWrite(speed);
-                hardwareIO.runBackwardPinLeft.pwmWrite(0);
-            } else {
-                hardwareIO.runForwardPinLeft.digitalWrite(1);
-                hardwareIO.runBackwardPinLeft.digitalWrite(0);
-            }
+            hardwareIO.runForwardPinLeft.digitalWrite(1);
+            hardwareIO.runBackwardPinLeft.digitalWrite(0);
         },
-        runBackward: function(speed) {
+        runBackward: function() {
             console.log("Left engine backward");
             hardwareIO.runForwardPinLeft.digitalWrite(0);
             hardwareIO.runBackwardPinLeft.digitalWrite(1);
@@ -22,17 +17,12 @@ module.exports = function(hardwareIO) {
         },
     };
     this.rightEngine = {
-        runForward: function(speed) {
+        runForward: function() {
             console.log("Right engine forward");
-            if (speed !== undefined) {
-                hardwareIO.runForwardPinRight.pwmWrite(speed);
-                hardwareIO.runBackwardPinRight.pwmWrite(0);
-            } else {
-                hardwareIO.runForwardPinRight.digitalWrite(1);
-                hardwareIO.runBackwardPinRight.digitalWrite(0);
-            }
+            hardwareIO.runForwardPinRight.digitalWrite(1);
+            hardwareIO.runBackwardPinRight.digitalWrite(0);
         },
-        runBackward: function(speed) {
+        runBackward: function() {
             console.log("Right engine backward");
 
             hardwareIO.runForwardPinRight.digitalWrite(0);
@@ -44,14 +34,14 @@ module.exports = function(hardwareIO) {
             hardwareIO.runBackwardPinRight.digitalWrite(0);
         },
     };
-    this.runForward = function(speed) {
-        this.leftEngine.runForward(speed);
-        this.rightEngine.runForward(speed);
+    this.runForward = function() {
+        this.leftEngine.runForward();
+        this.rightEngine.runForward();
         console.log("Foot running forward");
     };
-    this.runBackward = function(speed) {
-        this.leftEngine.runBackward(speed);
-        this.rightEngine.runBackward(speed);
+    this.runBackward = function() {
+        this.leftEngine.runBackward();
+        this.rightEngine.runBackward();
         console.log("Foot running backward");
     };
     this.stop = function() {
@@ -59,14 +49,14 @@ module.exports = function(hardwareIO) {
         this.leftEngine.stopEngine();
         this.rightEngine.stopEngine();
     };
-    this.turnLeft = function(speed) {
-        this.leftEngine.runBackward(speed);
-        this.rightEngine.runForward(speed);
+    this.turnLeft = function() {
+        this.leftEngine.runBackward();
+        this.rightEngine.runForward();
         console.log("Foot turn left");
     };
-    this.turnRight = function(speed) {
-        this.leftEngine.runForward(speed);
-        this.rightEngine.runBackward(speed);
+    this.turnRight = function() {
+        this.leftEngine.runForward();
+        this.rightEngine.runBackward();
         console.log("Foot turn right");
     };
 

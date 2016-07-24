@@ -1,41 +1,32 @@
  module.exports = function(jack) {
      return {
-         runForward: function(duration, speed) {
+         runForward: function(duration) {
              console.log(duration);
-             if (speed !== undefined)
-                 jack.body.foot.runForward(speed);
+             jack.body.foot.runForward();
              if (duration)
                  after((parseFloat(duration)).second(), jack.stop);
          },
 
-         runBackward: function(duration, speed) {
-             if (speed !== undefined)
-                 jack.body.foot.runBackward(speed);
+         runBackward: function(duration) {
+             jack.body.foot.runBackward();
              if (duration)
                  after((parseFloat(duration)).second(), jack.stop);
          },
 
-         turnLeft: function(duration, speed) {
-             if (speed !== undefined)
-                 jack.body.foot.turnLeft(speed);
+         turnLeft: function() {
+             jack.body.foot.turnLeft();
              if (duration)
                  after((parseFloat(duration)).second(), jack.stop);
          },
 
-         turnRight: function(duration, speed) {
-             if (speed !== undefined)
-                 jack.body.foot.turnRight(speed);
+         turnRight: function() {
+             jack.body.foot.turnRight();
              if (duration)
                  after((parseFloat(duration)).second(), jack.stop);
          },
 
          stop: function() {
              jack.body.foot.stop();
-         },
-
-         test: function(speed) {
-             jack.body.foot.runForward(parseFloat(speed));
          }
-
      };
  };
