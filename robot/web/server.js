@@ -9,7 +9,7 @@ module.exports = {
             var uri = url.parse(request.url).pathname,
                 filename = path.join(process.cwd()+"/web/", uri);
 
-            var exists = fs.exists(filename);
+            var exists = fs.existsSync(filename);
 
             if (!exists) {
                 response.writeHead(404, {
