@@ -2,14 +2,11 @@ module.exports = function(hardwareIO) {
     this.leftEngine = {
         runForward: function() {
             console.log("Left engine forward");
-            console.log(hardwareIO.runForwardPinLeft.pin);
             hardwareIO.runForwardPinLeft.digitalWrite(1);
             hardwareIO.runBackwardPinLeft.digitalWrite(0);
         },
         runBackward: function() {
             console.log("Left engine backward");
-            console.log(hardwareIO.runBackwardPinLeft.pin);
-
             hardwareIO.runForwardPinLeft.digitalWrite(0);
             hardwareIO.runBackwardPinLeft.digitalWrite(1);
         },
@@ -22,14 +19,11 @@ module.exports = function(hardwareIO) {
     this.rightEngine = {
         runForward: function() {
             console.log("Right engine forward");
-            console.log(hardwareIO.runForwardPinRight.pin);
-
             hardwareIO.runForwardPinRight.digitalWrite(1);
             hardwareIO.runBackwardPinRight.digitalWrite(0);
         },
         runBackward: function() {
             console.log("Right engine backward");
-            console.log(hardwareIO.runBackwardPinRight.pin);
 
             hardwareIO.runForwardPinRight.digitalWrite(0);
             hardwareIO.runBackwardPinRight.digitalWrite(1);

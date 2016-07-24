@@ -27,11 +27,11 @@ var Jack = Cylon.robot({
     devices: {
         pin1: {
             driver: 'direct-pin',
-            pin: 13
+            pin: 15
         },
         pin2: {
             driver: 'direct-pin',
-            pin: 15
+            pin: 13
         },
         pin3: {
             driver: 'direct-pin',
@@ -51,9 +51,9 @@ var Jack = Cylon.robot({
         this.pin4.digitalWrite(0);
         this.body = new Body({
             foot: {
-                runForwardPinLeft: this.pin1,
+                runForwardPinLeft: this.pin3,
                 runBackwardPinLeft: this.pin4,
-                runForwardPinRight: this.pin3,
+                runForwardPinRight: this.pin1,
                 runBackwardPinRight: this.pin2
             }
         });
