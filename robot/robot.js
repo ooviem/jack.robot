@@ -25,36 +25,36 @@ var Jack = Cylon.robot({
     },
 
     devices: {
-        pin11: {
-            driver: 'direct-pin',
-            pin: 11
-        },
-        pin13: {
-            driver: 'direct-pin',
-            pin: 13
-        },
-        pin19: {
-            driver: 'direct-pin',
-            pin: 19
-        },
-        pin21: {
+        pin1: {
             driver: 'direct-pin',
             pin: 21
+        },
+        pin2: {
+            driver: 'direct-pin',
+            pin: 22
+        },
+        pin3: {
+            driver: 'direct-pin',
+            pin: 23
+        },
+        pin4: {
+            driver: 'direct-pin',
+            pin: 24
         }
 
     },
 
     work: function(jack) {
-        this.pin11.digitalWrite(0);
-        this.pin13.digitalWrite(0);
-        this.pin19.digitalWrite(0);
-        this.pin21.digitalWrite(0);
+        this.pin1.digitalWrite(0);
+        this.pin2.digitalWrite(0);
+        this.pin3.digitalWrite(0);
+        this.pin4.digitalWrite(0);
         this.body = new Body({
             foot: {
-                runForwardPinLeft: this.pin13,
-                runBackwardPinLeft: this.pin11,
-                runForwardPinRight: this.pin21,
-                runBackwardPinRight: this.pin19
+                runForwardPinLeft: this.pin1,
+                runBackwardPinLeft: this.pin2,
+                runForwardPinRight: this.pin3,
+                runBackwardPinRight: this.pin4
             }
         });
         this.commands = APICommand(this);
