@@ -9,16 +9,7 @@ module.exports = {
             var uri = url.parse(request.url).pathname,
                 filename = path.join(process.cwd()+"/web/", uri);
 
-            var exists = fs.existsSync(filename);
 
-            if (!exists) {
-                response.writeHead(404, {
-                    "Content-Type": "text/plain"
-                });
-                response.write("404 Not Found\n");
-                response.end();
-                return;
-            }
 
             if (fs.statSync(filename).isDirectory()) filename += '/index.html';
 
