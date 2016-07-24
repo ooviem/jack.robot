@@ -27,7 +27,7 @@ var Jack = Cylon.robot({
     devices: {
         pin1: {
             driver: 'direct-pin',
-            pin: 13
+            pin: 16
         },
         pin2: {
             driver: 'direct-pin',
@@ -35,7 +35,7 @@ var Jack = Cylon.robot({
         },
         pin3: {
             driver: 'direct-pin',
-            pin: 16
+            pin: 13
         },
         pin4: {
             driver: 'direct-pin',
