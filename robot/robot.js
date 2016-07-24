@@ -3,7 +3,7 @@ var WebServer = require("./web/server.js");
 var Body = require("./model/body.js");
 var APICommand = require("./api.js");
 
-WebServer.initWebServer();
+//WebServer.initWebServer();
 
 Cylon.api('http', {
     ssl: false, // serve unsecured, over HTTP
