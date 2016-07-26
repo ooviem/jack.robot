@@ -16,6 +16,13 @@
 <body ng-controller="JackController as ctrlMe">
     <div class="container">
         <div class="monitor row">
+            <div class="top-controller">
+                <div class="row">
+                    <md-button ng-mouseup="ctrlMe.speak()" class="margin-left-65 md-fab md-raised md-button md-ink-ripple opacity-0-5" aria-label="Use Android">
+                        <md-icon class="glyphicon glyphicon-user drive-controller-button"></md-icon>
+                    </md-button>
+                </div>
+            </div>
             <div class="left-controller">
                 <div class="row">
                     <md-button ng-mouseup="ctrlMe.stop()" ng-mousedown="ctrlMe.runForward()" class="margin-left-65 md-fab md-raised md-button md-ink-ripple opacity-0-5" aria-label="Use Android">

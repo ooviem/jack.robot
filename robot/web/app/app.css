@@ -15,11 +15,19 @@
     font-size: 20px;
 }
 
-.left-controller .row {
+.left-controller .row, .top-controller .row {
     height: 55px;
     margin-left: 0px;
     margin-right: 0px;
 }
+.top-controller {
+    height: 75px;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 10px;
+}
+
 
 .left-controller {
     height: 180px;

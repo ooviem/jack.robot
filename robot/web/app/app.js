@@ -31,6 +31,9 @@ angular.module('JackControllerApp', ['ngMaterial'])
             ctrlMe.stop = function() {
                 callGET("stop");
             };
+            ctrlMe.speak = function(words) {
+                callPOST("speak", { text: words});
+            };
 
         }
     ]);

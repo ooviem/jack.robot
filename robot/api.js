@@ -1,7 +1,6 @@
  module.exports = function(jack) {
      return {
          runForward: function(duration) {
-             console.log(duration);
              jack.body.foot.runForward();
              if (duration)
                  after((parseFloat(duration)).second(), jack.stop);
@@ -27,6 +26,11 @@
 
          stop: function() {
              jack.body.foot.stop();
+         },
+                  
+         speak: function(words) {
+            console.log(words);
+             jack.body.mouth.speak(words.text);
          }
      };
  };
