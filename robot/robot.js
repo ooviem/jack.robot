@@ -21,7 +21,9 @@ var Jack = Cylon.robot({
         },
         loopback: {
             adaptor: 'loopback'
-        }
+        },
+        speech: { adaptor: 'speech', voice: 'en-f3', speed: 130 }
+
     },
 
     devices: {
