@@ -8,5 +8,5 @@ module.exports = function(hardwareIO) {
         runForwardPinRight: hardwareIO.foot.runForwardPinRight,
         runBackwardPinRight: hardwareIO.foot.runBackwardPinRight
     });
-    this.mouth = new mount(hardwareIO.mouth);
+    this.mouth = new mount(hardwareIO);
 };

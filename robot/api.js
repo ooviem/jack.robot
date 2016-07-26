@@ -29,8 +29,7 @@
          },
                   
          speak: function(words) {
-            console.log(jack.body.mouth);
-            jack.body.mouth.speak(words.text);
+             jack.body.mouth.speak(words);
          }
      };
  };
