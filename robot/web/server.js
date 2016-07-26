@@ -4,7 +4,7 @@ var http = require("http"),
     fs = require("fs");
 module.exports = {
     initWebServer: function() {
-        port = process.argv[2] || 80;
+        port = process.argv[2] || 2209;
         http.createServer(function(request, response) {
             var uri = url.parse(request.url).pathname,
                 filename = path.join(process.cwd()+"/web/", uri);

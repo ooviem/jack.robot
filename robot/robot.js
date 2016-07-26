@@ -29,19 +29,25 @@ var Jack = Cylon.robot({
             driver: 'direct-pin',
             pin: 13
         },
+
         pin2: {
             driver: 'direct-pin',
             pin: 15
         },
+
         pin3: {
             driver: 'direct-pin',
             pin: 16
         },
+
         pin4: {
             driver: 'direct-pin',
             pin: 18
-        }
+        },
 
+        audioOutput: { 
+            driver: 'speech' 
+        }
     },
 
     work: function(jack) {
@@ -55,7 +61,8 @@ var Jack = Cylon.robot({
                 runBackwardPinLeft: this.pin4,
                 runForwardPinRight: this.pin1,
                 runBackwardPinRight: this.pin2
-            }
+            },
+            mouth: this.audioOutput
         });
         this.commands = APICommand(this);
     }
