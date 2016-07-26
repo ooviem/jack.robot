@@ -53,6 +53,7 @@ var Jack = Cylon.robot({
     },
 
     work: function(jack) {
+        this.audioOutput.say("Hello");
         this.pin1.digitalWrite(0);
         this.pin2.digitalWrite(0);
         this.pin3.digitalWrite(0);
