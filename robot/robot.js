@@ -48,7 +48,7 @@ var Jack = Cylon.robot({
         },
 
         audioOutput: { 
-            driver: "speech"
+            driver: "speech",
             language: "english",
             gender: "f",
             variant: "3",
