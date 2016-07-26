@@ -1,5 +1,5 @@
 var foot = require("./foot.js");
-var mount = require("./mount.js");
+var mount = require("./mouth.js");
 
 module.exports = function(hardwareIO) {
     this.foot = new foot({
@@ -8,5 +8,5 @@ module.exports = function(hardwareIO) {
         runForwardPinRight: hardwareIO.foot.runForwardPinRight,
         runBackwardPinRight: hardwareIO.foot.runBackwardPinRight
     });
-    this.mount = new mount(hardwareIO.mouth);
+    this.mouth = new mount(hardwareIO.mouth);
 };
