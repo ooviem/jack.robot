@@ -11,7 +11,13 @@ var Command = {
                 console.error('exec error: ${error}');
                 return;
             }
+            var output = {
+                error: error,
+                stderr: stderr,
+                stdout: stdout
+            };
             deferred.resolve(output);
+
             console.log('stdout:'+stdout);
             console.log('stderr:'+stderr);
         });
