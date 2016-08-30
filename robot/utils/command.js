@@ -7,7 +7,7 @@ var Command = {
         var deferred = Q.defer();
         console.log(command);
         var spawn = cp.spawn;
-        var ls = spawn('file', ['-voice','RMS', command]);
+        var ls = spawn('flile', ['-voice','RMS', command]);
 
         ls.stdout.on('data', function (data)  {
             console.log('data'+data);
