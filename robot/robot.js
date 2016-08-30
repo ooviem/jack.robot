@@ -21,9 +21,7 @@ var Jack = Cylon.robot({
         },
         loopback: {
             adaptor: 'loopback'
-        },
-        speech: { adaptor: 'speech' }
-
+        }
     },
 
     devices: {
@@ -45,14 +43,6 @@ var Jack = Cylon.robot({
         pin4: {
             driver: 'direct-pin',
             pin: 18
-        },
-
-        audioOutput: { 
-            driver: "speech",
-            language: "english",
-            gender: "f",
-            variant: "3",
-            speed: 130
         }
     },
 
@@ -70,6 +60,7 @@ var Jack = Cylon.robot({
             },
             mouth: this.audioOutput
         });
+        this.mouth.speak("Hello");
         this.commands = APICommand(this);
     }
 }).start();

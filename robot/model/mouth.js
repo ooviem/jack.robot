@@ -1,6 +1,7 @@
+var command = require("./utils/command.js");
 module.exports = function(hardwareIO) {
 	this.speak = function(text){
 		console.log("SPEAK: "+ text);
-		hardwareIO.mouth.say(text);
+		command.speak(text);
 	};
 };
