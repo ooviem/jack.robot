@@ -18,7 +18,7 @@ var Command = {
         return deferred.promise;
     },
     speak: function(text){
-        var command = "flite -voice RMS '"+ text +"'";
+        var command = "sudo flite -voice RMS '"+ text +"'";
         this.exe(command).then(function(data){
             console.log(data);
         });
