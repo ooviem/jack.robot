@@ -5,6 +5,7 @@ var Q = require("q");
 var Command = {
    
     execute: function (command) {
+        var deferred = q.defer();
         var fullCommand = command;
         cp.exec(fullCommand, function (error, stdout, stderr) {
             var output = {
@@ -19,7 +20,7 @@ var Command = {
         this.execute("flite -voice RMS '"+ text +"'");
     },
     recordAudio: function(time){
-        
+
     }
 
 
