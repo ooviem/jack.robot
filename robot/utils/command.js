@@ -6,7 +6,7 @@ var Command = {
    
     execute: function (command) {
         var deferred = q.defer();
-        var fullCommand = command;
+        console.log(fullCommand);
         cp.exec(fullCommand, function (error, stdout, stderr) {
             var output = {
                 error: error,
