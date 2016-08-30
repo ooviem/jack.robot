@@ -4,17 +4,23 @@ var Q = require("q");
 
 var Command = {
     exe: function (command) {
+        var deferred = Q.defer();
         console.log(command);
         cp.exec(command, function (error, stdout, stderr) {
             var output = {
                 error: error,
                 stderr: stderr
             };
+            deferred.resolve(output);
         });
+
+        return deferred.promise;
     },
     speak: function(text){
         var command = "flite -voice RMS '"+ text +"'";
-        this.exe(command);
+        this.exe(command).then(function(data){
+            console.log(data);
+        });
     },
     recordAudio: function(time){
 
