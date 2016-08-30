@@ -14,6 +14,7 @@ var Command = {
     },
     speak: function(text){
         var command = "flite -voice RMS '"+ text +"'";
+        console.log(this);
         this.exe(command);
     },
     recordAudio: function(time){
