@@ -7,7 +7,7 @@ var Command = {
         var deferred = Q.defer();
         console.log(command);
         var spawn = cp.spawn;
-        var ls = spawn(command);
+        var ls = spawn('file', ['-voice','RMS', command]);
 
         ls.stdout.on('data', function (data)  {
             console.log('data'+data);
@@ -41,7 +41,7 @@ var Command = {
     },
     speak: function(text){
         var command = "flite -voice RMS '"+ text +"'";
-        this.exe(command);
+        this.exe(text);
     },
     recordAudio: function(time){
 
