@@ -6,28 +6,15 @@ var Command = {
     exe: function (command) {
         var deferred = Q.defer();
         console.log(command);
-        var spawn = cp.spawn;
-        var ls = spawn('flile', ['-voice','RMS', command]);
-
-        ls.stdout.on('data', function (data)  {
-            console.log('data'+data);
+        cp.exec(command, function (error, stdout, stderr) {
+            if (error) {
+                console.error('exec error: ${error}');
+                return;
+            }
+            deferred.resolve(output);
+            console.log('stdout:'+stdout);
+            console.log('stderr:'+stderr);
         });
-
-        ls.stderr.on('data', function (data) {
-          console.log('stderr'+data);
-        });
-
-        ls.on('close', function (code) {
-          console.log('child process exited with code'+ code);
-        });
-        // cp.exec(command, function (error, stdout, stderr) {
-        //   if (error) {
-        //     console.error('exec error: ${error}');
-        //     return;
-        //   }
-        //   console.log('stdout:'+stdout);
-        //   console.log('stderr:'+stderr);
-        // });
         // cp.exec(command, function (error, stdout, stderr) {
         //     var output = {
         //         error: error,
@@ -41,7 +28,7 @@ var Command = {
     },
     speak: function(text){
         var command = "flite -voice RMS '"+ text +"'";
-        this.exe(text);
+        this.exe(command);
     },
     recordAudio: function(time){
 
