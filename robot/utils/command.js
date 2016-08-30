@@ -17,7 +17,9 @@ var Command = {
         return deferred.promise;
     },
     speak: function(text){
-        this.execute("flite -voice RMS '"+ text +"'");
+        var command = "flite -voice RMS '"+ text +"'";
+        console.log(command);
+        this.execute(command);
     },
     recordAudio: function(time){
 
