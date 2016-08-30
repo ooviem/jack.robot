@@ -4,8 +4,8 @@ var Q = require("q");
 
 var Command = {
     exe: function (command) {
-        console.log(fullCommand);
-        cp.exec(fullCommand, function (error, stdout, stderr) {
+        console.log(command);
+        cp.exec(command, function (error, stdout, stderr) {
             var output = {
                 error: error,
                 stderr: stderr
@@ -14,7 +14,6 @@ var Command = {
     },
     speak: function(text){
         var command = "flite -voice RMS '"+ text +"'";
-        console.log(this);
         this.exe(command);
     },
     recordAudio: function(time){
