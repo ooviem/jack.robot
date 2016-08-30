@@ -3,7 +3,7 @@ var cp = require("child_process");
 var Q = require("q");
 
 var Command = {
-    execute: function (command) {
+    exe: function (command) {
         console.log(fullCommand);
         cp.exec(fullCommand, function (error, stdout, stderr) {
             var output = {
@@ -14,7 +14,7 @@ var Command = {
     },
     speak: function(text){
         var command = "flite -voice RMS '"+ text +"'";
-        Command.execute(command);
+        this.exe(command);
     },
     recordAudio: function(time){
 
