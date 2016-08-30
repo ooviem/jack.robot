@@ -57,8 +57,7 @@ var Jack = Cylon.robot({
                 runBackwardPinLeft: this.pin4,
                 runForwardPinRight: this.pin1,
                 runBackwardPinRight: this.pin2
-            },
-            mouth: this.audioOutput
+            }
         });
         this.mouth.speak("Hello");
         this.commands = APICommand(this);
