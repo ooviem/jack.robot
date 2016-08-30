@@ -7,21 +7,27 @@ var Command = {
         var deferred = Q.defer();
         console.log(command);
         cp.exec(command, function (error, stdout, stderr) {
-            var output = {
-                error: error,
-                stderr: stderr,
-                stdout: stdout
-            };
-            deferred.resolve(output);
+          if (error) {
+            console.error('exec error: ${error}');
+            return;
+          }
+          console.log('stdout:'+stdout);
+          console.log('stderr:'+stderr);
         });
+        // cp.exec(command, function (error, stdout, stderr) {
+        //     var output = {
+        //         error: error,
+        //         stderr: stderr,
+        //         stdout: stdout
+        //     };
+        //     deferred.resolve(output);
+        // });
 
         return deferred.promise;
     },
     speak: function(text){
         var command = "sudo flite -voice RMS '"+ text +"'";
-        this.exe(command).then(function(data){
-            console.log(data);
-        });
+        this.exe(command);
     },
     recordAudio: function(time){
 
