@@ -9,7 +9,8 @@ var Command = {
         cp.exec(command, function (error, stdout, stderr) {
             var output = {
                 error: error,
-                stderr: stderr
+                stderr: stderr,
+                stdout: stdout
             };
             deferred.resolve(output);
         });
