@@ -10,6 +10,7 @@ var Command = {
         var ls = spawn(command);
 
         ls.stdout.on('data', function (data)  {
+            console.log('data'+data);
         });
 
         ls.stderr.on('data', function (data) {
