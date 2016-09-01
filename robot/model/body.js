@@ -10,5 +10,5 @@ module.exports = function(hardwareIO) {
         runBackwardPinRight: hardwareIO.foot.runBackwardPinRight
     });
     this.mouth = mount;
-    this.head = head;
+    this.head = new head();
 };
