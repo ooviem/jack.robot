@@ -1,6 +1,6 @@
 var foot = require("./foot.js");
 var mount = require("./mouth.js");
-var mount = require("./head.js");
+var head = require("./head.js");
 
 module.exports = function(hardwareIO) {
     this.foot = new foot({
