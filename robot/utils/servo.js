@@ -1,5 +1,5 @@
 var makePwm = require('../adafruit-pca9685/adafruit-pca9685.js');
-var pwm = makePwm({"freq": 50, "correctionFactor": 1.118});
+var pwm = makePwm({"freq": 60, "correctionFactor": 1.118});
 var setServoPulse = function(channel, pulse) {
   var pulseLength;
   pulseLength = 1000000;
@@ -18,3 +18,48 @@ setTimeout(function(){
 setTimeout(function(){
 	pwm.setPwm(1, 0, 600);
 }, 1000);
+pwm.setPwm(0, 0, 150);
+pwm.setPwm(1, 0, 150);
+setTimeout(function(){
+	pwm.setPwm(0, 0, 600);
+}, 1000);
+setTimeout(function(){
+	pwm.setPwm(1, 0, 600);
+}, 1000);
+
+pwm.setPwm(0, 0, 150);
+pwm.setPwm(1, 0, 150);
+setTimeout(function(){
+	pwm.setPwm(0, 0, 600);
+}, 1000);
+setTimeout(function(){
+	pwm.setPwm(1, 0, 600);
+}, 1000);
+
+pwm.setPwm(0, 0, 150);
+pwm.setPwm(1, 0, 150);
+setTimeout(function(){
+	pwm.setPwm(0, 0, 600);
+}, 1000);
+setTimeout(function(){
+	pwm.setPwm(1, 0, 600);
+}, 1000);
+
+pwm.setPwm(0, 0, 150);
+pwm.setPwm(1, 0, 150);
+setTimeout(function(){
+	pwm.setPwm(0, 0, 600);
+}, 1000);
+setTimeout(function(){
+	pwm.setPwm(1, 0, 600);
+}, 1000);
+
+pwm.setPwm(0, 0, 150);
+pwm.setPwm(1, 0, 150);
+setTimeout(function(){
+	pwm.setPwm(0, 0, 600);
+}, 1000);
+setTimeout(function(){
+	pwm.setPwm(1, 0, 600);
+}, 1000);
+
