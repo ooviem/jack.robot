@@ -9,6 +9,5 @@ var setServoPulse = function(channel, pulse) {
   pulse /= pulseLength;
   return pwm.setPwm(channel, 0, pulse);
 };
-console.log(pwm);
-setServoPulse(0, 150);
-setServoPulse(0, 600);
+setServoPulse(0, 200);
+setServoPulse(0, 400);
