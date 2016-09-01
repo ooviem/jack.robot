@@ -33,7 +33,7 @@
          },
 
          headLeft: function() {
-             console.log("api");
+             console.log(jack.body.head);
              jack.body.head.turnLeft();
          },
          
