@@ -4,7 +4,7 @@
 var socketio, io, PwmDriver, pwm, makePwm, Gpio;
 
 socketio = require('socket.io');
-makePwm = require('adafruit-pca9685');
+makePwm = require('../../../adafruit-pca9685.js');
 pwm = makePwm({"freq": 50, "correctionFactor": 1.118});
 
 // deal with any signals and cleanup
