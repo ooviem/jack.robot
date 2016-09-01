@@ -17,49 +17,17 @@ setTimeout(function(){
 }, 1000);
 setTimeout(function(){
 	pwm.setPwm(1, 0, 600);
-}, 1000);
-pwm.setPwm(0, 0, 150);
-pwm.setPwm(1, 0, 150);
+}, 2000);
 setTimeout(function(){
-	pwm.setPwm(0, 0, 600);
-}, 1000);
+	pwm.setPwm(0, 0, 300);
+}, 3000);
 setTimeout(function(){
-	pwm.setPwm(1, 0, 600);
-}, 1000);
+	pwm.setPwm(1, 0, 300);
+}, 4000);
 
-pwm.setPwm(0, 0, 150);
-pwm.setPwm(1, 0, 150);
 setTimeout(function(){
-	pwm.setPwm(0, 0, 600);
-}, 1000);
+	pwm.setPwm(0, 0, 150);
+}, 5000);
 setTimeout(function(){
-	pwm.setPwm(1, 0, 600);
-}, 1000);
-
-pwm.setPwm(0, 0, 150);
-pwm.setPwm(1, 0, 150);
-setTimeout(function(){
-	pwm.setPwm(0, 0, 600);
-}, 1000);
-setTimeout(function(){
-	pwm.setPwm(1, 0, 600);
-}, 1000);
-
-pwm.setPwm(0, 0, 150);
-pwm.setPwm(1, 0, 150);
-setTimeout(function(){
-	pwm.setPwm(0, 0, 600);
-}, 1000);
-setTimeout(function(){
-	pwm.setPwm(1, 0, 600);
-}, 1000);
-
-pwm.setPwm(0, 0, 150);
-pwm.setPwm(1, 0, 150);
-setTimeout(function(){
-	pwm.setPwm(0, 0, 600);
-}, 1000);
-setTimeout(function(){
-	pwm.setPwm(1, 0, 600);
-}, 1000);
-
+	pwm.setPwm(1, 0, 150);
+}, 6000);
