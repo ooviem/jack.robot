@@ -1,4 +1,4 @@
-var makePwm = require('../../adafruit-pca9685.js');
+var makePwm = require('../../adafruit-pca9685/adafruit-pca9685.js');
 var pwm = makePwm({"freq": 50, "correctionFactor": 1.118});
 setServoPulse = function(channel, pulse) {
   var pulseLength;
