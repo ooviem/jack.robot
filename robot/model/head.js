@@ -21,6 +21,8 @@ module.exports = function (){
 	};
 
 	this.turnLeft = function(){
+		console.log("turnLeft");
+
 		this.turn(150);
 	};
 
