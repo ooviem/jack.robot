@@ -30,6 +30,23 @@
                   
          speak: function(words) {
              jack.body.mouth.speak(words);
-         }
+         },
+
+         headLeft: function() {
+             jack.body.head.turnLeft();
+         },
+         
+         headRight: function() {
+             jack.body.head.turnRight();
+         },
+
+         headUp: function() {
+             jack.body.head.moveUp();
+         },
+
+         headDown: function() {
+             jack.body.head.moveDown();
+         },
+
      };
  };

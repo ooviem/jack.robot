@@ -15,7 +15,7 @@
     font-size: 20px;
 }
 
-.left-controller .row, .top-controller .row {
+.left-controller .row, .right-controller .row,  .top-controller .row {
     height: 55px;
     margin-left: 0px;
     margin-right: 0px;
@@ -34,6 +34,14 @@
     width: 235px;
     position: absolute;
     left: 30px;
+    bottom: 30px;
+}
+
+.right-controller {
+    height: 180px;
+    width: 235px;
+    position: absolute;
+    right: 30px;
     bottom: 30px;
 }
 

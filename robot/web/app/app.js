@@ -35,5 +35,17 @@ angular.module('JackControllerApp', ['ngMaterial'])
                 callPOST("speak", { text: words});
             };
 
+            ctrlMe.headLeft = function() {
+                callGET("headLeft");
+            };
+            ctrlMe.headRight = function() {
+                callGET("headRight");
+            };
+            ctrlMe.headUp = function() {
+                callGET("headUp");
+            };
+            ctrlMe.headDown = function() {
+                callGET("headDown");
+            };
         }
     ]);
