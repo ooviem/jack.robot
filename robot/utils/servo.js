@@ -10,9 +10,5 @@ var setServoPulse = function(channel, pulse) {
   console.log(pulse);
   return pwm.setPwm(channel, 0, pulse);
 };
-setServoPulse(0, 555);
-setServoPulse(0, 777);
-setServoPulse(1, 555);
-setServoPulse(1, 777);
-setServoPulse(1, 555);
-setServoPulse(0, 555);
+pwm.setPwm(0, 0, 150);
+pwm.setPwm(0, 0, 600);
