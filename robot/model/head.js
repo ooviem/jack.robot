@@ -8,10 +8,10 @@ var setServoPulse = function(channel, pulse) {
 	pulse *= 1000;
 	pulse /= pulseLength;
 	console.log(pulse);
-	return pwm.setPwm(channel, 0, pulse);
+	return pwm.setPwm(channel, 425, pulse);
 };
 module.exports = function (){
-	this.currentPosition = 150;
+	this.currentPosition = 175;
 	this.turn = function(degree){
 		pwm.setPwm(0, 0, degree);
 	};
@@ -21,21 +21,23 @@ module.exports = function (){
 	};
 
 	this.turnLeft = function(){
-		console.log("turnLeft");
-
-		this.turn(150);
+		console.log("Head turn left");
+		this.turn(175);
 	};
 
 	this.turnRight = function(){
-		this.turn(650);
+		console.log("Head turn right");
+		this.turn(675);
 	};
 	
 	this.moveUp = function(){
-		this.move(150);
+		console.log("Head move up");
+		this.move(175);
 	};
 
 	this.moveDown = function(degree){
-		this.move(650);
+		console.log("Head move down");
+		this.move(675);
 	};
 
 };

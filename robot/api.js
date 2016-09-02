@@ -49,5 +49,16 @@
              jack.body.head.moveDown();
          },
 
+         headMove: function(position) {
+             console.log(position);
+             position = parseInt(position);
+             jack.body.head.moveUp(position);
+         },
+
+         headTurn: function(position) {
+             position = parseInt(position);
+             jack.body.head.moveDown(position);
+         },
+
      };
  };
