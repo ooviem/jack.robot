@@ -8,36 +8,51 @@ var setServoPulse = function(channel, pulse) {
 	pulse *= 1000;
 	pulse /= pulseLength;
 	console.log(pulse);
-	return pwm.setPwm(channel, 425, pulse);
+	return pwm.setPwm(channel, 0, pulse);
 };
 module.exports = function (){
-	this.currentPosition = 175;
-	this.turn = function(degree){
+
+	this.verticalPos = 450;
+	this.minVerticalPos = 175;
+	this.maxVerticalPos = 650;
+	this.horizontalPos = 410;
+	this.minHorizontalPos = 200;
+	this.maxHorizontalPos = 650;
+
+	pwm.setPwm(0, 0, this.horizontalPos);
+	pwm.setPwm(1, 0, this.verticalPos);
+
+
+	this.turn = function(degree) {
+		this.horizontalPos = degree;
 		pwm.setPwm(0, 0, degree);
 	};
 
 	this.move = function(degree){
+		this.verticalPos = degree;
 		pwm.setPwm(1, 0, degree);
 	};
 
+
+
 	this.turnLeft = function(){
 		console.log("Head turn left");
-		this.turn(175);
+		this.turn(this.minHorizontalPos);
 	};
 
 	this.turnRight = function(){
 		console.log("Head turn right");
-		this.turn(675);
+		this.turn(this.maxHorizontalPos);
 	};
 	
 	this.moveUp = function(){
 		console.log("Head move up");
-		this.move(175);
+		this.move(this.minVerticalPos);
 	};
 
 	this.moveDown = function(degree){
 		console.log("Head move down");
-		this.move(675);
+		this.move(this.maxVerticalPos);
 	};
 
 };
