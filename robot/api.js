@@ -52,12 +52,12 @@
          headMove: function(position) {
              console.log(position);
              position = parseInt(position);
-             jack.body.head.moveUp(position);
+             jack.body.head.move(position);
          },
 
          headTurn: function(position) {
              position = parseInt(position);
-             jack.body.head.moveDown(position);
+             jack.body.head.turn(position);
          },
 
      };
