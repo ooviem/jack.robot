@@ -49,6 +49,7 @@ module.exports = function(hardwareIO) {
 	                distance = data.stderr;
 	                if(distance < safeDistance){
 		    			foot.stop();
+		    			mouth.speak("No way to reach destination");
 	    			} else if (distance > safeDistance) {
 		    			foot.turnRight();
 		    			every((1).seconds(), function() {
