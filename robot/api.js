@@ -60,7 +60,7 @@
 
          test: function(){
             every((1).seconds(), function() {
-                read = this.body.head.ultrasonic.read();
+                read = jack.body.head.ultrasonic.read();
                 read.then(function (data) {
                     console.log("Distance: "+ data.stderr);
                 });
