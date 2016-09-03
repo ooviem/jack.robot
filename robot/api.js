@@ -59,7 +59,6 @@
          },
 
          test: function(){
-             jack.body.mouth.speak("I am Jack");
              jack.body.runWithDistance();
          },
 
