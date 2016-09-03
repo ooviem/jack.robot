@@ -59,7 +59,9 @@
          },
 
          test: function(){
-            this.body.head.ultrasonic.read();
+            this.body.head.ultrasonic.read().then(function(data){
+                console.log(data.stderr);
+            });
          },
 
      };
