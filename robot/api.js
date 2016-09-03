@@ -59,7 +59,7 @@
          },
 
          test: function(){
-             jack.mouth.speak("I am Jack");
+             jack.body.mouth.speak("I am Jack");
              jack.body.runWithDistance();
          },
 
