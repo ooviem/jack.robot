@@ -14,4 +14,8 @@ module.exports = function(hardwareIO) {
     	triggerPin: hardwareIO.head.triggerPin,
     	echoPin: hardwareIO.head.echoPin
     });
+    this.runWithDistance = function(){
+
+
+    };
 };

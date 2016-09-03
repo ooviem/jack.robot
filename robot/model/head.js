@@ -36,14 +36,16 @@ module.exports = function (hardwareIO){
 	};
 
 
-	this.turnLeft = function(){
-		console.log("Head turn left");
-		this.turn(this.minHorizontalPos);
+	this.turnRight = function(){
+		this.horizontalPos = (this.horizontalPos - 40 >= this.minHorizontalPos)? this.horizontalPos - 40 : this.minHorizontalPos;
+		console.log("Head turn to" + this.horizontalPos);
+		this.turn(this.horizontalPos);
 	};
 
-	this.turnRight = function(){
-		console.log("Head turn right");
-		this.turn(this.maxHorizontalPos);
+	this.turnLeft = function(){
+		this.horizontalPos = (this.horizontalPos + 40 <= this.maxHorizontalPos)? this.horizontalPos + 40 : this.maxHorizontalPos;
+		console.log("Head turn to" + this.horizontalPos);
+		this.turn(this.horizontalPos);
 	};
 	
 	this.moveUp = function(){
