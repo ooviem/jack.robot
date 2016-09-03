@@ -60,7 +60,7 @@
 
          test: function(){
             this.body.head.ultrasonic.read().then(function(data){
-                console.log("distance: ":data.stderr);
+                console.log("distance: "+data.stderr);
             });
          },
 
