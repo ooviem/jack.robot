@@ -70,7 +70,7 @@ var Jack = Cylon.robot({
                 runBackwardPinRight: this.pin2
             },
             head: {
-                triggerPin: this.pin6
+                triggerPin: this.pin6,
                 echoPin:  this.pin5
             }
         });
