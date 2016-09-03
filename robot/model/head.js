@@ -55,7 +55,7 @@ module.exports = function (hardwareIO){
 	};
 
 	this.moveDown = function(){
-		this.verticalPos = (this.verticalPos + 40 >= this.maxVerticalPos)? this.verticalPos + 40 : this.maxVerticalPos;
+		this.verticalPos = (this.verticalPos + 40 <= this.maxVerticalPos)? this.verticalPos + 40 : this.maxVerticalPos;
 		console.log("Head move to"+ this.verticalPos);
 		this.move(this.verticalPos);
 	};
