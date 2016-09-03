@@ -58,45 +58,7 @@ module.exports = function (hardwareIO){
 
 	this.ultrasonic = {
 		read: function(){
-			command.readUltrasonic();
-
-			// // Set trigger to False (Low)
-			// hardwareIO.triggerPin.digitalWrite(0);
-
-			// // Allow module to settle
-			// setTimeout(function() {
-			// 	hardwareIO.triggerPin.digitalWrite(1);
-			// }, 500);
-
-			// setTimeout(function() {
-			// 	hardwareIO.triggerPin.digitalWrite(0);
-			// }, 501);
-
-	
-			// var start = (new Date()).getTime() / 1000;
-			// var stop = (new Date()).getTime() / 1000;
-			// while (hardwareIO.echoPin.digitalRead() === 0){
-			// 	start = (new Date()).getTime() / 1000;
-			// 	console.log("start " + start);
-
-			// }
-
-			// while (hardwareIO.echoPin.digitalRead() === 1){
-			// 	stop = (new Date()).getTime() / 1000;
-			// 	console.log("stop " + stop);
-			// }
-
-			// // Calculate pulse length
-			// var elapsed = stop-start;
-
-			// // Distance pulse travelled in that time is time
-			// // multiplied by the speed of sound (cm/s)
-			// var distance = elapsed * 34000;
-
-			// // That was the distance there and back so halve the value
-			// distance = distance / 2;
-
-			// console.log(distance);
+			return command.readUltrasonic();
 		}
 	};
 

@@ -60,6 +60,7 @@
 
          test: function(){
             read = this.body.head.ultrasonic.read();
+            console.log("Error");
             read.then(function (data) {
                 console.log("Error: "+ data.stderr);
             });
