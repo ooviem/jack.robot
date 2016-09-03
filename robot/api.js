@@ -58,5 +58,9 @@
              jack.body.head.turn(position);
          },
 
+         test: function(){
+            this.body.head.ultrasonic.read();
+         },
+
      };
  };

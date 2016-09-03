@@ -54,5 +54,9 @@ angular.module('JackControllerApp', ['ngMaterial'])
             ctrlMe.headTurn = function(position) {
                 callPOST("headTurn", { position: position});
             };
+
+            ctrlMe.test = function() {
+                callGET("test");
+            };
         }
     ]);

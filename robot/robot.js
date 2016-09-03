@@ -74,7 +74,6 @@ var Jack = Cylon.robot({
                 echoPin:  this.pin5
             }
         });
-        this.body.head.ultrasonic.read();
         this.commands = APICommand(this);
     }
 }).start();
