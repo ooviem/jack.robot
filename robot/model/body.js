@@ -59,8 +59,8 @@ module.exports = function(hardwareIO) {
 	        });
     	};
     	var task = function(){
-    			head.move(490);
-    			head.turn(410);
+    		head.move(490);
+    		head.turn(410);
     		if(destination > 0){
 	            var read = head.ultrasonic.read();
 	            read.then(function (data) {
