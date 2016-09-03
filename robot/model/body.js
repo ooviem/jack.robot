@@ -23,11 +23,11 @@ module.exports = function(hardwareIO) {
 
     	head.move(490);
     	head.turn(410);
-    	
+
     	every((0.3).seconds(), function() {
     		if(distance < safeDistance){
     			foot.stop();
-    		} else (distance > safeDistance && isFirstTime) {
+    		} else if (distance > safeDistance && isFirstTime) {
     			isFirstTime = false;
     			foot.runForward();
     		}
