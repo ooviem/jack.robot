@@ -16,9 +16,7 @@ var Command = {
                 stdout: stdout
             };
             deferred.resolve(output);
-
-            console.log('stdout:'+stdout);
-            console.log('stderr:'+stderr);
+            console.log(output);
         });
         // cp.exec(command, function (error, stdout, stderr) {
         //     var output = {

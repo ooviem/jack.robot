@@ -58,3 +58,4 @@ print "Distance : %.1f" % distance
 
 # Reset GPIO settings
 GPIO.cleanup()
+return distance
