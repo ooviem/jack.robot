@@ -21,7 +21,7 @@ module.exports = function(hardwareIO) {
     	head.turn(410);
     	foot.runForward();
     	var distance;
-    	every((0.5).seconds(), function() {
+    	every((0.1).seconds(), function() {
     		if(distance < 20){
     			foot.stop();
     		}

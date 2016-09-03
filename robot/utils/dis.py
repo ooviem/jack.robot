@@ -30,7 +30,7 @@ GPIO.setup(GPIO_ECHO,GPIO.IN)      # Echo
 GPIO.output(GPIO_TRIGGER, False)
 
 # Allow module to settle
-time.sleep(0.5)
+time.sleep(0.2)
 
 # Send 10us pulse to trigger
 GPIO.output(GPIO_TRIGGER, True)
