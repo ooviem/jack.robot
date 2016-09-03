@@ -16,7 +16,6 @@ var Command = {
                 stdout: stdout
             };
             deferred.resolve(output);
-            console.log(output);
         });
         // cp.exec(command, function (error, stdout, stderr) {
         //     var output = {
@@ -37,7 +36,7 @@ var Command = {
 
     },
     readUltrasonic: function(){
-        this.exe("sudo python ./utils/dis.py");
+        return this.exe("sudo python ./utils/dis.py");
     }
 };
 module.exports = Command;
