@@ -33,8 +33,6 @@ module.exports = function(hardwareIO) {
 	                if(distance < safeDistance){
 		    			findRight();
 	    			} else if (distance > safeDistance) {
-		    			head.move(490);
-    					head.turn(410);
 		    			foot.turnLeft();
 		    			every((1).seconds(), function() {
 							foot.stop();
@@ -45,7 +43,7 @@ module.exports = function(hardwareIO) {
     	};
     	var findRight = function(){
     		head.move(490);
-    		head.turn(300);
+    		head.turn(250);
     		var read = head.ultrasonic.read();
 	            read.then(function (data) {
 	                distance = data.stderr;
@@ -61,6 +59,8 @@ module.exports = function(hardwareIO) {
 	        });
     	};
     	var task = function(){
+    			head.move(490);
+    			head.turn(410);
     		if(destination > 0){
 	            var read = head.ultrasonic.read();
 	            read.then(function (data) {
