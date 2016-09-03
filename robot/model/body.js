@@ -23,19 +23,21 @@ module.exports = function(hardwareIO) {
 
     	head.move(490);
     	head.turn(410);
-
+    	var breakInterval = false;
     	every((0.3).seconds(), function() {
-    		if(distance < safeDistance){
-    			foot.stop();
-    			return false;
-    		} else if (distance > safeDistance && isFirstTime) {
-    			isFirstTime = false;
-    			foot.runForward();
-    		}
-            read = head.ultrasonic.read();
-            read.then(function (data) {
-               distance = data.stderr;
-            });
+    		if(!breakInterval) {	
+	    		if(distance < safeDistance){
+	    			foot.stop();
+	    			breakInterval = true;
+	    		} else if (distance > safeDistance && isFirstTime) {
+	    			isFirstTime = false;
+	    			foot.runForward();
+	    		}
+	            read = head.ultrasonic.read();
+	            read.then(function (data) {
+	               distance = data.stderr;
+	            });
+	        }
         });
 
     };
