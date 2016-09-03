@@ -15,14 +15,15 @@ module.exports = function(hardwareIO) {
     	echoPin: hardwareIO.head.echoPin
     });
     this.runWithDistance = function() {
+    	var safeDistance = 20;
     	var head = this.head;
     	var foot = this.foot;
     	head.move(490);
     	head.turn(410);
-    	foot.runForward();
+    	// foot.runForward();
     	var distance;
     	every((0.3).seconds(), function() {
-    		if(distance < 20){
+    		if(distance < safeDistance){
     			foot.stop();
     		}
             read = head.ultrasonic.read();
