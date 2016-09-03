@@ -16,16 +16,19 @@ module.exports = function(hardwareIO) {
     });
     this.runWithDistance = function() {
     	var head = this.head;
+    	var foot = this.foot;
     	head.move(530);
     	head.turn(410);
-
+    	foot.runForward();
     	var distance;
-    	every((1).seconds(), function() {
+    	every((0.5).seconds(), function() {
+    		if(distance < 20){
+    			foot.stop();
+    		}
             read = head.ultrasonic.read();
             read.then(function (data) {
                distance = data.stderr;
             });
-            console.log(distance);
         });
 
     };
