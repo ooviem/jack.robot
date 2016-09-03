@@ -59,7 +59,12 @@
          },
 
          test: function(){
-             jack.body.runWithDistance(10);
+            var read = jack.body.head.ultrasonic.read();
+            read.then(function (data) {
+                distance = data.stderr;
+                console.log(distance);
+            });
+             // jack.body.runWithDistance(10);
          },
 
      };

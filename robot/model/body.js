@@ -22,46 +22,46 @@ module.exports = function(hardwareIO) {
     	var foot = this.foot;
     	var mouth = this.mouth;
     	mouth.speak("destination set, move "+destination+" units");
-    	head.move(530);
+    	head.move(570);
     	head.turn(410);
     	var breakInterval = false;
     	var findLeft = function(){
-    		head.move(530);
+    		head.move(570);
     		head.turn(570);
     		var read = head.ultrasonic.read();
-	            read.then(function (data) {
-	                distance = data.stderr;
-	                if(distance < safeDistance){
-		    			findRight();
-	    			} else if (distance > safeDistance) {
-	    				head.move(530);
-    					head.turn(410);
-		    			foot.turnLeft();
-		    			after((1).seconds(), function() {
-							foot.stop();
-							task();
-						});
-	    		   }
-	        });
+            read.then(function (data) {
+                distance = data.stderr;
+                if(distance < safeDistance){
+	    			findRight();
+    			} else if (distance > safeDistance) {
+    				head.move(570);
+					head.turn(410);
+	    			foot.turnLeft();
+	    			after((1).seconds(), function() {
+						foot.stop();
+						task();
+					});
+    		   }
+        	});
     	};
     	var findRight = function(){
-    		head.move(530);
+    		head.move(570);
     		head.turn(250);
     		var read = head.ultrasonic.read();
-	            read.then(function (data) {
-	                distance = data.stderr;
-	                if(distance < safeDistance){
-		    			foot.stop();
-		    			mouth.speak("No way to reach destination");
-	    			} else if (distance > safeDistance) {
-	    				head.move(530);
-    					head.turn(410);
-		    			foot.turnRight();
-		    			after((1).seconds(), function() {
-							foot.stop();
-							task();
-						});
-	    		   }
+            read.then(function (data) {
+                distance = data.stderr;
+                if(distance < safeDistance){
+	    			foot.stop();
+	    			mouth.speak("No way to reach destination");
+    			} else if (distance > safeDistance) {
+    				head.move(570);
+					head.turn(410);
+	    			foot.turnRight();
+	    			after((1).seconds(), function() {
+						foot.stop();
+						task();
+					});
+    		   }
 	        });
     	};
     	var task = function(){
