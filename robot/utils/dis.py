@@ -22,8 +22,6 @@ GPIO.setmode(GPIO.BCM)
 GPIO_TRIGGER = 25
 GPIO_ECHO = 18
 
-print "Ultrasonic Measurement"
-
 # Set pins as output and input
 GPIO.setup(GPIO_TRIGGER,GPIO.OUT)  # Trigger
 GPIO.setup(GPIO_ECHO,GPIO.IN)      # Echo
@@ -59,4 +57,4 @@ print "Distance : %.1f" % distance
 
 # Reset GPIO settings
 GPIO.cleanup()
-sys.exit(0, distance)
+sys.exit(distance)
