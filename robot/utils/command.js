@@ -17,14 +17,6 @@ var Command = {
             };
             deferred.resolve(output);
         });
-        // cp.exec(command, function (error, stdout, stderr) {
-        //     var output = {
-        //         error: error,
-        //         stderr: stderr,
-        //         stdout: stdout
-        //     };
-        //     deferred.resolve(output);
-        // });
 
         return deferred.promise;
     },

@@ -59,8 +59,9 @@
          },
 
          test: function(){
-            this.body.head.ultrasonic.read().then(function(data){
-                console.log("distance: "+data.stderr);
+            read = this.body.head.ultrasonic.read();
+            read.then(function (data) {
+                console.log("Error: "+ data.stderr);
             });
          },
 
