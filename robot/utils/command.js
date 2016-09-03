@@ -8,8 +8,7 @@ var Command = {
         console.log(command);
         cp.exec(command, function (error, stdout, stderr) {
             if (error) {
-                console.error('exec error: ${error}');
-                return;
+                console.error('exec error:'+error);
             }
             var output = {
                 error: error,
