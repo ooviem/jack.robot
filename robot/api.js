@@ -59,12 +59,7 @@
          },
 
          test: function(){
-            every((1).seconds(), function() {
-                read = jack.body.head.ultrasonic.read();
-                read.then(function (data) {
-                    console.log("Distance: "+ data.stderr);
-                });
-            });
+             jack.body.runWithDistance();
          },
 
      };
