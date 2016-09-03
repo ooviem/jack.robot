@@ -20,7 +20,6 @@ module.exports = function(hardwareIO) {
     	var distance;
     	var head = this.head;
     	var foot = this.foot;
-    	var isFirstTime = true;
     	var mouth = this.mouth;
     	head.move(490);
     	head.turn(410);
@@ -34,7 +33,8 @@ module.exports = function(hardwareIO) {
 	                if(distance < safeDistance){
 		    			findRight();
 	    			} else if (distance > safeDistance) {
-		    			isFirstTime = false;
+		    			head.move(490);
+    					head.turn(410);
 		    			foot.turnLeft();
 		    			every((3).seconds(), function() {
 							foot.stop();
@@ -52,7 +52,6 @@ module.exports = function(hardwareIO) {
 	                if(distance < safeDistance){
 		    			foot.stop();
 	    			} else if (distance > safeDistance) {
-		    			isFirstTime = false;
 		    			foot.turnRight();
 		    			every((3).seconds(), function() {
 							foot.stop();
@@ -70,14 +69,13 @@ module.exports = function(hardwareIO) {
 	                	findLeft();
 		    			foot.stop();
 	    			} else if (distance > safeDistance) {
-		    			isFirstTime = false;
 		    			foot.runForward();
 		    			destination -= 1;
 		    			task();
 	    		   }
 	            });
     		} else {
-    			mouth.speak("destination reached");
+    			mouth.speak("I am on the destination");
     			foot.stop();
     		}
     	}
