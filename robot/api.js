@@ -59,8 +59,12 @@
          },
 
          test: function(){
-             jack.body.mouth.speak("I am Jack");
-             jack.body.runWithDistance();
+            jack.body.foot.turnLeft();
+            every((3).seconds(), function() {
+                foot.stop();
+            });
+             // jack.body.mouth.speak("I am Jack");
+             // jack.body.runWithDistance();
          },
 
      };

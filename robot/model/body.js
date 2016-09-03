@@ -39,7 +39,6 @@ module.exports = function(hardwareIO) {
 		    			every((3).seconds(), function() {
 							foot.stop();
 						});
-		    			task();
 	    		   }
 	        });
     	};
@@ -56,7 +55,6 @@ module.exports = function(hardwareIO) {
 		    			every((3).seconds(), function() {
 							foot.stop();
 						});
-		    			task();
 	    		   }
 	        });
     	};
