@@ -36,7 +36,7 @@ module.exports = function(hardwareIO) {
 	    				head.move(490);
     					head.turn(410);
 		    			foot.turnLeft();
-		    			every((1).seconds(), function() {
+		    			after((1).seconds(), function() {
 							foot.stop();
 							task();
 						});
@@ -56,7 +56,7 @@ module.exports = function(hardwareIO) {
 	    				head.move(490);
     					head.turn(410);
 		    			foot.turnRight();
-		    			every((1).seconds(), function() {
+		    			after((1).seconds(), function() {
 							foot.stop();
 							task();
 						});
