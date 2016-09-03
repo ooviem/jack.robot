@@ -56,4 +56,6 @@ distance = distance / 2
 
 # Reset GPIO settings
 GPIO.cleanup()
-sys.exit(distance)
+sys.stdout.write(distance)
+sys.stdout.flush()
+sys.exit(0)
