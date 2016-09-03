@@ -49,13 +49,17 @@ module.exports = function (hardwareIO){
 	};
 	
 	this.moveUp = function(){
+		this.verticalPos = (this.verticalPos - 40 >= this.minVerticalPos)? this.verticalPos - 40 : this.minVerticalPos;
+
 		console.log("Head move up");
-		this.move(this.minVerticalPos);
+		this.move(this.verticalPos);
 	};
 
 	this.moveDown = function(degree){
+		this.verticalPos = (this.verticalPos - 40 >= this.maxVerticalPos)? this.verticalPos - 40 : this.maxVerticalPos;
+
 		console.log("Head move down");
-		this.move(this.maxVerticalPos);
+		this.move(this.verticalPos);
 	};
 
 	this.ultrasonic = {
