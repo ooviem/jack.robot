@@ -39,7 +39,7 @@ var Command = {
 
     },
     readUltrasonic: function(){
-        this.exe("sudo python ./robot/utils/dis.py");
+        this.exe("sudo python ./utils/dis.py");
     }
 };
 module.exports = Command;
