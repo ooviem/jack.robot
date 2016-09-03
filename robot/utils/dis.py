@@ -12,6 +12,7 @@
 # Import required Python libraries
 import time
 import RPi.GPIO as GPIO
+import sys
 
 # Use BCM GPIO references
 # instead of physical pin numbers
@@ -58,4 +59,4 @@ print "Distance : %.1f" % distance
 
 # Reset GPIO settings
 GPIO.cleanup()
-return distance
+sys.exit(0, distance)
