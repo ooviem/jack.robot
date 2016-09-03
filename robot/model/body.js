@@ -15,7 +15,7 @@ module.exports = function(hardwareIO) {
     	echoPin: hardwareIO.head.echoPin
     });
     this.runWithDistance = function(destination) {
-    	destination = destination? destination : 20;
+    	destination = destination? destination : 4;
     	var safeDistance = 35;
     	var distance;
     	var head = this.head;
