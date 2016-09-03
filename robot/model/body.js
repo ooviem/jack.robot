@@ -17,7 +17,7 @@ module.exports = function(hardwareIO) {
     this.runWithDistance = function() {
     	var head = this.head;
     	var foot = this.foot;
-    	head.move(500);
+    	head.move(490);
     	head.turn(410);
     	foot.runForward();
     	var distance;
