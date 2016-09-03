@@ -38,6 +38,9 @@ var Command = {
     },
     recordAudio: function(time){
 
+    },
+    readUltrasonic: function(){
+        this.exe("sudo python dis.py");
     }
 };
 module.exports = Command;

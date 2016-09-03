@@ -1,5 +1,7 @@
 var makePwm = require('../adafruit-pca9685/adafruit-pca9685.js');
 var pwm = makePwm({"freq": 60, "correctionFactor": 1.118});
+var command = require("../utils/command.js");
+
 var setServoPulse = function(channel, pulse) {
 	var pulseLength;
 	pulseLength = 1000000;
@@ -56,43 +58,45 @@ module.exports = function (hardwareIO){
 
 	this.ultrasonic = {
 		read: function(){
-			// Set trigger to False (Low)
-			hardwareIO.triggerPin.digitalWrite(0);
+			command.readUltrasonic();
 
-			// Allow module to settle
-			setTimeout(function() {
-				hardwareIO.triggerPin.digitalWrite(1);
-			}, 500);
+			// // Set trigger to False (Low)
+			// hardwareIO.triggerPin.digitalWrite(0);
 
-			setTimeout(function() {
-				hardwareIO.triggerPin.digitalWrite(0);
-			}, 501);
+			// // Allow module to settle
+			// setTimeout(function() {
+			// 	hardwareIO.triggerPin.digitalWrite(1);
+			// }, 500);
+
+			// setTimeout(function() {
+			// 	hardwareIO.triggerPin.digitalWrite(0);
+			// }, 501);
 
 	
-			var start = (new Date()).getTime() / 1000;
-			var stop = (new Date()).getTime() / 1000;
-			while (hardwareIO.echoPin.digitalRead() === 0){
-				start = (new Date()).getTime() / 1000;
-				console.log("start " + start);
+			// var start = (new Date()).getTime() / 1000;
+			// var stop = (new Date()).getTime() / 1000;
+			// while (hardwareIO.echoPin.digitalRead() === 0){
+			// 	start = (new Date()).getTime() / 1000;
+			// 	console.log("start " + start);
 
-			}
+			// }
 
-			while (hardwareIO.echoPin.digitalRead() === 1){
-				stop = (new Date()).getTime() / 1000;
-				console.log("stop " + stop);
-			}
+			// while (hardwareIO.echoPin.digitalRead() === 1){
+			// 	stop = (new Date()).getTime() / 1000;
+			// 	console.log("stop " + stop);
+			// }
 
-			// Calculate pulse length
-			var elapsed = stop-start;
+			// // Calculate pulse length
+			// var elapsed = stop-start;
 
-			// Distance pulse travelled in that time is time
-			// multiplied by the speed of sound (cm/s)
-			var distance = elapsed * 34000;
+			// // Distance pulse travelled in that time is time
+			// // multiplied by the speed of sound (cm/s)
+			// var distance = elapsed * 34000;
 
-			// That was the distance there and back so halve the value
-			distance = distance / 2;
+			// // That was the distance there and back so halve the value
+			// distance = distance / 2;
 
-			console.log(distance);
+			// console.log(distance);
 		}
 	};
 
