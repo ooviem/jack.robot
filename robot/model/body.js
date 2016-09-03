@@ -1,5 +1,5 @@
 var foot = require("./foot.js");
-var mount = require("./mouth.js");
+var mouth = require("./mouth.js");
 var head = require("./head.js");
 
 module.exports = function(hardwareIO) {
@@ -9,7 +9,7 @@ module.exports = function(hardwareIO) {
         runForwardPinRight: hardwareIO.foot.runForwardPinRight,
         runBackwardPinRight: hardwareIO.foot.runBackwardPinRight
     });
-    this.mouth = mount;
+    this.mouth = mouth;
     this.head = new head({
     	triggerPin: hardwareIO.head.triggerPin,
     	echoPin: hardwareIO.head.echoPin
@@ -21,18 +21,54 @@ module.exports = function(hardwareIO) {
     	var head = this.head;
     	var foot = this.foot;
     	var isFirstTime = true;
-
+    	var mouth = this.mouth;
     	head.move(490);
     	head.turn(410);
     	var breakInterval = false;
-    	var task = function(){
-    		if(destination > 0){
-	            read = head.ultrasonic.read();
+    	var findLeft = function(){
+    		head.move(490);
+    		head.turn(570);
+    		var read = head.ultrasonic.read();
+	            read.then(function (data) {
+	                distance = data.stderr;
+	                if(distance < safeDistance){
+		    			findRight();
+	    			} else if (distance > safeDistance) {
+		    			isFirstTime = false;
+		    			foot.turnLeft();
+		    			every((3).seconds(), function() {
+							foot.stop();
+						});
+		    			task();
+	    		   }
+	        });
+    	};
+    	var findRight = function(){
+    		head.move(490);
+    		head.turn(300);
+    		var read = head.ultrasonic.read();
 	            read.then(function (data) {
 	                distance = data.stderr;
 	                if(distance < safeDistance){
 		    			foot.stop();
-		    			breakInterval = true;
+	    			} else if (distance > safeDistance) {
+		    			isFirstTime = false;
+		    			foot.turnRight();
+		    			every((3).seconds(), function() {
+							foot.stop();
+						});
+		    			task();
+	    		   }
+	        });
+    	};
+    	var task = function(){
+    		if(destination > 0){
+	            var read = head.ultrasonic.read();
+	            read.then(function (data) {
+	                distance = data.stderr;
+	                if(distance < safeDistance){
+	                	findLeft();
+		    			foot.stop();
 	    			} else if (distance > safeDistance) {
 		    			isFirstTime = false;
 		    			foot.runForward();
@@ -41,6 +77,7 @@ module.exports = function(hardwareIO) {
 	    		   }
 	            });
     		} else {
+    			mouth.speak("destination reached");
     			foot.stop();
     		}
     	}
