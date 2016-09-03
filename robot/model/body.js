@@ -36,8 +36,9 @@ module.exports = function(hardwareIO) {
 		    			head.move(490);
     					head.turn(410);
 		    			foot.turnLeft();
-		    			every((3).seconds(), function() {
+		    			every((1).seconds(), function() {
 							foot.stop();
+							task();
 						});
 	    		   }
 	        });
@@ -52,8 +53,9 @@ module.exports = function(hardwareIO) {
 		    			foot.stop();
 	    			} else if (distance > safeDistance) {
 		    			foot.turnRight();
-		    			every((3).seconds(), function() {
+		    			every((1).seconds(), function() {
 							foot.stop();
+							task();
 						});
 	    		   }
 	        });
