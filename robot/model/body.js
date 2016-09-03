@@ -14,13 +14,14 @@ module.exports = function(hardwareIO) {
     	triggerPin: hardwareIO.head.triggerPin,
     	echoPin: hardwareIO.head.echoPin
     });
-    this.runWithDistance = function(){
-    	this.head.move(530);
-    	this.head.turn(410);
+    this.runWithDistance = function() {
+    	var head = this.head;
+    	head.move(530);
+    	head.turn(410);
 
     	var distance;
     	every((1).seconds(), function() {
-            read = this.head.ultrasonic.read();
+            read = head.ultrasonic.read();
             read.then(function (data) {
                distance = data.stderr;
             });
