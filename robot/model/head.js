@@ -73,13 +73,13 @@ module.exports = function (hardwareIO){
 			var stop = (new Date()).getTime() / 1000;
 			while (hardwareIO.echoPin.digitalRead ==0){
 				start = (new Date()).getTime() / 1000;
-				console.log(start);
+				console.log("start " + start);
 
 			}
 
 			while (hardwareIO.echoPin.digitalRead ==1){
 				stop = (new Date()).getTime() / 1000;
-				console.log(stop);
+				console.log("stop " + stop);
 			}
 
 			// Calculate pulse length
