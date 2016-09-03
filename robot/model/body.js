@@ -16,12 +16,12 @@ module.exports = function(hardwareIO) {
     });
     this.runWithDistance = function(destination) {
     	destination = destination? destination : 10;
-    	mouth.speak("destination set, move "+destination+" units");
     	var safeDistance = 35;
     	var distance;
     	var head = this.head;
     	var foot = this.foot;
     	var mouth = this.mouth;
+    	mouth.speak("destination set, move "+destination+" units");
     	head.move(490);
     	head.turn(410);
     	var breakInterval = false;

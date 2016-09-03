@@ -59,7 +59,7 @@
          },
 
          test: function(){
-             jack.body.runWithDistance();
+             jack.body.runWithDistance(10);
          },
 
      };
