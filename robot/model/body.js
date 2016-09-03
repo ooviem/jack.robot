@@ -27,6 +27,7 @@ module.exports = function(hardwareIO) {
     	every((0.3).seconds(), function() {
     		if(distance < safeDistance){
     			foot.stop();
+    			break;
     		} else if (distance > safeDistance && isFirstTime) {
     			isFirstTime = false;
     			foot.runForward();
