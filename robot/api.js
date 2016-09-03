@@ -33,7 +33,6 @@
          },
 
          headLeft: function() {
-             console.log(jack.body.head);
              jack.body.head.turnLeft();
          },
          
@@ -50,7 +49,6 @@
          },
 
          headMove: function(position) {
-             console.log(position);
              position = parseInt(position);
              jack.body.head.move(position);
          },

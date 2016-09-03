@@ -43,7 +43,18 @@ var Jack = Cylon.robot({
         pin4: {
             driver: 'direct-pin',
             pin: 18
+        },
+
+        pin5: {
+            driver: 'direct-pin',
+            pin: 12
+        },
+
+        pin6: {
+            driver: 'direct-pin',
+            pin: 22
         }
+
     },
 
     work: function(jack) {
@@ -57,8 +68,13 @@ var Jack = Cylon.robot({
                 runBackwardPinLeft: this.pin4,
                 runForwardPinRight: this.pin1,
                 runBackwardPinRight: this.pin2
+            },
+            head: {
+                triggerPin: this.pin6
+                echoPin:  this.pin5
             }
         });
+        this.body.head.ultrasonic.read();
         this.commands = APICommand(this);
     }
 }).start();
