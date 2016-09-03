@@ -21,7 +21,7 @@ var Command = {
         return deferred.promise;
     },
     speak: function(text){
-        var command = "sudo runuser -l pi -c \" "+flite -voice RMS '"+ text +"'"\";
+        var command = "sudo runuser -l pi -c" + "\"flite -voice RMS '"+ text +"'\"";
         this.exe(command);
     },
     recordAudio: function(time){
