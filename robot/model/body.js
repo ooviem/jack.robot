@@ -16,25 +16,25 @@ module.exports = function(hardwareIO) {
     });
     this.runWithDistance = function(destination) {
     	destination = destination? destination : 10;
-    	var safeDistance = 35;
+    	var safeDistance = 30;
     	var distance;
     	var head = this.head;
     	var foot = this.foot;
     	var mouth = this.mouth;
     	mouth.speak("destination set, move "+destination+" units");
-    	head.move(570);
+    	head.move(560);
     	head.turn(410);
     	var breakInterval = false;
     	var findLeft = function(){
-    		head.move(570);
-    		head.turn(570);
+    		head.move(560);
+    		head.turn(560);
     		var read = head.ultrasonic.read();
             read.then(function (data) {
                 distance = data.stderr;
                 if(distance < safeDistance){
 	    			findRight();
     			} else if (distance > safeDistance) {
-    				head.move(570);
+    				head.move(560);
 					head.turn(410);
 	    			foot.turnLeft();
 	    			after((1).seconds(), function() {
@@ -45,7 +45,7 @@ module.exports = function(hardwareIO) {
         	});
     	};
     	var findRight = function(){
-    		head.move(570);
+    		head.move(560);
     		head.turn(250);
     		var read = head.ultrasonic.read();
             read.then(function (data) {
@@ -54,7 +54,7 @@ module.exports = function(hardwareIO) {
 	    			foot.stop();
 	    			mouth.speak("No way to reach destination");
     			} else if (distance > safeDistance) {
-    				head.move(570);
+    				head.move(560);
 					head.turn(410);
 	    			foot.turnRight();
 	    			after((1).seconds(), function() {
