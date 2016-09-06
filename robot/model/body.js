@@ -21,7 +21,7 @@ module.exports = function(hardwareIO) {
     	var head = this.head;
     	var foot = this.foot;
     	var mouth = this.mouth;
-    	mouth.speak("destination set, move "+destination+" units");
+    	// mouth.speak("destination set, move "+destination+" units");
     	head.move(560);
     	head.turn(410);
     	var leftCount = 0;
@@ -66,7 +66,7 @@ module.exports = function(hardwareIO) {
                 distance = data.stderr;
                 if(distance < safeDistance){
 	    			foot.stop();
-	    			mouth.speak("No way to reach destination");
+	    			// mouth.speak("No way to reach destination");
     			} else if (distance > safeDistance) {
     				head.move(560);
 					head.turn(410);
@@ -117,7 +117,7 @@ module.exports = function(hardwareIO) {
     		} else {
                 head.move(450);
                 head.turn(410);
-    			mouth.speak("Destination reached");
+    			// mouth.speak("Destination reached");
     			foot.stop();
     		}
     	}
