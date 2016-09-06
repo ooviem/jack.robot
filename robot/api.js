@@ -64,14 +64,21 @@
             //     distance = data.stderr;
             //     console.log(distance);
             // });
-            jack.body.runWithDistance(10);
+            jack.body.head.move(560);
+            jack.body.head.turn(410);
+            
+            var read = jack.body.head.ultrasonic.read();
+            read.then(function (data) {
+                distance = data.stderr;
+                console.log(distance);
+            });
          },
 
          test2: function(){
             // jack.body.runWithDistance(1);
             jack.body.head.move(560);
             jack.body.head.turn(410);
-            
+
             var read = jack.body.head.ultrasonic.read();
             read.then(function (data) {
                 distance = data.stderr;
