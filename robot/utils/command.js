@@ -5,7 +5,6 @@ var Q = require("q");
 var Command = {
     exe: function (command) {
         var deferred = Q.defer();
-        console.log(command);
         cp.exec(command, function (error, stdout, stderr) {
             if (error) {
                 console.error('exec error:'+error);
