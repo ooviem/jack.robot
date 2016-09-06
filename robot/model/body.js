@@ -16,7 +16,7 @@ module.exports = function(hardwareIO) {
     });
     this.runWithDistance = function(destination) {
     	destination = destination? destination : 10;
-    	var safeDistance = 27;
+    	var safeDistance = 25;
     	var distance;
     	var head = this.head;
     	var foot = this.foot;
