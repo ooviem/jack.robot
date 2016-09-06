@@ -24,8 +24,13 @@ module.exports = function(hardwareIO) {
     	mouth.speak("destination set, move "+destination+" units");
     	head.move(560);
     	head.turn(410);
-    	var breakInterval = false;
-    	var findLeft = function(){
+    	var leftCount = 0;
+        var rightCount = 0;
+        var turnCount = 0;
+        var isTurning = false;
+        var breakInterval = false;
+        var hasTurned = false;
+    	var findLeft = function() {
     		head.move(560);
     		head.turn(560);
     		var read = head.ultrasonic.read();
@@ -37,7 +42,16 @@ module.exports = function(hardwareIO) {
     				head.move(560);
 					head.turn(410);
 	    			foot.turnLeft();
-	    			after((1).seconds(), function() {
+                    if(isTurning) {
+                        destination = destination + 2;
+                        leftCount = (leftCount + 1) % 3;
+                        rightCount = (rightCount + 2) % 3
+                        isTurning = false;
+                    } else {
+                        leftCount--;
+                    }
+
+	    			after((0.8).seconds(), function() {
 						foot.stop();
 						task();
 					});
@@ -57,26 +71,48 @@ module.exports = function(hardwareIO) {
     				head.move(560);
 					head.turn(410);
 	    			foot.turnRight();
-	    			after((1).seconds(), function() {
+                    if(isTurning) {
+                        destination = destination + 2;
+                        leftCount = (leftCount + 1) % 3;
+                        rightCount = (rightCount + 2) % 3;
+                        isTurning = false;
+                    } else {
+                        rightCount--;
+
+                    }
+	    			after((0.8).seconds(), function() {
 						foot.stop();
 						task();
 					});
     		   }
 	        });
     	};
-    	var task = function(){
+ 
+    	var task = function() {
     		if(destination > 0){
 	            var read = head.ultrasonic.read();
 	            read.then(function (data) {
 	                distance = data.stderr;
 	                if(distance < safeDistance){
+                        isTurning = true;
+                        turnCount ++;
 	                	findLeft();
 		    			foot.stop();
 	    			} else if (distance > safeDistance) {
-		    			foot.runForward();
-		    			destination -= 1;
-		    			task();
-	    		   }
+		    			if(leftCount > rightCount && turnCount > 0 && hasTurned == false){
+                            findLeft();
+                            hasTurned = true;
+                        } else (leftCount < rightCount && turnCount > 0 && hasTurned == false){
+                            findRight();
+                            hasTurned = true;
+                        }
+                        if(hasTurned == true){
+                           foot.runForward();
+                           hasTurned = false;
+                           destination--;
+                        }
+		    			task(); 
+	    		    }
 	            });
     		} else {
                 head.move(450);
