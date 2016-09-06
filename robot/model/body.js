@@ -105,7 +105,7 @@ module.exports = function(hardwareIO) {
                         } else if (leftCount < rightCount && turnCount > 0 && hasTurned == false){
                             findRight();
                             hasTurned = true;
-                        } else if (turnCount == 0) {
+                        } else {
                             hasTurned = true
                         }
                         if(hasTurned == true){
