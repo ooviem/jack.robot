@@ -61,6 +61,7 @@ angular.module('JackControllerApp', ['ngMaterial'])
 
             ctrlMe.test2 = function() {
                 callGET("test2");
+                
             };
         }
     ]);
