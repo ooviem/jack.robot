@@ -79,7 +79,9 @@ module.exports = function(hardwareIO) {
 	    		   }
 	            });
     		} else {
-    			mouth.speak("I am on the destination");
+                head.move(450);
+                head.turn(410);
+    			mouth.speak("Destination reached");
     			foot.stop();
     		}
     	}
