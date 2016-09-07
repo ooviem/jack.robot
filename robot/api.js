@@ -69,8 +69,8 @@ var fs = require('fs');
          },
 
          test2: function(){
-            // jack.body.head.move(560);
-            // jack.body.head.turn(410);
+            jack.body.head.move(560);
+            jack.body.head.turn(410);
             command.captureImage().then(function(data){
                 console.log("Photo taken"); 
                 var options = {
