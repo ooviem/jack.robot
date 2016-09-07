@@ -73,7 +73,7 @@
          },
         
         voice: function(){
-             var proc = cp.exec("arecord voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
+             var proc = cp.exec("arecord -d 5 abc.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
                 console.log("Recorded");
 
                 if (error) {
@@ -84,8 +84,25 @@
                     stderr: stderr,
                     stdout: stdout
                 };
+                var options = {
+                    host: "api.wit.ai",
+                    path: '/speech?v=20160830',
+                    method: "POST",
+                    headers: {
+                        "Content-type": "audio/mpeg3",
+                        "Authorization": "Bearer AYYU7KS2YDO35YUKOACFQJNDR4LLWQEG"
+                    }
+                };
+                var audio = fs.readFileSync("./voice.wav");
+
+                var req = http.request(options, function(res) {
+                  res.on('data', function (chunk) {
+                    console.log('BODY: ' + chunk);
+                  });
+                });
+                req.write(audio);
+                req.end();
              });
-             after(3, proc.kill('SIGINT'));
         },
         detectObject: function(){
             command.captureImage().then(function(data){
