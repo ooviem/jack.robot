@@ -73,7 +73,8 @@
          },
         
         voice: function(){
-             var proc = cp.exec("arecord -d 5 voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
+             var textCommand = this.textCommand;
+             var proc = cp.exec("arecord -d 3 voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
                 console.log("Recorded");
 
                 if (error) {
@@ -98,7 +99,7 @@
                 var req = http.request(options, function(res) {
                   res.on('data', function (chunk) {
                     console.log('Said: ' + chunk._text);
-                    this.textCommand(chunk._text);
+                    textCommand(chunk._text);
                   });
                 });
                 req.write(audio);
