@@ -73,7 +73,7 @@
          },
         
         voice: function(){
-             var process = cp.exec("arecord voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
+             var proc = cp.exec("arecord voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
                 console.log("Recorded");
 
                 if (error) {
@@ -85,7 +85,7 @@
                     stdout: stdout
                 };
              });
-             after(3, process.kill('SIGINT'));
+             after(3, proc.kill('SIGINT'));
         },
         detectObject: function(){
             command.captureImage().then(function(data){
@@ -102,8 +102,6 @@
                 var image = fs.readFileSync("./cam.jpg");
 
                 var req = http.request(options, function(res) {
-                  console.log('STATUS: ' + res.statusCode);
-                  console.log('HEADERS: ' + JSON.stringify(res.headers));
                   res.on('data', function (chunk) {
                     console.log('BODY: ' + chunk);
                   });
