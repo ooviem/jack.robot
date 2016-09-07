@@ -31,7 +31,7 @@ module.exports = function(hardwareIO) {
         var breakInterval = false;
         var hasTurned = false;
     	var findLeft = function() {
-    		head.move(560);
+            head.move(530);
     		head.turn(560);
     		var read = head.ultrasonic.read();
             read.then(function (data) {
@@ -63,7 +63,7 @@ module.exports = function(hardwareIO) {
         	});
     	};
     	var findRight = function(){
-    		head.move(560);
+    		head.move(530);
     		head.turn(250);
     		var read = head.ultrasonic.read();
             read.then(function (data) {
