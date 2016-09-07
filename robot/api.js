@@ -1,5 +1,5 @@
  var excution = require("./text-command.js");
- var command = require("./utils/commands.js");
+ var command = require("./utils/command.js");
  var http = require('https');
             var request = require('request');
             var FormData = require('form-data');
