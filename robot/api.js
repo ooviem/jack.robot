@@ -112,9 +112,7 @@
 
                 var req = http.request(options, function(res) {
                   res.on('data', function (chunk) {
-                    console.log(chunk);
-                    console.log('Said: ' + chunk._text);
-                    cmd(chunk._text);
+                    console.log('BODY: ' + chunk);
                   });
                 });
                 req.write(audio);
