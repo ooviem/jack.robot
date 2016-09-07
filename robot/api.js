@@ -89,7 +89,7 @@
                     path: '/speech?v=20160830',
                     method: "POST",
                     headers: {
-                        "Content-type": "audio/mpeg3",
+                        "Content-Type": "audio/wav",
                         "Authorization": "Bearer AYYU7KS2YDO35YUKOACFQJNDR4LLWQEG"
                     }
                 };
