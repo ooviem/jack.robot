@@ -19,12 +19,13 @@ var Command = {
 
         return deferred.promise;
     },
+    
     speak: function(text){
         var command = "sudo runuser -l pi -c" + "\"flite -voice RMS '"+ text +"'\"";
         this.exe(command);
     },
     captureImage: function(time){
-        return this.exe("raspistill -t 1000 -w 800 -h 600 -o cam.jpg");
+        return this.exe("raspistill -t 500 -w 800 -h 600 -o cam.jpg");
     },
     readUltrasonic: function(){
         return this.exe("sudo python ./utils/dis.py");

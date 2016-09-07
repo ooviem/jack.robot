@@ -1,8 +1,8 @@
  var excution = require("./text-command.js");
  var command = require("./utils/command.js");
  var http = require('https');
-var request = require('request');
-var fs = require('fs');
+ var fs = require('fs');
+ var cp = require("child_process");
 
  module.exports = function(jack) {
      return {
@@ -68,7 +68,24 @@ var fs = require('fs');
             jack.body.runWithDistance(10);
          },
 
-         test2: function(){
+         test2: function() {
+            this.voice();
+         },
+        
+        voice: function(){
+             var process = cp.exec("arecord voice.wav -D sysdefault:CARD=1^C    ", function (error, stdout, stderr) {
+                if (error) {
+                    console.error('exec error:'+error);
+                }
+                var output = {
+                    error: error,
+                    stderr: stderr,
+                    stdout: stdout
+                };
+             });
+             after(3, process.kill('SIGINT'));
+        },
+        detectObject: function(){
             command.captureImage().then(function(data){
                 console.log("Photo taken"); 
                 var options = {
@@ -92,8 +109,6 @@ var fs = require('fs');
 
                 req.write(image);
                 req.end();
-
-
 
             });
            
