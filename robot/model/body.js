@@ -37,7 +37,11 @@ module.exports = function(hardwareIO) {
             read.then(function (data) {
                 distance = data.stderr;
                 if(distance < safeDistance){
-	    			findRight();
+	    			if(!isFindingWay){
+                        findRight();
+                    } else {
+                        task();
+                    }
     			} else if (distance > safeDistance) {
     				head.move(560);
 					head.turn(410);
@@ -51,7 +55,7 @@ module.exports = function(hardwareIO) {
                         leftCount--;
                     }
 
-	    			after((0.8).seconds(), function() {
+	    			after((0.9).seconds(), function() {
 						foot.stop();
 						task();
 					});
@@ -65,7 +69,11 @@ module.exports = function(hardwareIO) {
             read.then(function (data) {
                 distance = data.stderr;
                 if(distance < safeDistance){
-	    			foot.stop();
+	    			if(!isFindingWay){
+                        foot.stop();
+                    } else {
+                        task();
+                    }
 	    			// mouth.speak("No way to reach destination");
     			} else if (distance > safeDistance) {
     				head.move(560);
@@ -78,16 +86,15 @@ module.exports = function(hardwareIO) {
                         isTurning = false;
                     } else {
                         rightCount--;
-
                     }
-	    			after((0.8).seconds(), function() {
+	    			after((0.9).seconds(), function() {
 						foot.stop();
 						task();
 					});
     		   }
 	        });
     	};
- 
+        var isFindingWay = false;
     	var task = function() {
     		if(destination > 0){
 	            var read = head.ultrasonic.read();
@@ -95,14 +102,17 @@ module.exports = function(hardwareIO) {
 	                distance = data.stderr;
 	                if(distance < safeDistance){
                         isTurning = true;
-                        turnCount ++;
+                        foot.stop();
 	                	findLeft();
-		    			foot.stop();
+                        turnCount ++;
+                        console.log();
 	    			} else if (distance > safeDistance) {
 		    			if(leftCount > rightCount && turnCount > 0 && hasTurned == false){
+                            isFindingWay = true;
                             findLeft();
                             hasTurned = true;
                         } else if (leftCount < rightCount && turnCount > 0 && hasTurned == false){
+                            isFindingWay = true;
                             findRight();
                             hasTurned = true;
                         } else {
