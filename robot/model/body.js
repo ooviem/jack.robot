@@ -126,7 +126,7 @@ module.exports = function(hardwareIO) {
                            hasTurned = false;
                            destination--;
                         }
-		    			task(); 
+                        after(0.5, task());
 	    		    }
 	            });
     		} else {
