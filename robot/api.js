@@ -77,7 +77,7 @@ var fs = require('fs');
                      path: '/vision/v1.0/describe?maxCandidates=1',
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/octet-stream"
+                        "Content-Type": "application/octet-stream",
                         "Ocp-Apim-Subscription-Key": "97eb698885fe4d96a68e4cfcfdf89aeb"
                     }
                 };
