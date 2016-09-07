@@ -23,8 +23,8 @@ var Command = {
         var command = "sudo runuser -l pi -c" + "\"flite -voice RMS '"+ text +"'\"";
         this.exe(command);
     },
-    recordAudio: function(time){
-
+    captureImage: function(time){
+        return this.exe("raspistill -w 800 -h 600 -o cam.jpg");
     },
     readUltrasonic: function(){
         return this.exe("sudo python ./utils/dis.py");

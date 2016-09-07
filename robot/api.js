@@ -1,3 +1,8 @@
+ var excution = require("text-command.js");
+ var command = require("../utils/commands.js");
+ var http = require('https');
+            var request = require('request');
+            var FormData = require('form-data');
  module.exports = function(jack) {
      return {
          runForward: function(duration) {
@@ -59,16 +64,70 @@
          },
 
          test: function(){
-            jack.body.runWithDistance(5);
+            jack.body.runWithDistance(10);
          },
 
          test2: function(){
-            var read = jack.body.head.ultrasonic.read();
-            read.then(function (data) {
-                distance = data.stderr;
-                console.log(distance);
+            command.captureImage().then(function(data){
+                var form = new FormData();
+                form.append("folder_id", "0");
+                form.append("filename", fs.createReadStream(path.join(__dirname, "cam.jpg")));
+
+                form.getLength(function(err, length){
+                  if (err) {
+                    return requestCallback(err);
+                  }
+
+                  var r = request.post("https://api.projectoxford.ai/vision/v1.0/describe?maxCandidates=1", requestCallback);
+                  r._form = form;     
+                  r.setHeader('content-length', "application/octet-stream");
+                  r.setHeader('Ocp-Apim-Subscription-Key', "97eb698885fe4d96a68e4cfcfdf89aeb");
+                  r.setHeader('Content-Type', length);
+
+                });
+
+                function requestCallback(err, res, body) {
+                  console.log(body);
+                }
             });
+           
+            // command.captureImage().then(function(data){
+            //     //The url we want is `www.nodejitsu.com:1337/`
+            //     var options = {
+            //       host: 'api.projectoxford.ai',
+            //       path: '/vision/v1.0/describe?maxCandidates=1',
+            //       //since we are listening on a custom port, we need to specify it by hand
+            //       port: '443',
+            //       //This is what changes the request to a POST request
+            //       method: 'POST'
+            //     };
+
+            //     callback = function(response) {
+            //       var str = ''
+            //       response.on('data', function (chunk) {
+            //         str += chunk;
+            //       });
+
+            //       response.on('end', function () {
+            //         console.log(str);
+            //       });
+            //     }
+
+            //     var req = http.request(options, callback);
+            //     //This is the data we are posting, it needs to be a string or a buffer
+            //     req.write("hello world!");
+            //     req.end();
+            // });
+            // var read = jack.body.head.ultrasonic.read();
+            // read.then(function (data) {
+            //     distance = data.stderr;
+            //     console.log(distance);
+            // });
          },
+
+         textCommand: function(cmd){
+            excution[cmd]();
+         }
 
      };
  };
