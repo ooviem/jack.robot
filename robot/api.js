@@ -87,6 +87,8 @@ var fs = require('fs');
 
                     res.on("data", function (data) {
                         responseString += data;
+                        console.log(responseString); 
+
                         // save all the data from response
                     });
                     res.on("end", function () {
