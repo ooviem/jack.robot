@@ -1,8 +1,9 @@
  var excution = require("./text-command.js");
  var command = require("./utils/command.js");
  var http = require('https');
-            var request = require('request');
-            var FormData = require('form-data');
+var request = require('request');
+var fs = require('fs');
+
  module.exports = function(jack) {
      return {
          runForward: function(duration) {
@@ -71,26 +72,32 @@
             jack.body.head.move(560);
             jack.body.head.turn(410);
             command.captureImage().then(function(data){
-                var form = new FormData();
-                form.append("folder_id", "0");
-                form.append("filename", fs.createReadStream(path.join(__dirname, "cam.jpg")));
-                console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-                form.getLength(function(err, length){
-                  if (err) {
-                    return requestCallback(err);
-                  }
+                var options = {
+                    host: "api.projectoxford.ai",
+                     path: '/vision/v1.0/describe?maxCandidates=1',
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/octet-stream"
+                        "Ocp-Apim-Subscription-Key": "97eb698885fe4d96a68e4cfcfdf89aeb"
+                    }
+                };
+                var image fs.readFile("./cam.jpg");
+                var req = http.request(options, function (res) {
+                    var responseString = "";
 
-                  var r = request.post("https://api.projectoxford.ai/vision/v1.0/describe?maxCandidates=1", requestCallback);
-                  r._form = form;     
-                  r.setHeader('content-length', "application/octet-stream");
-                  r.setHeader('Ocp-Apim-Subscription-Key', "97eb698885fe4d96a68e4cfcfdf89aeb");
-                  r.setHeader('Content-Type', length);
-
+                    res.on("data", function (data) {
+                        responseString += data;
+                        // save all the data from response
+                    });
+                    res.on("end", function () {
+                        console.log(responseString); 
+                        // print to console when response ends
+                    });
                 });
+                req.write(image);
+                req.end();
 
-                function requestCallback(err, res, body) {
-                  console.log(body);
-                }
+
             });
            
             // command.captureImage().then(function(data){
