@@ -16,7 +16,7 @@ module.exports = function(hardwareIO) {
     });
     this.runWithDistance = function(destination) {
     	destination = destination? destination : 10;
-    	var safeDistance = 27;
+    	var safeDistance = 25;
     	var distance;
     	var head = this.head;
     	var foot = this.foot;
@@ -103,16 +103,17 @@ module.exports = function(hardwareIO) {
 	                if(distance < safeDistance){
                         foot.stop();
                         isTurning = true;
-
                         turnCount ++;
                         after(0.5, findLeft());
-                        console.log();
+                        console.log("finding way");
 	    			} else if (distance > safeDistance) {
 		    			if(leftCount > rightCount && turnCount > 0 && hasTurned == false){
+                            console.log("return left");
                             isFindingWay = true;
                             findLeft();
                             hasTurned = true;
                         } else if (leftCount < rightCount && turnCount > 0 && hasTurned == false){
+                            console.log("return right");
                             isFindingWay = true;
                             findRight();
                             hasTurned = true;
@@ -120,6 +121,7 @@ module.exports = function(hardwareIO) {
                             hasTurned = true
                         }
                         if(hasTurned == true){
+                           console.log("runForward");
                            foot.runForward();
                            hasTurned = false;
                            destination--;
