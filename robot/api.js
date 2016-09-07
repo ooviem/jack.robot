@@ -72,6 +72,7 @@ var fs = require('fs');
             jack.body.head.move(560);
             jack.body.head.turn(410);
             command.captureImage().then(function(data){
+                console.log("Photo taken"); 
                 var options = {
                     host: "api.projectoxford.ai",
                      path: '/vision/v1.0/describe?maxCandidates=1',
@@ -81,24 +82,18 @@ var fs = require('fs');
                         "Ocp-Apim-Subscription-Key": "97eb698885fe4d96a68e4cfcfdf89aeb"
                     }
                 };
-                var image = fs.readFile("./cam.jpg");
-                var req = http.request(options, function (res) {
-                    var responseString = "";
+                var image = fs.readFileSync("./cam.jpg");
 
-                    res.on("data", function (data) {
-                        responseString += data;
-                        console.log(responseString); 
-
-                        // save all the data from response
-                    });
-                    res.on("end", function () {
-                        console.log(responseString); 
-                        // print to console when response ends
-                    });
+                var req = http.request(options, function(res) {
+                  console.log('STATUS: ' + res.statusCode);
+                  console.log('HEADERS: ' + JSON.stringify(res.headers));
+                  res.on('data', function (chunk) {
+                    console.log('BODY: ' + chunk);
+                  });
                 });
+
                 req.write(image);
                 req.end();
-                console.log(req); 
 
 
 
