@@ -73,7 +73,7 @@
          },
         
         voice: function(){
-             var textCommand = this.textCommand;
+             var cmd = this.textCommand;
              var proc = cp.exec("arecord -d 3 voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
                 console.log("Recorded");
 
@@ -99,7 +99,7 @@
                 var req = http.request(options, function(res) {
                   res.on('data', function (chunk) {
                     console.log('Said: ' + chunk._text);
-                    textCommand(chunk._text);
+                    cmd(chunk._text);
                   });
                 });
                 req.write(audio);
@@ -131,38 +131,6 @@
 
             });
            
-            // command.captureImage().then(function(data){
-            //     //The url we want is `www.nodejitsu.com:1337/`
-            //     var options = {
-            //       host: 'api.projectoxford.ai',
-            //       path: '/vision/v1.0/describe?maxCandidates=1',
-            //       //since we are listening on a custom port, we need to specify it by hand
-            //       port: '443',
-            //       //This is what changes the request to a POST request
-            //       method: 'POST'
-            //     };
-
-            //     callback = function(response) {
-            //       var str = ''
-            //       response.on('data', function (chunk) {
-            //         str += chunk;
-            //       });
-
-            //       response.on('end', function () {
-            //         console.log(str);
-            //       });
-            //     }
-
-            //     var req = http.request(options, callback);
-            //     //This is the data we are posting, it needs to be a string or a buffer
-            //     req.write("hello world!");
-            //     req.end();
-            // });
-            // var read = jack.body.head.ultrasonic.read();
-            // read.then(function (data) {
-            //     distance = data.stderr;
-            //     console.log(distance);
-            // });
          },
 
          textCommand: function(cmd) {
