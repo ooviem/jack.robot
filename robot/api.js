@@ -98,6 +98,8 @@ var fs = require('fs');
                 });
                 req.write(image);
                 req.end();
+                console.log(req); 
+
 
 
             });
