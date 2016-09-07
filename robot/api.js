@@ -1,4 +1,4 @@
- var excution = require("text-command.js");
+ var excution = require("./text-command.js");
  var command = require("../utils/commands.js");
  var http = require('https');
             var request = require('request');
