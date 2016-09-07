@@ -73,7 +73,9 @@
          },
         
         voice: function(){
-             var process = cp.exec("arecord voice.wav -D sysdefault:CARD=1^C    ", function (error, stdout, stderr) {
+             var process = cp.exec("arecord voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
+                console.log("Recorded");
+
                 if (error) {
                     console.error('exec error:'+error);
                 }
