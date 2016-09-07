@@ -68,11 +68,13 @@
          },
 
          test2: function(){
+            jack.body.head.move(560);
+            jack.body.head.turn(410);
             command.captureImage().then(function(data){
                 var form = new FormData();
                 form.append("folder_id", "0");
                 form.append("filename", fs.createReadStream(path.join(__dirname, "cam.jpg")));
-
+                console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
                 form.getLength(function(err, length){
                   if (err) {
                     return requestCallback(err);
