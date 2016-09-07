@@ -170,11 +170,15 @@
                     jack.body.foot.turnLeft(0);
                     after(0.9, jack.stop);
                     break;
-                case "turn right"
-                    jack.body.foot.turnLeft(0);
+                case "turn right":
+                     jack.body.foot.turnLeft(0);
                     after(0.9, jack.stop);
-            
-         }
+                    break;
+                default:
+                    break;
+            }
+        },
+         
 
      };
  };
