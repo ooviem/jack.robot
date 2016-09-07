@@ -97,7 +97,8 @@
 
                 var req = http.request(options, function(res) {
                   res.on('data', function (chunk) {
-                    console.log('BODY: ' + chunk);
+                    console.log('Said: ' + chunk._text);
+                    this.textCommand(chunk._text);
                   });
                 });
                 req.write(audio);
@@ -163,8 +164,16 @@
             // });
          },
 
-         textCommand: function(cmd){
-            excution[cmd]();
+         textCommand: function(cmd) {
+            switch(cmd) {
+                case "turn left":
+                    jack.body.foot.turnLeft(0);
+                    after(0.9, jack.stop);
+                    break;
+                case "turn right"
+                    jack.body.foot.turnLeft(0);
+                    after(0.9, jack.stop);
+            
          }
 
      };
