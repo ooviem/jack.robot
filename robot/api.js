@@ -72,6 +72,20 @@
             this.voice();
          },
         
+         textCommand: function(cmd) {
+            switch(cmd) {
+                case "turn left":
+                    jack.body.foot.turnLeft(0);
+                    after(0.9, jack.stop);
+                    break;
+                case "turn right":
+                     jack.body.foot.turnLeft(0);
+                    after(0.9, jack.stop);
+                    break;
+                default:
+                    break;
+            }
+        },
         voice: function(){
              var cmd = this.textCommand;
              var proc = cp.exec("arecord -d 3 voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
@@ -98,6 +112,7 @@
 
                 var req = http.request(options, function(res) {
                   res.on('data', function (chunk) {
+                    console.log(chunk);
                     console.log('Said: ' + chunk._text);
                     cmd(chunk._text);
                   });
@@ -133,20 +148,6 @@
            
          },
 
-         textCommand: function(cmd) {
-            switch(cmd) {
-                case "turn left":
-                    jack.body.foot.turnLeft(0);
-                    after(0.9, jack.stop);
-                    break;
-                case "turn right":
-                     jack.body.foot.turnLeft(0);
-                    after(0.9, jack.stop);
-                    break;
-                default:
-                    break;
-            }
-        },
          
 
      };
