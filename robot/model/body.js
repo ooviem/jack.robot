@@ -101,10 +101,11 @@ module.exports = function(hardwareIO) {
 	            read.then(function (data) {
 	                distance = data.stderr;
 	                if(distance < safeDistance){
-                        isTurning = true;
                         foot.stop();
-	                	findLeft();
+                        isTurning = true;
+
                         turnCount ++;
+                        after(0.5, findLeft());
                         console.log();
 	    			} else if (distance > safeDistance) {
 		    			if(leftCount > rightCount && turnCount > 0 && hasTurned == false){
