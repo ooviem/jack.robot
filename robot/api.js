@@ -81,7 +81,7 @@ var fs = require('fs');
                         "Ocp-Apim-Subscription-Key": "97eb698885fe4d96a68e4cfcfdf89aeb"
                     }
                 };
-                var image fs.readFile("./cam.jpg");
+                var image = fs.readFile("./cam.jpg");
                 var req = http.request(options, function (res) {
                     var responseString = "";
 
