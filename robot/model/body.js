@@ -104,7 +104,7 @@ module.exports = function(hardwareIO) {
                         foot.stop();
                         isTurning = true;
                         turnCount ++;
-                        after(0.5, findLeft());
+                        after(0.3, findLeft());
                         console.log("finding way");
 	    			} else if (distance > safeDistance) {
 		    			if(leftCount > rightCount && turnCount > 0 && hasTurned == false){
@@ -123,10 +123,11 @@ module.exports = function(hardwareIO) {
                         if(hasTurned == true){
                            console.log("runForward");
                            foot.runForward();
+                           after(0.3, stop());
                            hasTurned = false;
                            destination--;
                         }
-                        after(0.5, task());
+                        task();
 	    		    }
 	            });
     		} else {
