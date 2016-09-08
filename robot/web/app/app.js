@@ -64,6 +64,11 @@ angular.module('JackControllerApp', ['ngMaterial'])
                 
             };
 
+            ctrlMe.speak = function() {
+                callGET("hello");
+                
+            };
+
             ctrlMe.detectObject = function() {
                 callGET("detectObject");
                 

@@ -71,7 +71,10 @@
          test2: function() {
             this.voice();
          },
-        
+         
+         hello: function() {
+            jack.body.mouth.speak("Hello there, I am Jack. Welcome to KMS Technology Tech Con 2016. Have a nice day.");
+         },
 
         voice: function(){
              console.log("Start recorded");
