@@ -108,7 +108,7 @@
                                     console.log("turn left voice command");
                                     jack.body.foot.turnLeft();
                                     after(0.9, jack.stop); 
-                            } else if(chunk._text === "turn right"){
+                            } else if(data._text === "turn right"){
                                     console.log("turn right voice command");
                                     jack.body.foot.turnLeft();
                                     after(0.9, jack.stop);
