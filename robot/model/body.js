@@ -31,13 +31,13 @@ module.exports = function(hardwareIO) {
                     after((1).seconds(), function(){
                         foot.stop();
                         foot.runForward();
-                        after((1.5).seconds(), function(){
+                        after((1.2).seconds(), function(){
                             foot.stop();
                             foot.turnLeft();
                             after((1).seconds(), function(){
                                 foot.stop();
                                 foot.runForward();
-                                after((1.5).seconds(), function(){
+                                after((2).seconds(), function(){
                                     foot.stop();
                                     foot.turnLeft();
                                     after((1).seconds(), function(){
