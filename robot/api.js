@@ -88,9 +88,9 @@
          },
         voice: function(){
              var cmd = this.textCommand;
-             console.log("Start recorded");
+             console.log("Start recorded"+cmd);
 
-             var proc = cp.exec("arecord -d 5 voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
+             var proc = cp.exec("arecord -d 3 voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
                 console.log("Recorded");
 
                 if (error) {
