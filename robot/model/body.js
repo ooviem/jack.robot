@@ -32,21 +32,21 @@ module.exports = function(hardwareIO) {
                     console.log(foot);
 
                     foot.turnRight();
-                    after(0.9, foot.stop());
+                    after((0.9).seconds(), foot.stop());
                     foot.runForward();
-                    after(1, foot.stop());
+                    after((0.9).seconds(), foot.stop());
                     
                     foot.turnLeft();
-                    after(0.9, foot.stop());
+                    after((0.9).seconds(), foot.stop());
 
                     foot.runForward();
-                    after(1, foot.stop());
+                    after((0.9).seconds(), foot.stop());
 
                     foot.turnLeft();
-                    after(0.9, foot.stop());
+                    after((0.9).seconds(), foot.stop());
 
                     foot.runForward();
-                    after(1, foot.stop());
+                    after((0.9).seconds(), foot.stop());
 
 
                 } else if (distance > safeDistance) {
