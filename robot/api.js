@@ -65,7 +65,7 @@
          },
 
          test: function(){
-            jack.body.runWithDistanceFake();
+            jack.body.runWithDistance();
          },
 
          test2: function() {

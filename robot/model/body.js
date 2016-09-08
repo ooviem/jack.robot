@@ -14,13 +14,14 @@ module.exports = function(hardwareIO) {
     	triggerPin: hardwareIO.head.triggerPin,
     	echoPin: hardwareIO.head.echoPin
     });
+    var head = this.head;
+    var foot = this.foot;
     this.runWithDistanceFake = function(destination) {
         
         destination = destination? destination : 10;
         var safeDistance = 25;
         var distance;
-        var head = this.head;
-        var foot = this.foot;
+
         
 
 
