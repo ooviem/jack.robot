@@ -105,17 +105,19 @@
                         console.log('text: ' + data["_text"]);
 
                         if(data["_text"] === "turn left") {
-                                    console.log("turn left voice command");
-                                    jack.body.foot.turnLeft();
-                                    after(0.9, function(){
-                                        jack.body.foot.stop();
-                                    }); 
-                            } else if(data["_text"] === "turn right"){
-                                    console.log("turn right voice command");
-                                    jack.body.foot.turnRight();
-                                    after(0.9, function(){
-                                        jack.body.foot.stop();
-                                    }); 
+                            console.log("turn left voice command");
+                            jack.body.foot.turnLeft();
+                            after(0.9, function(){
+                                jack.body.foot.stop();
+                            }); } 
+                        else if(data["_text"] === "turn right"){
+                            console.log("turn right voice command");
+                            jack.body.foot.turnRight();
+                            after(0.9, function(){
+                                jack.body.foot.stop();
+                            }); 
+                        } else if(data["_text"] === "what do you see"){
+
                         }
                       });
                       res.on('end', function () {
@@ -126,6 +128,7 @@
              });
         },
         detectObject: function(){
+            console.log("Start recorded");
             command.captureImage().then(function(data){
                 console.log("Photo taken"); 
                 var options = {
