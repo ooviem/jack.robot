@@ -66,8 +66,8 @@ module.exports = function(hardwareIO) {
                                                 foot.runForward();
                                                 after((1).seconds(), function(){
                                                     foot.stop();
-                                                };
-                                            };
+                                                });
+                                            });
 
 
                                         });
