@@ -28,9 +28,10 @@ module.exports = function(hardwareIO) {
             read.then(function (data) {
                 distance = data.stderr;
                 if(distance < safeDistance){
+                    console.log(foot);
+
                     foot.turnRight();
                     after(0.9, foot.stop());
-                    console.log("TTTTTTT");
                     foot.runForward();
                     after(1, foot.stop());
                     
