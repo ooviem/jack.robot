@@ -72,23 +72,9 @@
             this.voice();
          },
         
-         textCommand: function(){
-            switch(cmd) {
-                case "turn left":
-                    jack.body.foot.turnLeft(0);
-                    after(0.9, jack.stop);
-                    break;
-                case "turn right":
-                     jack.body.foot.turnLeft(0);
-                    after(0.9, jack.stop);
-                    break;
-                default:
-                    break;
-            }
-         },
+
         voice: function(){
-             var cmd = this.textCommand;
-             console.log("Start recorded"+cmd);
+             console.log("Start recorded");
 
              var proc = cp.exec("arecord -d 3 voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
                 console.log("Recorded");
@@ -119,8 +105,18 @@
                         console.log('BODY: ' + chunk);
                       });
                       res.on('end', function () {
-                        console.log(cmd);
-                        cmd(data);
+                         switch(data._text) {
+                            case "turn left":
+                                jack.body.foot.turnLeft(0);
+                                after(0.9, jack.stop);
+                                break;
+                            case "turn right":
+                                 jack.body.foot.turnLeft(0);
+                                after(0.9, jack.stop);
+                                break;
+                            default:
+                                break;
+                        }
                       });
                 });
                 req.write(audio);
