@@ -78,7 +78,7 @@
 
              var proc = cp.exec("arecord -d 3 voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
                 console.log("Recorded");
-
+                var data;
                 if (error) {
                     console.error('exec error:'+error);
                 }
@@ -99,23 +99,20 @@
                 var audio = fs.readFileSync("./voice.wav");
 
                 var req = http.request(options, function(res) {
-                      var data;
                       res.on('data', function (chunk) {
                         data = chunk;
                         console.log('BODY: ' + chunk);
-                        if(chunk._text === "turn left")
-                        {
-                                console.log("turn left voice command");
-                                jack.body.foot.turnLeft();
-                                after(0.9, jack.stop); 
-                        } else if(chunk._text === "turn right"){
-                                console.log("turn right voice command");
-                                jack.body.foot.turnLeft();
-                                after(0.9, jack.stop);
-                        }
                       });
                       res.on('end', function () {
-                       
+                            if(data._text === "turn left") {
+                                    console.log("turn left voice command");
+                                    jack.body.foot.turnLeft();
+                                    after(0.9, jack.stop); 
+                            } else if(chunk._text === "turn right"){
+                                    console.log("turn right voice command");
+                                    jack.body.foot.turnLeft();
+                                    after(0.9, jack.stop);
+                            }
                       });
                 });
                 req.write(audio);
