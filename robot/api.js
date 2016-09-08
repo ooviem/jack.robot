@@ -107,11 +107,15 @@
                         if(data["_text"] === "turn left") {
                                     console.log("turn left voice command");
                                     jack.body.foot.turnLeft();
-                                    after(0.9, jack.body.foot.stop); 
+                                    after(0.9, function(){
+                                        jack.body.foot.stop();
+                                    }); 
                             } else if(data["_text"] === "turn right"){
                                     console.log("turn right voice command");
-                                    jack.body.foot.turnLeft();
-                                    after(0.9, jack.body.foot.stop);
+                                    jack.body.foot.turnRight();
+                                    after(0.9, function(){
+                                        jack.body.foot.stop();
+                                    }); 
                         }
                       });
                       res.on('end', function () {
