@@ -27,9 +27,30 @@ module.exports = function(hardwareIO) {
             read.then(function (data) {
                 distance = data.stderr;
                 if(distance < safeDistance){
-                    
+                    foot.turnRight();
+                    after((0.9).seconds(), function(){
+                        foot.stop();
+                    });
                     foot.runForward();
-
+                    after((0.9).seconds(), function(){
+                        foot.stop();
+                    });                    
+                    foot.turnLeft();
+                    after((0.9).seconds(), function(){
+                        foot.stop();
+                    });
+                    foot.runForward();
+                    after((0.9).seconds(), function(){
+                        foot.stop();
+                    });
+                    foot.turnLeft();
+                    after((0.9).seconds(), function(){
+                        foot.stop();
+                    });
+                    foot.runForward();
+                    after((0.9).seconds(), function(){
+                        foot.stop();
+                    });
 
                 } else if (distance > safeDistance) {
                     foot.runForward();
