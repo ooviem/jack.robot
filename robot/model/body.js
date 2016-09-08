@@ -14,70 +14,8 @@ module.exports = function(hardwareIO) {
     	triggerPin: hardwareIO.head.triggerPin,
     	echoPin: hardwareIO.head.echoPin
     });
-    var head = this.head;
-    var foot = this.foot;
     this.runWithDistanceFake = function(destination) {
-        
-        destination = destination? destination : 10;
-        var safeDistance = 25;
-        var distance;
-
-        
-
-
-                    foot.turnRight();
-                    after(0.9, foot.stop());
-                    foot.runForward();
-                    after(1, foot.stop());
-                    
-                    foot.turnLeft();
-                    after(0.9, foot.stop());
-
-                    foot.runForward();
-                    after(1, foot.stop());
-
-                    foot.turnLeft();
-                    after(0.9, foot.stop());
-
-                    foot.runForward();
-                    after(1, foot.stop());
-
-
-        var mouth = this.mouth;
-        head.move(560);
-        head.turn(410);
-        var task = function() {
-            var read = head.ultrasonic.read();
-            read.then(function (data) {
-                distance = data.stderr;
-                if(distance < safeDistance){
-                    console.log(foot);
-
-                    foot.turnRight();
-                    after(0.9, foot.stop());
-                    foot.runForward();
-                    after(1, foot.stop());
-                    
-                    foot.turnLeft();
-                    after(0.9, foot.stop());
-
-                    foot.runForward();
-                    after(1, foot.stop());
-
-                    foot.turnLeft();
-                    after(0.9, foot.stop());
-
-                    foot.runForward();
-                    after(1, foot.stop());
-
-
-                } else if (distance > safeDistance) {
-                    foot.runForward();
-                    task();
-                }
-            });
-        };
-        task();
+       
     };
 
 
