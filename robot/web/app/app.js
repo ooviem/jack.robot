@@ -4,14 +4,14 @@ angular.module('JackControllerApp', ['ngMaterial'])
             function callGET(url, data) {
                 return $http({
                     method: 'GET',
-                    url: 'http://192.168.1.99:3000/api/robots/Jack/commands/' + url
+                    url: 'http://192.168.43.9:3000/api/robots/Jack/commands/' + url
                 });
             };
             function callPOST(url, data) {
                 return $http({
                     method: 'POST',
                     data: data,
-                    url: 'http://192.168.1.99:3000/api/robots/Jack/commands/' + url
+                    url: 'http://192.168.43.9:3000/api/robots/Jack/commands/' + url
                 });
             };
             var ctrlMe = this;
