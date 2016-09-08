@@ -100,15 +100,15 @@
 
                 var req = http.request(options, function(res) {
                       res.on('data', function (chunk) {
-                        data = chunk;
+                        data = JSON.parse(chunk);
                         console.log('BODY: ' + chunk);
                         console.log('text: ' + chunk["_text"]);
 
-                        if(chunk["_text"] === "turn left") {
+                        if(data["_text"] === "turn left") {
                                     console.log("turn left voice command");
                                     jack.body.foot.turnLeft();
                                     after(0.9, jack.stop); 
-                            } else if(chunk["_text"] === "turn right"){
+                            } else if(data["_text"] === "turn right"){
                                     console.log("turn right voice command");
                                     jack.body.foot.turnLeft();
                                     after(0.9, jack.stop);
