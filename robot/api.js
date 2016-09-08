@@ -145,6 +145,8 @@
                 var req = http.request(options, function(res) {
                   res.on('data', function (chunk) {
                     console.log('BODY: ' + chunk);
+                    data = JSON.parse(chunk);
+                    jack.body.mouth.speak(data.description.captions.text);
                   });
                 });
 
