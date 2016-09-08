@@ -3,7 +3,7 @@
     position: relative;
     background-image: url("../assets/img/monitor-ex.jpg");
     background-size: cover;
-    background-position-y: -150px;
+    background-position-x: -135px;
 }
 
 .opacity-0-5 {
@@ -26,6 +26,15 @@
     position: absolute;
     left: 0px;
     top: 10px;
+}
+.center-controller {
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    left: 350px;
+    top: 75px;
+    background-image: url("http://192.168.43.9:2209/high.jpg");
+    background-size: cover;
 }
 
 
