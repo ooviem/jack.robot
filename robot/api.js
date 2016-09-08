@@ -76,7 +76,7 @@
         voice: function(){
              console.log("Start recorded");
 
-             var proc = cp.exec("arecord -d 3 voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
+             var proc = cp.exec("arecord -d 4 voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
                 console.log("Recorded");
                 var data;
                 if (error) {
@@ -102,7 +102,7 @@
                       res.on('data', function (chunk) {
                         data = JSON.parse(chunk);
                         console.log('BODY: ' + chunk);
-                        console.log('text: ' + chunk["_text"]);
+                        console.log('text: ' + data["_text"]);
 
                         if(data["_text"] === "turn left") {
                                     console.log("turn left voice command");
