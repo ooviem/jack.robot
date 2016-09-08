@@ -118,7 +118,7 @@
                         data = chunk;
                         console.log('BODY: ' + chunk);
                       });
-                      response.on('end', function () {
+                      res.on('end', function () {
                         cmd(data);
                       });
                 });
