@@ -63,5 +63,10 @@ angular.module('JackControllerApp', ['ngMaterial'])
                 callGET("voice");
                 
             };
+
+            ctrlMe.detectObject = function() {
+                callGET("detectObject");
+                
+            };
         }
     ]);
