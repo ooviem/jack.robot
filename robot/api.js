@@ -88,6 +88,8 @@
         },
         voice: function(){
              var cmd = this.textCommand;
+             console.log("Start recorded");
+
              var proc = cp.exec("arecord -d 5 voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
                 console.log("Recorded");
 
@@ -111,9 +113,14 @@
                 var audio = fs.readFileSync("./voice.wav");
 
                 var req = http.request(options, function(res) {
-                  res.on('data', function (chunk) {
-                    console.log('BODY: ' + chunk);
-                  });
+                      var data;
+                      res.on('data', function (chunk) {
+                        data = chunk;
+                        console.log('BODY: ' + chunk);
+                      });
+                      response.on('end', function () {
+                        cmd(data);
+                      });
                 });
                 req.write(audio);
                 req.end();
