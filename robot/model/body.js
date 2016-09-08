@@ -15,7 +15,7 @@ module.exports = function(hardwareIO) {
     	echoPin: hardwareIO.head.echoPin
     });
     this.runWithDistanceFake = function(destination) {
-        var safeDistance = 25;
+        var safeDistance = 27;
         var distance;
         var mouth = this.mouth;
         var foot = this.foot;
