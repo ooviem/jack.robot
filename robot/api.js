@@ -103,20 +103,21 @@
                       res.on('data', function (chunk) {
                         data = chunk;
                         console.log('BODY: ' + chunk);
-                      });
-                      res.on('end', function () {
-                         switch(data._text) {
+                        switch(chunk._text) {
                             case "turn left":
                                 jack.body.foot.turnLeft(0);
                                 after(0.9, jack.stop);
                                 break;
                             case "turn right":
-                                 jack.body.foot.turnLeft(0);
+                                jack.body.foot.turnLeft(0);
                                 after(0.9, jack.stop);
                                 break;
                             default:
                                 break;
                         }
+                      });
+                      res.on('end', function () {
+                       
                       });
                 });
                 req.write(audio);
