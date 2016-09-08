@@ -105,7 +105,7 @@
                       });
                       res.on('end', function () {
                             console.log(data);
-                            console.log(data["_text");
+                            console.log(data["_text"]);
 
                             if(data["_text"] === "turn left") {
                                     console.log("turn left voice command");
