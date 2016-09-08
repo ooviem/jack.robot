@@ -72,7 +72,7 @@
             this.voice();
          },
         
-         textCommand: function(cmd) {
+         textCommand: function(){
             switch(cmd) {
                 case "turn left":
                     jack.body.foot.turnLeft(0);
@@ -85,7 +85,7 @@
                 default:
                     break;
             }
-        },
+         },
         voice: function(){
              var cmd = this.textCommand;
              console.log("Start recorded");
@@ -119,6 +119,7 @@
                         console.log('BODY: ' + chunk);
                       });
                       res.on('end', function () {
+                        console.log(cmd);
                         cmd(data);
                       });
                 });
