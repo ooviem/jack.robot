@@ -15,7 +15,22 @@ angular.module('JackControllerApp', ['ngMaterial'])
                 });
             };
             var ctrlMe = this;
+            ctrlMe.keyUp = function(code) {
+                callGET("stop");
+            };
+            ctrlMe.keyDown = function(code) {
+                if(code === 37) {
+                    callGET("turnLeft");
+                } else if(code === 38) {
+                    callGET("runForward");
+                } else if(code === 39) {
+                    callGET("runBackward");
 
+                } else if(code === 40) {
+                   callGET("turnRight");
+                }
+            
+            };
             ctrlMe.runForward = function() {
                 callGET("runForward");
             };
