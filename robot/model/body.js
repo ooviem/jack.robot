@@ -15,11 +15,33 @@ module.exports = function(hardwareIO) {
     	echoPin: hardwareIO.head.echoPin
     });
     this.runWithDistanceFake = function(destination) {
+        
         destination = destination? destination : 10;
         var safeDistance = 25;
         var distance;
         var head = this.head;
         var foot = this.foot;
+        
+
+
+                    foot.turnRight();
+                    after(0.9, foot.stop());
+                    foot.runForward();
+                    after(1, foot.stop());
+                    
+                    foot.turnLeft();
+                    after(0.9, foot.stop());
+
+                    foot.runForward();
+                    after(1, foot.stop());
+
+                    foot.turnLeft();
+                    after(0.9, foot.stop());
+
+                    foot.runForward();
+                    after(1, foot.stop());
+
+
         var mouth = this.mouth;
         head.move(560);
         head.turn(410);

@@ -27,6 +27,9 @@ var Command = {
     captureImage: function(time){
         return this.exe("raspistill -t 1000 -w 800 -h 600 -o cam.jpg");
     },
+    captureHighQuality: function(time){
+        return this.exe("raspistill -t 1000 -o high.jpg");
+    },
     readUltrasonic: function(){
         return this.exe("sudo python ./utils/dis.py");
     }
