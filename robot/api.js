@@ -76,6 +76,28 @@
             jack.body.mouth.speak("Hello there, I am Jack. Welcome to KMS Technology Tech Con 2016. I am made by Viem Ong. I can speak. Moving without impact anything. Know what are you doing and hear what are you taking. Have a nice day.");
          },
 
+         record: function() {
+            jack.body.mouth.speak("How can I help you sir?");
+            after(3, function(){
+                jack.body.mouth.speak("Okay sir");
+            }); 
+            after(4, function(){
+                jack.body.mouth.speak("One  ");
+            });  
+            after(5, function(){
+                jack.body.mouth.speak("Two  ");
+            });  
+
+            after(6, function(){
+                jack.body.mouth.speak("Three ");
+            }); 
+
+            after(6, function(){
+                jack.body.mouth.speak("Say cheese ");
+                command.captureHighQuality();
+            }); 
+         },
+
         voice: function(){
              console.log("Start recorded");
 
@@ -149,6 +171,7 @@
                   res.on('data', function (chunk) {
                     console.log('BODY: ' + chunk);
                     data = JSON.parse(chunk);
+                    console.log(data.description.captions[0].text);
                     jack.body.mouth.speak(data.description.captions[0].text);
                   });
                 });

@@ -24,10 +24,9 @@ angular.module('JackControllerApp', ['ngMaterial'])
                 } else if(code === 38) {
                     callGET("runForward");
                 } else if(code === 39) {
-                    callGET("runBackward");
-
-                } else if(code === 40) {
                    callGET("turnRight");
+                } else if(code === 40) {
+                   callGET("runBackward");
                 }
             
             };
@@ -83,7 +82,10 @@ angular.module('JackControllerApp', ['ngMaterial'])
                 callGET("hello");
                 
             };
-
+            ctrlMe.record = function() {
+                callGET("record");
+                
+            };
             ctrlMe.detectObject = function() {
                 callGET("detectObject");
                 
