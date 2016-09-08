@@ -102,6 +102,8 @@
                       res.on('data', function (chunk) {
                         data = chunk;
                         console.log('BODY: ' + chunk);
+                        console.log('text: ' + chunk["_text"]);
+
                         if(chunk["_text"] === "turn left") {
                                     console.log("turn left voice command");
                                     jack.body.foot.turnLeft();
