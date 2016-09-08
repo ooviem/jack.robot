@@ -28,22 +28,22 @@ module.exports = function(hardwareIO) {
                 distance = data.stderr;
                 if(distance < safeDistance){
                     foot.turnRight();
-                    after((0.9).seconds(), function(){
+                    after((1).seconds(), function(){
                         foot.stop();
                         foot.runForward();
-                        after((0.9).seconds(), function(){
+                        after((2).seconds(), function(){
                             foot.stop();
                             foot.turnLeft();
-                            after((0.9).seconds(), function(){
+                            after((1).seconds(), function(){
                                 foot.stop();
                                 foot.runForward();
-                                after((0.9).seconds(), function(){
+                                after((2).seconds(), function(){
                                     foot.stop();
                                     foot.turnLeft();
-                                    after((0.9).seconds(), function(){
+                                    after((1).seconds(), function(){
                                         foot.stop();      
                                         foot.runForward();
-                                        after((0.9).seconds(), function(){
+                                        after((2).seconds(), function(){
                                             foot.stop();
                                         });
                                     });
