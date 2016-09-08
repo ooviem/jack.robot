@@ -69,7 +69,7 @@
          },
 
          test2: function() {
-            this.voice();
+            jack.body.runWithDistance(30);
          },
          
          hello: function() {
