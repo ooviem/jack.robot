@@ -146,7 +146,7 @@
                   res.on('data', function (chunk) {
                     console.log('BODY: ' + chunk);
                     data = JSON.parse(chunk);
-                    jack.body.mouth.speak(data.description.captions.text);
+                    jack.body.mouth.speak(data.description.captions[0].text);
                   });
                 });
 
