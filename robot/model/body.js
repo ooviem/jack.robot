@@ -15,7 +15,47 @@ module.exports = function(hardwareIO) {
     	echoPin: hardwareIO.head.echoPin
     });
     this.runWithDistanceFake = function(destination) {
-       
+        
+        destination = destination? destination : 10;
+        var safeDistance = 25;
+        var distance;
+        var mouth = this.mouth;
+        var foot = this.foot;
+        var head = this.head;
+        head.move(560);
+        head.turn(410);
+        var task = function() {
+            var read = head.ultrasonic.read();
+            read.then(function (data) {
+                distance = data.stderr;
+                if(distance < safeDistance){
+                    console.log(foot);
+
+                    foot.turnRight();
+                    after(0.9, foot.stop());
+                    foot.runForward();
+                    after(1, foot.stop());
+                    
+                    foot.turnLeft();
+                    after(0.9, foot.stop());
+
+                    foot.runForward();
+                    after(1, foot.stop());
+
+                    foot.turnLeft();
+                    after(0.9, foot.stop());
+
+                    foot.runForward();
+                    after(1, foot.stop());
+
+
+                } else if (distance > safeDistance) {
+                    foot.runForward();
+                    task();
+                }
+            });
+        };
+        task();
     };
 
 
