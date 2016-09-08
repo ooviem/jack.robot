@@ -18,6 +18,9 @@ module.exports = function(hardwareIO) {
         destination = destination? destination : 10;
         var safeDistance = 25;
         var distance;
+        var head = this.head;
+        var foot = this.foot;
+        var mouth = this.mouth;
         var task = function() {
             var read = head.ultrasonic.read();
             read.then(function (data) {
