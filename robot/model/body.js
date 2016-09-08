@@ -23,6 +23,7 @@ module.exports = function(hardwareIO) {
         head.move(560);
         head.turn(410);
         var task = function() {
+            foot.stop();
             var read = head.ultrasonic.read();
             read.then(function (data) {
                 distance = data.stderr;
@@ -51,10 +52,6 @@ module.exports = function(hardwareIO) {
                             });
                         }); 
                     });
-                                       
-
-                    
-               
 
                 } else if (distance > safeDistance) {
                     foot.runForward();
