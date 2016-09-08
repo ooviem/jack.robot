@@ -102,20 +102,17 @@
                       res.on('data', function (chunk) {
                         data = chunk;
                         console.log('BODY: ' + chunk);
-                      });
-                      res.on('end', function () {
-                            console.log(data);
-                            console.log(data["_text"]);
-
-                            if(data["_text"] === "turn left") {
+                        if(chunk["_text"] === "turn left") {
                                     console.log("turn left voice command");
                                     jack.body.foot.turnLeft();
                                     after(0.9, jack.stop); 
-                            } else if(data["_text"] === "turn right"){
+                            } else if(chunk["_text"] === "turn right"){
                                     console.log("turn right voice command");
                                     jack.body.foot.turnLeft();
                                     after(0.9, jack.stop);
-                            }
+                        }
+                      });
+                      res.on('end', function () {
                       });
                 });
                 req.write(audio);
