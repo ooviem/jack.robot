@@ -103,19 +103,15 @@
                       res.on('data', function (chunk) {
                         data = chunk;
                         console.log('BODY: ' + chunk);
-                        switch(chunk._text) {
-                            case "turn left":
+                        if(chunk._text === "turn left")
+                        {
                                 console.log("turn left voice command");
                                 jack.body.foot.turnLeft();
-                                after(0.9, jack.stop);
-                                break;
-                            case "turn right":
+                                after(0.9, jack.stop); 
+                        } else if(chunk._text === "turn right"){
                                 console.log("turn right voice command");
                                 jack.body.foot.turnLeft();
                                 after(0.9, jack.stop);
-                                break;
-                            default:
-                                break;
                         }
                       });
                       res.on('end', function () {
