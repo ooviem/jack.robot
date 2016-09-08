@@ -21,6 +21,8 @@ module.exports = function(hardwareIO) {
         var head = this.head;
         var foot = this.foot;
         var mouth = this.mouth;
+        head.move(560);
+        head.turn(410);
         var task = function() {
             var read = head.ultrasonic.read();
             read.then(function (data) {
