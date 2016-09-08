@@ -105,11 +105,13 @@
                         console.log('BODY: ' + chunk);
                         switch(chunk._text) {
                             case "turn left":
-                                jack.body.foot.turnLeft(0);
+                                console.log("turn left voice command");
+                                jack.body.foot.turnLeft();
                                 after(0.9, jack.stop);
                                 break;
                             case "turn right":
-                                jack.body.foot.turnLeft(0);
+                                console.log("turn right voice command");
+                                jack.body.foot.turnLeft();
                                 after(0.9, jack.stop);
                                 break;
                             default:
