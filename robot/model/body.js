@@ -20,48 +20,39 @@ module.exports = function(hardwareIO) {
         var mouth = this.mouth;
         var foot = this.foot;
         var head = this.head;
-        head.move(560);
         head.turn(410);
         var task = function() {
             var read = head.ultrasonic.read();
             read.then(function (data) {
                 distance = data.stderr;
                 if(distance < safeDistance){
-                    head.move(530);
                     head.turn(250);
                     foot.turnRight();
                     after((1).seconds(), function(){
                         foot.stop();
-                        head.move(560);
                         head.turn(410);
                         foot.runForward();
                         after((1.2).seconds(), function(){
                             foot.stop();
-                            head.move(530);
                             head.turn(560);
                             foot.turnLeft();
                             after((1).seconds(), function(){
                                 foot.stop();
-                                head.move(560);
                                 head.turn(410);
                                 foot.runForward();
                                 after((2).seconds(), function(){
                                     foot.stop();
-                                    head.move(530);
                                     head.turn(560);
                                     foot.turnLeft();
                                     after((1).seconds(), function(){
                                         foot.stop();      
-                                        head.move(560);
                                         head.turn(410);
                                         foot.runForward();
                                         after((1.2).seconds(), function(){
                                             foot.stop();
-                                            head.move(530);
                                             head.turn(250);
                                             foot.turnRight();
                                             after((1).seconds(), function(){
-                                                head.move(560);
                                                 head.turn(410);
                                                 foot.runForward();
                                                 after((1).seconds(), function(){
