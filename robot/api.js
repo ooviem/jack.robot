@@ -90,7 +90,7 @@
             read.then(function (data) {
                 distance = data.stderr;
                 jack.body.mouth.speak(data.stderr+" centimetres");});
-            });
+            
          },
 
          photo: function() {
