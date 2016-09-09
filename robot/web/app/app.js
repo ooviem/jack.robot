@@ -18,6 +18,9 @@ angular.module('JackControllerApp', ['ngMaterial'])
             ctrlMe.keyUp = function(code) {
                 callGET("stop");
             };
+            ctrlMe.gift = function(code) {
+                callGET("gift");
+            };
             ctrlMe.keyDown = function(code) {
                 if(code === 37) {
                     callGET("turnLeft");
