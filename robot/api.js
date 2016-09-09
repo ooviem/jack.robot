@@ -76,6 +76,17 @@
             jack.body.mouth.speak("What do you want to do? sir");
             after((3).second(), function(){
                 jack.body.mouth.speak("Hello there, I am , Jack. Welcome to KMS Technology, Tech Con, 2016. I am made by, Viem Ong. I can speak. Moving without impact anything. Know what are you doing and hear what are you talking. Have a nice day.");
+                jack.body.head.headRight();
+                jack.body.head.headRight();
+                jack.body.head.headRight();
+                jack.body.head.headRight();
+                jack.body.foot.turnLeft();
+                jack.body.foot.turnLeft();
+                jack.body.foot.turnRight();
+                jack.body.foot.turnRight();
+                after((3).second(), function(){
+                    jack.body.foot.stop();
+                });
             }); 
          },
 
