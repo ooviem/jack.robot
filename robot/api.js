@@ -73,34 +73,31 @@
          },
          
          hello: function() {
-            jack.body.mouth.speak("Hello there, I am , Jack. Welcome to, KMS Technology, Tech Con, 2016. I am made by, Viem Ong. I can speak. Moving, without impact anything. Know, what are you doing, and hear, what are you, taking. Have a, nice day.");
+            jack.body.mouth.speak("Hello there, I am , Jack. Welcome to KMS Technology, Tech Con, 2016. I am made by, Viem Ong. I can speak. Moving without impact anything. Know what are you doing and hear what are you talking. Have a nice day.");
          },
 
          record: function() {
-            jack.body.mouth.speak("How can I help you sir?");
+            jack.body.mouth.speak("What do you want to do? sir");
             after(3, function(){
                 jack.body.mouth.speak("Okay sir");
+                after(1, function(){
+                    jack.body.mouth.speak("One  ");
+                    after(1, function(){
+                        jack.body.mouth.speak("Two  ");
+                        after(1, function(){
+                            jack.body.mouth.speak("Three ");
+                            after(1, function(){
+                                jack.body.mouth.speak("Say cheese ");
+                                command.captureHighQuality();
+                            }); 
+                        }); 
+                    });  
+                });  
             }); 
-            after(4, function(){
-                jack.body.mouth.speak("One  ");
-            });  
-            after(5, function(){
-                jack.body.mouth.speak("Two  ");
-            });  
-
-            after(6, function(){
-                jack.body.mouth.speak("Three ");
-            }); 
-
-            after(6, function(){
-                jack.body.mouth.speak("Say cheese ");
-                command.captureHighQuality();
-            }); 
+           
          },
 
         voice: function(){
-             console.log("Start recorded");
-
              var proc = cp.exec("arecord -d 4 voice.wav -D sysdefault:CARD=1", function (error, stdout, stderr) {
                 console.log("Recorded");
                 var data;
@@ -153,7 +150,7 @@
              });
         },
         detectObject: function(){
-            jack.body.mouth.speak("How can I help you sir?");
+            jack.body.mouth.speak("What do you want to do? sir");
             console.log("Start recorded");
             command.captureImage().then(function(data){
                 console.log("Photo taken"); 
