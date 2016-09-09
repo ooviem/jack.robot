@@ -72,6 +72,8 @@
             jack.body.runWithDistance(30);
          },
          gift: function() {
+            jack.body.head.moveUp();
+            jack.body.head.moveUp();
             jack.body.mouth.speak("Thank you, you are wonderful!");
          },     
          hello: function() {
@@ -79,16 +81,15 @@
             after((3).second(), function(){
                 jack.body.mouth.speak("Hello there, I am , Jack. Welcome to KMS Technology, Tech Con, 2016. I am made by, Viem Ong. I can speak. Moving without impact anything. Know what are you doing and hear what are you talking. Have a nice day.");
                 jack.body.head.turnLeft();
-                jack.body.head.turnLeft();
-                jack.body.head.turnRight();
-                jack.body.head.turnRight();
-                jack.body.foot.turnLeft();
-                jack.body.foot.turnLeft();
-                jack.body.foot.turnRight();
-                jack.body.foot.turnRight();
-                after((3).second(), function(){
-                    jack.body.foot.stop();
-                });
+                after((1).second(), function(){
+                        jack.body.head.turnLeft();
+                        after((1).second(), function(){
+                        jack.body.head.turnRight();
+                        after((1).second(), function(){
+                            jack.body.head.turnRight();
+                        });  
+                    });  
+                }); 
             }); 
          },
 

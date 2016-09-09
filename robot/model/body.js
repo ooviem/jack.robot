@@ -32,7 +32,7 @@ module.exports = function(hardwareIO) {
                         foot.stop();
                         head.turn(410);
                         foot.runForward();
-                        after((1.2).seconds(), function(){
+                        after((2).seconds(), function(){
                             foot.stop();
                             head.turn(560);
                             foot.turnLeft();
@@ -138,7 +138,6 @@ module.exports = function(hardwareIO) {
                    }
                 });
             } else {
-                mouth.speak("I am on the destination");
                 foot.stop();
             }
         }
