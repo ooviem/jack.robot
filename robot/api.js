@@ -78,15 +78,15 @@
 
          record: function() {
             jack.body.mouth.speak("What do you want to do? sir");
-            after(3, function(){
+            after((3).second(), function(){
                 jack.body.mouth.speak("Okay sir");
-                after(1, function(){
+                after((1).second(), function(){
                     jack.body.mouth.speak("One  ");
-                    after(1, function(){
+                    after((1).second(), function(){
                         jack.body.mouth.speak("Two  ");
-                        after(1, function(){
+                        after((1).second(), function(){
                             jack.body.mouth.speak("Three ");
-                            after(1, function(){
+                            after((1).second(), function(){
                                 jack.body.mouth.speak("Say cheese ");
                                 command.captureHighQuality();
                             }); 
