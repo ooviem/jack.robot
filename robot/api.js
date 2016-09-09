@@ -153,6 +153,7 @@
              });
         },
         detectObject: function(){
+            jack.body.mouth.speak("How can I help you sir?");
             console.log("Start recorded");
             command.captureImage().then(function(data){
                 console.log("Photo taken"); 
@@ -173,6 +174,9 @@
                     data = JSON.parse(chunk);
                     console.log(data.description.captions[0].text);
                     jack.body.mouth.speak(data.description.captions[0].text);
+                  });
+                  res.on('error', function (chunk) {
+                    jack.body.mouth.speak("Sorry I can not find anything, please try again");
                   });
                 });
 
