@@ -89,7 +89,7 @@
             var read = jack.body.head.ultrasonic.read();
             read.then(function (data) {
                 distance = data.stderr;
-                jack.body.mouth.speak(data.stderr.substring(4);+" centimetres");});
+                jack.body.mouth.speak(data.stderr.substring(4)+" centimetres");});
             
          },
 
