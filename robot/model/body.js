@@ -89,17 +89,16 @@ module.exports = function(hardwareIO) {
 
 
     this.runWithDistance = function(destination) {
-    	destination = destination? destination : 4;
-        var safeDistance = 35;
+    	destination = destination? destination : 10;
+        var safeDistance = 20;
         var distance;
         var head = this.head;
         var foot = this.foot;
         var mouth = this.mouth;
-        head.move(490);
         head.turn(410);
+        head.move(450);
         var breakInterval = false;
         var findLeft = function(){
-            head.move(490);
             head.turn(570);
             var read = head.ultrasonic.read();
                 read.then(function (data) {
@@ -116,7 +115,6 @@ module.exports = function(hardwareIO) {
             });
         };
         var findRight = function(){
-            head.move(490);
             head.turn(250);
             var read = head.ultrasonic.read();
                 read.then(function (data) {
@@ -134,7 +132,6 @@ module.exports = function(hardwareIO) {
             });
         };
         var task = function(){
-            head.move(490);
             head.turn(410);
             if(destination > 0){
                 var read = head.ultrasonic.read();

@@ -81,7 +81,7 @@
 
          record: function() {
             jack.body.mouth.speak("What do you want to do? sir");
-            after((3).second(), function(){
+            after((5).second(), function(){
                 jack.body.mouth.speak("Okay sir");});
          },
 
@@ -89,7 +89,7 @@
             var read = jack.body.head.ultrasonic.read();
             read.then(function (data) {
                 distance = data.stderr;
-                jack.body.mouth.speak(data.stderr+" centimetres");});
+                jack.body.mouth.speak(data.stderr.substring(4);+" centimetres");});
             
          },
 
