@@ -82,8 +82,16 @@ angular.module('JackControllerApp', ['ngMaterial'])
                 callGET("hello");
                 
             };
+            ctrlMe.photo = function() {
+                callGET("photo");
+                
+            };
             ctrlMe.record = function() {
                 callGET("record");
+                
+            };
+            ctrlMe.distance = function() {
+                callGET("distance");
                 
             };
             ctrlMe.detectObject = function() {

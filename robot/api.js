@@ -73,10 +73,27 @@
          },
          
          hello: function() {
-            jack.body.mouth.speak("Hello there, I am , Jack. Welcome to KMS Technology, Tech Con, 2016. I am made by, Viem Ong. I can speak. Moving without impact anything. Know what are you doing and hear what are you talking. Have a nice day.");
+            jack.body.mouth.speak("What do you want to do? sir");
+            after((3).second(), function(){
+                jack.body.mouth.speak("Hello there, I am , Jack. Welcome to KMS Technology, Tech Con, 2016. I am made by, Viem Ong. I can speak. Moving without impact anything. Know what are you doing and hear what are you talking. Have a nice day.");
+            }); 
          },
 
          record: function() {
+            jack.body.mouth.speak("What do you want to do? sir");
+            after((3).second(), function(){
+                jack.body.mouth.speak("Okay sir");});
+         },
+
+         distance: function() {
+            var read = jack.body.head.ultrasonic.read();
+            read.then(function (data) {
+                distance = data.stderr;
+                jack.body.mouth.speak(data.stderr+" centimetres");});
+            });
+         },
+
+         photo: function() {
             jack.body.mouth.speak("What do you want to do? sir");
             after((3).second(), function(){
                 jack.body.mouth.speak("Okay sir");
@@ -89,6 +106,9 @@
                             after((1).second(), function(){
                                 jack.body.mouth.speak("Say cheese ");
                                 command.captureHighQuality();
+                                after((1).second(), function(){
+                                    jack.body.mouth.speak("Photo taken");
+                                });  
                             }); 
                         }); 
                     });  
