@@ -73,7 +73,7 @@
          },
          
          hello: function() {
-            jack.body.mouth.speak("Hello , there, I , am , Jack. Welcome, to, KMS, Technology, Tech, Con, 2016. I ,am ,made, by, Viem, Ong. I, can, speak,. Moving, without, impact, anything. Know, what, are, you, doing, and, hear, what, are, you, taking. Have, a, nice, day.");
+            jack.body.mouth.speak("Hello there, I am , Jack. Welcome to, KMS Technology, Tech Con, 2016. I am made by, Viem Ong. I can speak. Moving, without impact anything. Know, what are you doing, and hear, what are you, taking. Have a, nice day.");
          },
 
          record: function() {
