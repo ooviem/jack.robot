@@ -69,7 +69,7 @@
          },
 
          test2: function() {
-            jack.body.runWithDistance(30);
+            jack.body.runWithDistance(40);
          },
          gift: function() {
             jack.body.head.moveUp();
