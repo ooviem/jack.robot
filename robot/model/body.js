@@ -36,7 +36,7 @@ module.exports = function(hardwareIO) {
                             foot.stop();
                             head.turn(560);
                             foot.turnLeft();
-                            after((0.7).seconds(), function(){
+                            after((0.5).seconds(), function(){
                                 foot.stop();
                                 head.turn(410);
                                 foot.runForward();
