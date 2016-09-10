@@ -40,7 +40,7 @@ module.exports = function(hardwareIO) {
                                 foot.stop();
                                 head.turn(410);
                                 foot.runForward();
-                                after((2.5).seconds(), function(){
+                                after((4).seconds(), function(){
                                     foot.stop();
                                     head.turn(560);
                                     foot.turnLeft();
@@ -48,7 +48,7 @@ module.exports = function(hardwareIO) {
                                         foot.stop();      
                                         head.turn(410);
                                         foot.runForward();
-                                        after((1).seconds(), function(){
+                                        after((1.5).seconds(), function(){
                                             foot.stop();
                                             head.turn(250);
                                             foot.turnRight();
